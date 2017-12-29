@@ -1,0 +1,74 @@
+﻿@model ISW_Dashboard.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MigrationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MigrationType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnassignedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnassignedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HVC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HVC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exception)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exception)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExceptionDetail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExceptionDetail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
