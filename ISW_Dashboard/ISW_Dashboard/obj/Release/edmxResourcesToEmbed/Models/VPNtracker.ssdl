@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ISWModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MigrationType" Type="nvarchar" MaxLength="100" />
+    <Property Name="AssignedDate" Type="datetime" />
+    <Property Name="UnassignedDate" Type="datetime" />
+    <Property Name="HVC" Type="bit" />
+    <Property Name="Exception" Type="bit" />
+    <Property Name="ExceptionDetail" Type="nvarchar" MaxLength="100" />
+    <Property Name="state" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ProjectVPN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="projectname" Type="nvarchar" MaxLength="100" />
+    <Property Name="customername" Type="nvarchar" MaxLength="100" />
+    <Property Name="projectdetail" Type="nvarchar" MaxLength="1000" />
+    <Property Name="projectowner" Type="nvarchar" MaxLength="100" />
+    <Property Name="currentsummary" Type="nvarchar" MaxLength="1000" />
+    <Property Name="nextsteps" Type="nvarchar" MaxLength="100" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_ISW_Data">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="500" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ScheduledDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActivityName" Type="nvarchar" MaxLength="100" />
+    <Property Name="MigrationWindow" Type="int" />
+    <Property Name="MigrationGroup" Type="int" />
+    <Property Name="TotalUnits" Type="int" />
+    <Property Name="MigrationDate" Type="datetime" />
+    <Property Name="SubStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="Review" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="completed" Type="int" />
+    <Property Name="inprogress" Type="int" />
+    <Property Name="failed" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_ISW_Data_duplicate">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="500" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ScheduledDate" Type="datetime" />
+    <Property Name="ActivityName" Type="nvarchar" MaxLength="100" />
+    <Property Name="MigrationWindow" Type="int" />
+    <Property Name="MigrationGroup" Type="int" />
+    <Property Name="TotalUnits" Type="int" />
+    <Property Name="MigrationDate" Type="datetime" />
+    <Property Name="SubStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="Review" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="completed" Type="int" />
+    <Property Name="inprogress" Type="int" />
+    <Property Name="failed" Type="int" />
+    <Property Name="parent_id" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_ISW_Data_History">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="500" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="150" />
+    <Property Name="ScheduledDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActivityName" Type="nvarchar" MaxLength="100" />
+    <Property Name="MigrationWindow" Type="int" />
+    <Property Name="MigrationGroup" Type="int" />
+    <Property Name="TotalUnits" Type="int" />
+    <Property Name="MigrationDate" Type="datetime" />
+    <Property Name="SubStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="Review" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="completed" Type="int" />
+    <Property Name="inprogress" Type="int" />
+    <Property Name="failed" Type="int" />
+    <Property Name="parent_id" Type="int" />
+  </EntityType>
+  <EntityContainer Name="ISWModel1StoreContainer">
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectVPN" EntityType="Self.ProjectVPN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ISW_Data" EntityType="Self.tbl_ISW_Data" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ISW_Data_duplicate" EntityType="Self.tbl_ISW_Data_duplicate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ISW_Data_History" EntityType="Self.tbl_ISW_Data_History" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

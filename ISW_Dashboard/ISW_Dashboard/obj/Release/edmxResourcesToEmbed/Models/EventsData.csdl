@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ISWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_ISW_Data">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ScheduledDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MigrationWindow" Type="Int32" />
+    <Property Name="MigrationGroup" Type="Int32" />
+    <Property Name="TotalUnits" Type="Int32" />
+    <Property Name="MigrationDate" Type="DateTime" Precision="3" />
+    <Property Name="SubStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Review" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="completed" Type="Int32" />
+    <Property Name="inprogress" Type="Int32" />
+    <Property Name="failed" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_ISW_Data_History">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ScheduledDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MigrationWindow" Type="Int32" />
+    <Property Name="MigrationGroup" Type="Int32" />
+    <Property Name="TotalUnits" Type="Int32" />
+    <Property Name="MigrationDate" Type="DateTime" Precision="3" />
+    <Property Name="SubStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Review" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="completed" Type="Int32" />
+    <Property Name="inprogress" Type="Int32" />
+    <Property Name="failed" Type="Int32" />
+    <Property Name="parent_id" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="ISWEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_ISW_Data" EntityType="Self.tbl_ISW_Data" />
+    <EntitySet Name="tbl_ISW_Data_History" EntityType="Self.tbl_ISW_Data_History" />
+    <EntitySet Name="Customers" EntityType="ISWModel.Customer" />
+    <EntitySet Name="ProjectVPNs" EntityType="ISWModel.ProjectVPN" />
+    <EntitySet Name="tbl_ISW_Data_duplicate" EntityType="ISWModel.tbl_ISW_Data_duplicate" />
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MigrationType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AssignedDate" Type="DateTime" Precision="3" />
+    <Property Name="UnassignedDate" Type="DateTime" Precision="3" />
+    <Property Name="HVC" Type="Boolean" />
+    <Property Name="Exception" Type="Boolean" />
+    <Property Name="ExceptionDetail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="state" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ProjectVPN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="projectname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="customername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="projectdetail" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="projectowner" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="currentsummary" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="nextsteps" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_ISW_Data_duplicate">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ScheduledDate" Type="DateTime" Precision="3" />
+    <Property Name="ActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MigrationWindow" Type="Int32" />
+    <Property Name="MigrationGroup" Type="Int32" />
+    <Property Name="TotalUnits" Type="Int32" />
+    <Property Name="MigrationDate" Type="DateTime" Precision="3" />
+    <Property Name="SubStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Review" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="completed" Type="Int32" />
+    <Property Name="inprogress" Type="Int32" />
+    <Property Name="failed" Type="Int32" />
+    <Property Name="parent_id" Type="Int32" />
+  </EntityType>
+</Schema>

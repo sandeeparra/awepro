@@ -1,0 +1,245 @@
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\ApplicationInsights.config
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\csc.exe
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\System.Collections.Immutable.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\vbc.exe
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\VBCSCompiler.exe
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\VBCSCompiler.exe.config
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\ISW_Dashboard.dll.config
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\ISW_Dashboard.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\ISW_Dashboard.pdb
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Antlr3.Runtime.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\EntityFramework.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\EntityFramework.SqlServer.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.Web.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.WindowsServer.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.ApplicationInsights.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Google.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Web.Infrastructure.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Newtonsoft.Json.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Owin.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Helpers.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Mvc.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Optimization.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Razor.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.Deployment.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.Razor.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\WebGrease.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.Web.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.WindowsServer.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.ApplicationInsights.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Helpers.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Mvc.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Optimization.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Razor.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.Deployment.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.Razor.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Antlr3.Runtime.pdb
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Newtonsoft.Json.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\EntityFramework.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\EntityFramework.SqlServer.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Google.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.csprojResolveAssemblyReference.cache
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.dll
+c:\users\v-saarr\documents\visual studio 2015\Projects\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.pdb
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\ApplicationInsights.config
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\roslyn\csc.exe
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\roslyn\System.Collections.Immutable.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\roslyn\System.Reflection.Metadata.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\roslyn\vbc.exe
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\roslyn\VBCSCompiler.exe
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\roslyn\VBCSCompiler.exe.config
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\ISW_Dashboard.dll.config
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\ISW_Dashboard.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\ISW_Dashboard.pdb
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Antlr3.Runtime.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\EntityFramework.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\EntityFramework.SqlServer.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.Agent.Intercept.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.DependencyCollector.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.Web.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.WindowsServer.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.ApplicationInsights.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.Core.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Cookies.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Facebook.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Google.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.OAuth.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Twitter.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Web.Infrastructure.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Newtonsoft.Json.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Owin.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Helpers.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Mvc.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Optimization.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Razor.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.Deployment.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.Razor.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\WebGrease.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.DependencyCollector.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.Web.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.WindowsServer.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.ApplicationInsights.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Helpers.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Mvc.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Optimization.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Razor.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.Deployment.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.Razor.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Antlr3.Runtime.pdb
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Newtonsoft.Json.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\EntityFramework.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\EntityFramework.SqlServer.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.Core.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Facebook.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Cookies.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.OAuth.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Google.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Twitter.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.csprojResolveAssemblyReference.cache
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.dll
+C:\DataAdaptersDoc\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.pdb
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\ApplicationInsights.config
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\csc.exe
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\System.Collections.Immutable.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\System.Reflection.Metadata.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\vbc.exe
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\VBCSCompiler.exe
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\roslyn\VBCSCompiler.exe.config
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\ISW_Dashboard.dll.config
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\ISW_Dashboard.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\ISW_Dashboard.pdb
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Antlr3.Runtime.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\EntityFramework.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\EntityFramework.SqlServer.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.DependencyCollector.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.Web.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.WindowsServer.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.ApplicationInsights.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Google.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Web.Infrastructure.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Newtonsoft.Json.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Owin.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Helpers.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Mvc.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Optimization.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Razor.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.Deployment.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.Razor.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\WebGrease.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.DependencyCollector.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.Web.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.WindowsServer.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.ApplicationInsights.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Helpers.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Mvc.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Optimization.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Razor.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.Deployment.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\System.Web.WebPages.Razor.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Antlr3.Runtime.pdb
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Newtonsoft.Json.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\EntityFramework.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\EntityFramework.SqlServer.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Google.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Projects\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.dll
+C:\Projects\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.pdb
