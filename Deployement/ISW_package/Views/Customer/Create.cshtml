@@ -6,8 +6,9 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
+    var dMigrationType = (Dictionary<string, string>)ViewData["MigrationType"];
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
@@ -17,14 +18,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @style = "width:280px" } })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.MigrationType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("MigrationType", new List<SelectListItem>
+        @Html.DropDownList("MigrationType", new SelectList(dMigrationType, "Key", "Value")
+                @*@Html.DropDownList("MigrationType", new List<SelectListItem>
            {
                new SelectListItem {Text="E2E to O365",Value="1" },
                new SelectListItem {Text="GDrive to O365",Value="2" },
@@ -45,7 +47,8 @@
                new SelectListItem {Text="FS to O365",Value="17" }
 
 
-           }, "Select MigrationType")
+           }*@
+           , "Select MigrationType")
                 @Html.ValidationMessageFor(model => model.MigrationType, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -91,7 +94,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ExceptionDetail, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.ExceptionDetail, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.ExceptionDetail, new { htmlAttributes = new { @class = "form-control", @style = "width:280px" } })
                 @Html.ValidationMessageFor(model => model.ExceptionDetail, "", new { @class = "text-danger" })
             </div>
         </div>

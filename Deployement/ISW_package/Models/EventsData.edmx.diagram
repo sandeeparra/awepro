@@ -7,9 +7,10 @@
       <Diagram DiagramId="f07f204bb51a4835819fe87db50eb16c" Name="Diagram1">
         <EntityTypeShape EntityType="ISWModel.tbl_ISW_Data" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ISWModel.tbl_ISW_Data_History" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ISWModel.Customer" Width="1.5" PointX="5.75" PointY="0.75" />
         <EntityTypeShape EntityType="ISWModel.ProjectVPN" Width="1.5" PointX="5.75" PointY="4.75" />
         <EntityTypeShape EntityType="ISWModel.tbl_ISW_Data_duplicate" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ISWModel.MigrationType" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ISWModel.Customer" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

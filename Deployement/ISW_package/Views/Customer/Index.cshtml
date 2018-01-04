@@ -43,16 +43,16 @@
 <table class="altrowstable">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayName("Customer Name")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MigrationType)
+            @Html.DisplayName("Migration Type")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AssignedDate)
+            @Html.DisplayName("Assigned Date")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UnassignedDate)
+            @Html.DisplayName("Unassigned Date")
         </th>
         <th>
             @Html.DisplayNameFor(model => model.HVC)
@@ -61,10 +61,10 @@
             @Html.DisplayNameFor(model => model.Exception)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ExceptionDetail)
+            @Html.DisplayName("Exception Detail")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.state)
+            @Html.DisplayName("State")
         </th>
         <th></th>
     </tr>
@@ -78,7 +78,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => @MigrationType[(item.MigrationType ?? "").ToString()])
+            @Html.DisplayFor(modelItem => @MigrationType[(item.MigrationType.ToString() ?? "").ToString()])
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.AssignedDate)
@@ -102,7 +102,7 @@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
         </td>
     </tr>
     }
