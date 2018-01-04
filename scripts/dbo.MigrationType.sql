@@ -23,4 +23,3 @@ insert into MigrationType values('Exchange - Hybrid  ')
 insert into MigrationType values('O365 MT Gdrive ')
 insert into MigrationType values('O365 MT Exchange Cutover ')
 insert into MigrationType values('FS to O365 ')
-
