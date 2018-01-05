@@ -20,8 +20,7 @@ CREATE TABLE [dbo].[tbl_ISW_Data](
 	[CategoryName] [nvarchar](500) NULL,
 	[MigrationType] [nvarchar](500) NULL,
 	[MigrationWindow] [int] NULL,
-	[MigrationGroup] [int] NULL,
-	[MigrationDate] [datetime] NULL	,
+	[MigrationGroup] [int] NULL,	
 	[ExpectedKickOff] [datetime] NULL, 
 	[MigratorName] [nvarchar](150) NULL,
 	[PeerReviewer] [nvarchar](150) NULL,
@@ -43,7 +42,10 @@ CREATE TABLE [dbo].[tbl_ISW_Data](
 	[ScheduledDate] [datetime] NULL,
 	[ActivityName] [nvarchar](100) NULL,	
 	[username] nvarchar(100) null,
-	[TotalUnits] [int] NULL,
+	[MigrationApplied] bit null,
+	[KBUsed] nvarchar(100) null,
+	[Effort] int null,
+	PowerBIUpdated bit null
  CONSTRAINT [PK_tbl_ISW_Data] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
