@@ -4,7 +4,7 @@ DROP TRIGGER dbo.ProjectVPNupdatetrigger
 END
 
 GO
-create trigger dbo.ProjectVPNupdatetrigger on dbo.[ProjectVPN] instead of update
+create trigger dbo.ProjectVPNupdatetrigger on dbo.[ProjectVPN] after update
 as 
 begin
 set nocount on;

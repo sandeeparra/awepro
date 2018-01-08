@@ -4,7 +4,7 @@ DROP TRIGGER dbo.customerupdatetrigger
 END
 
 GO
-create trigger dbo.customerupdatetrigger on dbo.Customer instead of update
+create trigger dbo.customerupdatetrigger on dbo.Customer after update
 as 
 begin
 set nocount on;

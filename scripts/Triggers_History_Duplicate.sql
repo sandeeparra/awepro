@@ -4,7 +4,7 @@ DROP TRIGGER dbo.recordhistoryupdate
 END
 
 GO
-create trigger dbo.recordhistoryupdate on dbo.tbl_ISW_Data instead of update
+create trigger dbo.recordhistoryupdate on dbo.tbl_ISW_Data after update
 as 
 begin
 set nocount on;
