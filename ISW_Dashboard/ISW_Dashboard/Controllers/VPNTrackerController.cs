@@ -21,11 +21,13 @@ namespace ISW_Dashboard.Controllers
             status.Add("1", "Not Started");
             status.Add("2", "In Progress");
             status.Add("3", "Blocked");
-            status.Add("4", "Completed");            
+            status.Add("4", "Completed");
+            status.Add("5", "Finished");
             status.Add("0", "");
             status.Add("", "");
             ViewData["Status"] = status;
-            return View(db.ProjectVPNs.ToList());
+            IEnumerable<ISW_Dashboard.Models.ProjectVPN> projectVPN = db.ProjectVPNs.Where(v => v.status !="5").ToList();
+            return View(projectVPN.ToList());
         }
 
         // GET: VPNTracker/Details/5
@@ -58,6 +60,8 @@ namespace ISW_Dashboard.Controllers
         {
             if (ModelState.IsValid)
             {
+                projectVPN.updatedDate = DateTime.Now;
+                projectVPN.updatedby = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(System.Security.Principal.WindowsIdentity.GetCurrent().Name.LastIndexOf("\\") + 1); 
                 db.ProjectVPNs.Add(projectVPN);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -90,6 +94,8 @@ namespace ISW_Dashboard.Controllers
         {
             if (ModelState.IsValid)
             {
+                projectVPN.updatedDate = DateTime.Now;
+                projectVPN.updatedby = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(System.Security.Principal.WindowsIdentity.GetCurrent().Name.LastIndexOf("\\") + 1); ;
                 db.Entry(projectVPN).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

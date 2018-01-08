@@ -15,13 +15,15 @@ namespace ISW_Dashboard.Models
     public partial class Customer
     {
         public int ID { get; set; }
-        public string MigrationType { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> MigrationType { get; set; }
         public Nullable<System.DateTime> AssignedDate { get; set; }
         public Nullable<System.DateTime> UnassignedDate { get; set; }
         public Nullable<bool> HVC { get; set; }
         public Nullable<bool> Exception { get; set; }
         public string ExceptionDetail { get; set; }
         public string state { get; set; }
-        public string Name { get; set; }
+        public string updatedby { get; set; }
+        public Nullable<System.DateTime> updatedDate { get; set; }
     }
 }

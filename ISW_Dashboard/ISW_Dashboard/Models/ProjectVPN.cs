@@ -22,5 +22,7 @@ namespace ISW_Dashboard.Models
         public string currentsummary { get; set; }
         public string nextsteps { get; set; }
         public string status { get; set; }
+        public string updatedby { get; set; }
+        public Nullable<System.DateTime> updatedDate { get; set; }
     }
 }

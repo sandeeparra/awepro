@@ -28,7 +28,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/02/2015 23:02:26</publishTime>
     </File>
     <File Include="bin/ISW_Dashboard.dll">
-      <publishTime>12/19/2017 19:29:21</publishTime>
+      <publishTime>01/05/2018 18:43:16</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>11/30/2016 16:07:42</publishTime>
@@ -187,7 +187,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/11/2017 15:44:13</publishTime>
     </File>
     <File Include="Models/EventsData.edmx.diagram">
-      <publishTime>12/13/2017 17:36:30</publishTime>
+      <publishTime>01/04/2018 18:41:32</publishTime>
+    </File>
+    <File Include="Models/VPNtracker.edmx.diagram">
+      <publishTime>12/29/2017 15:53:42</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>12/11/2017 15:45:24</publishTime>
@@ -267,8 +270,23 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Account/_ExternalLoginsListPartial.cshtml">
       <publishTime>12/11/2017 15:44:51</publishTime>
     </File>
+    <File Include="Views/Customer/Create.cshtml">
+      <publishTime>01/05/2018 15:08:33</publishTime>
+    </File>
+    <File Include="Views/Customer/Delete.cshtml">
+      <publishTime>12/29/2017 16:52:58</publishTime>
+    </File>
+    <File Include="Views/Customer/Details.cshtml">
+      <publishTime>12/29/2017 16:53:01</publishTime>
+    </File>
+    <File Include="Views/Customer/Edit.cshtml">
+      <publishTime>01/05/2018 14:26:40</publishTime>
+    </File>
+    <File Include="Views/Customer/Index.cshtml">
+      <publishTime>01/05/2018 13:27:13</publishTime>
+    </File>
     <File Include="Views/Event/Create.cshtml">
-      <publishTime>12/13/2017 17:41:46</publishTime>
+      <publishTime>12/29/2017 16:38:21</publishTime>
     </File>
     <File Include="Views/Event/Delete.cshtml">
       <publishTime>12/13/2017 17:41:47</publishTime>
@@ -282,6 +300,21 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Event/Index.cshtml">
       <publishTime>12/18/2017 16:05:36</publishTime>
     </File>
+    <File Include="Views/EventDuplicates/Create.cshtml">
+      <publishTime>01/02/2018 16:33:32</publishTime>
+    </File>
+    <File Include="Views/EventDuplicates/Delete.cshtml">
+      <publishTime>01/02/2018 16:33:35</publishTime>
+    </File>
+    <File Include="Views/EventDuplicates/Details.cshtml">
+      <publishTime>01/02/2018 16:33:39</publishTime>
+    </File>
+    <File Include="Views/EventDuplicates/Edit.cshtml">
+      <publishTime>01/04/2018 17:19:59</publishTime>
+    </File>
+    <File Include="Views/EventDuplicates/Index.cshtml">
+      <publishTime>01/03/2018 17:12:25</publishTime>
+    </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>12/11/2017 15:44:13</publishTime>
     </File>
@@ -292,7 +325,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/15/2017 15:05:22</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/11/2017 15:44:13</publishTime>
+      <publishTime>01/05/2018 18:59:23</publishTime>
     </File>
     <File Include="Views/ImportData/Index.cshtml">
       <publishTime>12/15/2017 15:30:34</publishTime>
@@ -333,14 +366,29 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>12/11/2017 15:44:51</publishTime>
     </File>
+    <File Include="Views/VPNTracker/Create.cshtml">
+      <publishTime>01/05/2018 15:18:13</publishTime>
+    </File>
+    <File Include="Views/VPNTracker/Delete.cshtml">
+      <publishTime>12/29/2017 16:03:11</publishTime>
+    </File>
+    <File Include="Views/VPNTracker/Details.cshtml">
+      <publishTime>12/29/2017 16:03:14</publishTime>
+    </File>
+    <File Include="Views/VPNTracker/Edit.cshtml">
+      <publishTime>01/05/2018 16:28:23</publishTime>
+    </File>
+    <File Include="Views/VPNTracker/Index.cshtml">
+      <publishTime>01/05/2018 15:18:26</publishTime>
+    </File>
     <File Include="Views/Web.config">
       <publishTime>12/11/2017 15:44:13</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>12/11/2017 16:01:28</publishTime>
+      <publishTime>01/05/2018 19:01:10</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/19/2017 18:29:21</publishTime>
+      <publishTime>01/05/2018 19:02:57</publishTime>
     </File>
   </ItemGroup>
 </Project>

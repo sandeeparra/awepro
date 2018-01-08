@@ -32,5 +32,6 @@ namespace ISW_Dashboard.Models
         public Nullable<int> inprogress { get; set; }
         public Nullable<int> failed { get; set; }
         public Nullable<int> parent_id { get; set; }
+        public string Exception { get; set; }
     }
 }

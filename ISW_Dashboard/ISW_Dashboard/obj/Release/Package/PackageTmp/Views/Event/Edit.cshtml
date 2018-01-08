@@ -1,0 +1,272 @@
+﻿@model ISW_Dashboard.Models.tbl_ISW_Data
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    
+    $(document).ready(function () {
+        var sID = $("#Status").val();
+       // updateSubStatus(sID);
+       // updateSubStatus();
+        //alert(dID);
+         $("#Status").change(function () {
+            //alert("hi")
+            var dID = $(this).val();
+            sID = $("#Status").val();
+           // alert (sID + ":"+dID);
+             // updateSubStatus(sID);
+            updateSubStatus();
+             
+                    
+         });
+         
+         function updateSubStatus()
+         {
+             // alert(sID );
+             var sRD = $("#SubStatus").val();
+             if(sID=="1")
+
+             {
+                 var select = $("#SubStatus");
+                 select.empty();
+                 select.append($('<option/>', {
+                     value: 0,
+                     text: "Select a subStatus"
+                 }));
+                 select.append($('<option/>', {
+                     value: 1,
+                     text: "PF-Started"
+                 }));
+                 select.append($('<option/>', {
+                     value: 2,
+                     text: "PF-InProgress"
+                 }));
+                 select.append($('<option/>', {
+                     value: 3,
+                     text: "PF-Completed"
+                 }));
+             }
+             if (sID == "2") {
+                 var select = $("#SubStatus");
+                 select.empty();
+                 select.append($('<option/>', {
+                     value: 0,
+                     text: "Select a subStatus"
+                 }));
+                 select.append($('<option/>', {
+                     value: 4,
+                     text: "KickoffEmailSent"
+                 }));
+                 select.append($('<option/>', {
+                     value: 5,
+                     text: "Job-Started"
+                 }));
+                 select.append($('<option/>', {
+                     value: 6,
+                     text: "M-inProgress"
+                 }));
+             }
+             if (sID == "3") {
+                 var select = $("#SubStatus");
+                 select.empty();
+                 select.append($('<option/>', {
+                     value: 0,
+                     text: "Select a subStatus"
+                 }));
+                 select.append($('<option/>', {
+                     value: 7,
+                     text: "M-StatusEmailSent"
+                 }));
+                 select.append($('<option/>', {
+                     value: 8,
+                     text: "M-Completed"
+                 }));
+                 select.append($('<option/>', {
+                     value: 9,
+                     text: "M-PBUpdated"
+                 }));
+             }
+            // $("#SubStatus").val(sRD);
+        }
+    });
+    
+    </script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-style-3">
+        <h4>ISW Dashboard</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ScheduledDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ScheduledDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ScheduledDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ActivityName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ActivityName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ActivityName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MigrationWindow, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MigrationWindow, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MigrationWindow, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MigrationGroup, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MigrationGroup, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MigrationGroup, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TotalUnits, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TotalUnits, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TotalUnits, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MigrationDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MigrationDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MigrationDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SubStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SubStatus", new List<SelectListItem>
+           {
+               new SelectListItem {Text="PF-Started",Value="1" },
+               new SelectListItem {Text="PF-InProgress",Value="2" },
+               new SelectListItem {Text="PF-Completed",Value="3" },
+               new SelectListItem {Text="KickoffEmailSent",Value="4" },
+               new SelectListItem {Text="Job-Started",Value="5" },
+               new SelectListItem {Text="M-InProgress",Value="6" },
+               new SelectListItem {Text="M-StatusEmailSent",Value="7" },
+               new SelectListItem {Text="M-Completed",Value="8" },
+               new SelectListItem {Text="M-PBUploaded",Value="9" }
+
+           }, "Select Status")
+                @Html.ValidationMessageFor(model => model.SubStatus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Review, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Review, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Review, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Status", new List<SelectListItem>
+           {
+               new SelectListItem {Text="Started",Value="1" },
+               new SelectListItem {Text="Assigned",Value="2" },
+               new SelectListItem {Text="Completed",Value="3" }
+
+
+           }, "Select Status")
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.completed, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.completed, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.completed, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.inprogress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.inprogress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.inprogress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.failed, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.failed, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.failed, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @{
+            Model.UserName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Substring(System.Security.Principal.WindowsIdentity.GetCurrent().Name.LastIndexOf("\\") + 1);
+
+            Model.UpdatedDate = DateTime.Now.ToString();
+        }
+        @Html.HiddenFor(model => model.UserName)
+        @Html.HiddenFor(model => model.UpdatedDate)
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UpdatedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UpdatedDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UpdatedDate, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

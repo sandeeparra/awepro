@@ -10,14 +10,25 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MigrationType" Type="nvarchar" MaxLength="100" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="MigrationType" Type="int" />
           <Property Name="AssignedDate" Type="datetime" />
           <Property Name="UnassignedDate" Type="datetime" />
           <Property Name="HVC" Type="bit" />
           <Property Name="Exception" Type="bit" />
           <Property Name="ExceptionDetail" Type="nvarchar" MaxLength="100" />
           <Property Name="state" Type="nvarchar" MaxLength="100" />
-          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
+          <Property Name="updatedDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MigrationType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="ProjectVPN">
           <Key>
@@ -31,6 +42,8 @@
           <Property Name="currentsummary" Type="nvarchar" MaxLength="1000" />
           <Property Name="nextsteps" Type="nvarchar" MaxLength="100" />
           <Property Name="status" Type="nvarchar" MaxLength="50" />
+          <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
+          <Property Name="updatedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="tbl_ISW_Data">
           <Key>
@@ -76,6 +89,7 @@
           <Property Name="inprogress" Type="int" />
           <Property Name="failed" Type="int" />
           <Property Name="parent_id" Type="int" />
+          <Property Name="Exception" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tbl_ISW_Data_History">
           <Key>
@@ -106,6 +120,12 @@
           <EntitySet Name="tbl_ISW_Data" EntityType="Self.tbl_ISW_Data" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ISW_Data_duplicate" EntityType="Self.tbl_ISW_Data_duplicate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ISW_Data_History" EntityType="Self.tbl_ISW_Data_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MigrationType" EntityType="Self.MigrationType" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MigrationType].[ID] AS [ID], 
+    [MigrationType].[name] AS [name]
+    FROM [dbo].[MigrationType] AS [MigrationType]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -159,24 +179,11 @@
         <EntityContainer Name="ISWEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_ISW_Data" EntityType="Self.tbl_ISW_Data" />
           <EntitySet Name="tbl_ISW_Data_History" EntityType="Self.tbl_ISW_Data_History" />
-          <EntitySet Name="Customers" EntityType="ISWModel.Customer" />
           <EntitySet Name="ProjectVPNs" EntityType="ISWModel.ProjectVPN" />
           <EntitySet Name="tbl_ISW_Data_duplicate" EntityType="ISWModel.tbl_ISW_Data_duplicate" />
+          <EntitySet Name="MigrationTypes" EntityType="ISWModel.MigrationType" />
+          <EntitySet Name="Customers" EntityType="ISWModel.Customer" />
         </EntityContainer>
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MigrationType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="AssignedDate" Type="DateTime" Precision="3" />
-          <Property Name="UnassignedDate" Type="DateTime" Precision="3" />
-          <Property Name="HVC" Type="Boolean" />
-          <Property Name="Exception" Type="Boolean" />
-          <Property Name="ExceptionDetail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="state" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="ProjectVPN">
           <Key>
             <PropertyRef Name="ID" />
@@ -189,6 +196,8 @@
           <Property Name="currentsummary" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="nextsteps" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updatedDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="tbl_ISW_Data_duplicate">
           <Key>
@@ -212,6 +221,30 @@
           <Property Name="inprogress" Type="Int32" />
           <Property Name="failed" Type="Int32" />
           <Property Name="parent_id" Type="Int32" />
+          <Property Name="Exception" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MigrationType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MigrationType" Type="Int32" />
+          <Property Name="AssignedDate" Type="DateTime" Precision="3" />
+          <Property Name="UnassignedDate" Type="DateTime" Precision="3" />
+          <Property Name="HVC" Type="Boolean" />
+          <Property Name="Exception" Type="Boolean" />
+          <Property Name="ExceptionDetail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="state" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updatedDate" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -266,24 +299,11 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="ISWModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="ExceptionDetail" ColumnName="ExceptionDetail" />
-                <ScalarProperty Name="Exception" ColumnName="Exception" />
-                <ScalarProperty Name="HVC" ColumnName="HVC" />
-                <ScalarProperty Name="UnassignedDate" ColumnName="UnassignedDate" />
-                <ScalarProperty Name="AssignedDate" ColumnName="AssignedDate" />
-                <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ProjectVPNs">
             <EntityTypeMapping TypeName="ISWModel.ProjectVPN">
               <MappingFragment StoreEntitySet="ProjectVPN">
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+                <ScalarProperty Name="updatedby" ColumnName="updatedby" />
                 <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="nextsteps" ColumnName="nextsteps" />
                 <ScalarProperty Name="currentsummary" ColumnName="currentsummary" />
@@ -298,6 +318,7 @@
           <EntitySetMapping Name="tbl_ISW_Data_duplicate">
             <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data_duplicate">
               <MappingFragment StoreEntitySet="tbl_ISW_Data_duplicate">
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
                 <ScalarProperty Name="parent_id" ColumnName="parent_id" />
                 <ScalarProperty Name="failed" ColumnName="failed" />
                 <ScalarProperty Name="inprogress" ColumnName="inprogress" />
@@ -315,6 +336,31 @@
                 <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MigrationTypes">
+            <EntityTypeMapping TypeName="ISWModel.MigrationType">
+              <MappingFragment StoreEntitySet="MigrationType">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="ISWModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+                <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="ExceptionDetail" ColumnName="ExceptionDetail" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="HVC" ColumnName="HVC" />
+                <ScalarProperty Name="UnassignedDate" ColumnName="UnassignedDate" />
+                <ScalarProperty Name="AssignedDate" ColumnName="AssignedDate" />
+                <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

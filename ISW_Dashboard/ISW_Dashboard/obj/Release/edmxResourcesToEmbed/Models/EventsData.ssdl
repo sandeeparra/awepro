@@ -5,14 +5,25 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="MigrationType" Type="nvarchar" MaxLength="100" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="MigrationType" Type="int" />
     <Property Name="AssignedDate" Type="datetime" />
     <Property Name="UnassignedDate" Type="datetime" />
     <Property Name="HVC" Type="bit" />
     <Property Name="Exception" Type="bit" />
     <Property Name="ExceptionDetail" Type="nvarchar" MaxLength="100" />
     <Property Name="state" Type="nvarchar" MaxLength="100" />
-    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
+    <Property Name="updatedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="MigrationType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="ProjectVPN">
     <Key>
@@ -26,6 +37,8 @@
     <Property Name="currentsummary" Type="nvarchar" MaxLength="1000" />
     <Property Name="nextsteps" Type="nvarchar" MaxLength="100" />
     <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
+    <Property Name="updatedDate" Type="datetime" />
   </EntityType>
   <EntityType Name="tbl_ISW_Data">
     <Key>
@@ -71,6 +84,7 @@
     <Property Name="inprogress" Type="int" />
     <Property Name="failed" Type="int" />
     <Property Name="parent_id" Type="int" />
+    <Property Name="Exception" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tbl_ISW_Data_History">
     <Key>
@@ -101,5 +115,11 @@
     <EntitySet Name="tbl_ISW_Data" EntityType="Self.tbl_ISW_Data" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ISW_Data_duplicate" EntityType="Self.tbl_ISW_Data_duplicate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ISW_Data_History" EntityType="Self.tbl_ISW_Data_History" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MigrationType" EntityType="Self.MigrationType" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [MigrationType].[ID] AS [ID], 
+    [MigrationType].[name] AS [name]
+    FROM [dbo].[MigrationType] AS [MigrationType]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>

@@ -205,6 +205,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\EventDuplicatesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImportDataController.cs" />
     <Compile Include="Controllers\ImportExcelController.cs" />
@@ -234,6 +235,9 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MigrationType.cs">
+      <DependentUpon>EventsData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ProjectVPN.cs">
       <DependentUpon>EventsData.tt</DependentUpon>
     </Compile>
@@ -376,6 +380,11 @@
     <Content Include="Views\Customer\Details.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\EventDuplicates\Create.cshtml" />
+    <Content Include="Views\EventDuplicates\Delete.cshtml" />
+    <Content Include="Views\EventDuplicates\Details.cshtml" />
+    <Content Include="Views\EventDuplicates\Edit.cshtml" />
+    <Content Include="Views\EventDuplicates\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

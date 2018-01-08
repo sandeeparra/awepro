@@ -48,24 +48,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Customers">
-      <EntityTypeMapping TypeName="ISWModel.Customer">
-        <MappingFragment StoreEntitySet="Customer">
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="state" ColumnName="state" />
-          <ScalarProperty Name="ExceptionDetail" ColumnName="ExceptionDetail" />
-          <ScalarProperty Name="Exception" ColumnName="Exception" />
-          <ScalarProperty Name="HVC" ColumnName="HVC" />
-          <ScalarProperty Name="UnassignedDate" ColumnName="UnassignedDate" />
-          <ScalarProperty Name="AssignedDate" ColumnName="AssignedDate" />
-          <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ProjectVPNs">
       <EntityTypeMapping TypeName="ISWModel.ProjectVPN">
         <MappingFragment StoreEntitySet="ProjectVPN">
+          <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+          <ScalarProperty Name="updatedby" ColumnName="updatedby" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="nextsteps" ColumnName="nextsteps" />
           <ScalarProperty Name="currentsummary" ColumnName="currentsummary" />
@@ -80,6 +67,7 @@
     <EntitySetMapping Name="tbl_ISW_Data_duplicate">
       <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data_duplicate">
         <MappingFragment StoreEntitySet="tbl_ISW_Data_duplicate">
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
           <ScalarProperty Name="parent_id" ColumnName="parent_id" />
           <ScalarProperty Name="failed" ColumnName="failed" />
           <ScalarProperty Name="inprogress" ColumnName="inprogress" />
@@ -97,6 +85,31 @@
           <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
           <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MigrationTypes">
+      <EntityTypeMapping TypeName="ISWModel.MigrationType">
+        <MappingFragment StoreEntitySet="MigrationType">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="ISWModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+          <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="ExceptionDetail" ColumnName="ExceptionDetail" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="HVC" ColumnName="HVC" />
+          <ScalarProperty Name="UnassignedDate" ColumnName="UnassignedDate" />
+          <ScalarProperty Name="AssignedDate" ColumnName="AssignedDate" />
+          <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

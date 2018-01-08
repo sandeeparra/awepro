@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ISW_Dashboard.Controllers
 {
@@ -10,6 +11,7 @@ namespace ISW_Dashboard.Controllers
     {
         public ActionResult Index()
         {
+            FormsAuthentication.SetAuthCookie("testuser",true);
             return View();
         }
 

@@ -81,3 +81,4 @@ C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Projects\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Projects\ISW_Dashboard\ISW_Dashboard\obj\Release\ISW_Dashboard.dll
 C:\Projects\ISW_Dashboard\ISW_Dashboard\obj\Release\ISW_Dashboard.pdb
+C:\Projects\ISW_Dashboard\ISW_Dashboard\obj\Release\ISW_Dashboard.csprojResolveAssemblyReference.cache
