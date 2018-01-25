@@ -1,0 +1,130 @@
+﻿@model ISW_Dashboard.Models.Customer
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    var dMigrationType = (Dictionary<string, string>)ViewData["MigrationType"];
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Customer</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @style = "width:280px" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MigrationType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+        @Html.DropDownList("MigrationType", new SelectList(dMigrationType, "Key", "Value")
+                @*@Html.DropDownList("MigrationType", new List<SelectListItem>
+           {
+               new SelectListItem {Text="E2E to O365",Value="1" },
+               new SelectListItem {Text="GDrive to O365",Value="2" },
+               new SelectListItem {Text="N2E to O365",Value="3" },
+               new SelectListItem {Text="OD4B",Value="4" },
+                 new SelectListItem {Text="GDrive",Value="5" },
+               new SelectListItem {Text="Box to OD4B",Value="6" },
+               new SelectListItem {Text="FS to OD4B",Value="7" },
+               new SelectListItem {Text="O365 MT Exchange Hybrid",Value="8" },
+                 new SelectListItem {Text="O365 MT Notes",Value="9" },
+               new SelectListItem {Text="O365 MT OD4B",Value="10" },
+               new SelectListItem {Text="O365 MT IMAP",Value="11" },
+               new SelectListItem {Text="FS to Team Sites",Value="12" },
+                 new SelectListItem {Text="IMAP",Value="13" },
+               new SelectListItem {Text="Exchange - Hybrid",Value="14" },
+               new SelectListItem {Text="O365 MT Gdrive",Value="15" },
+               new SelectListItem {Text="O365 MT Exchange Cutover",Value="16" },
+               new SelectListItem {Text="FS to O365",Value="17" }
+
+
+           }*@
+           , "Select MigrationType")
+                @Html.ValidationMessageFor(model => model.MigrationType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AssignedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AssignedDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.Label("MM/DD/YYYY")
+                @Html.ValidationMessageFor(model => model.AssignedDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UnassignedDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UnassignedDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.Label("MM/DD/YYYY")
+                @Html.ValidationMessageFor(model => model.UnassignedDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HVC, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.HVC)
+                    @Html.ValidationMessageFor(model => model.HVC, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Exception, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Exception)
+                    @Html.ValidationMessageFor(model => model.Exception, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ExceptionDetail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.ExceptionDetail, new { htmlAttributes = new { @class = "form-control" }, @style = "width: 300px; height:100px;" })
+                @Html.ValidationMessageFor(model => model.ExceptionDetail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.state, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               
+                @Html.DropDownList("state", new List<SelectListItem>
+           {
+               new SelectListItem {Text="Approved",Value="1" },
+               new SelectListItem {Text="Need review",Value="2" }
+              
+
+
+           })
+                @Html.ValidationMessageFor(model => model.state, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+    @Html.ValidationMessage("recordexisit")
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

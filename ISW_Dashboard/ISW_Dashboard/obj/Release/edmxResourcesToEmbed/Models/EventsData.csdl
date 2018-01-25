@@ -1,37 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ISWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="ISWEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="ProjectVPNs" EntityType="ISWModel.ProjectVPN" />
-    <EntitySet Name="MigrationTypes" EntityType="ISWModel.MigrationType" />
     <EntitySet Name="Customers" EntityType="ISWModel.Customer" />
     <EntitySet Name="Customer_History" EntityType="ISWModel.Customer_History" />
+    <EntitySet Name="ProjectVPNs" EntityType="ISWModel.ProjectVPN" />
     <EntitySet Name="ProjectVPN_History" EntityType="ISWModel.ProjectVPN_History" />
     <EntitySet Name="tbl_ISW_Data" EntityType="ISWModel.tbl_ISW_Data" />
     <EntitySet Name="tbl_ISW_Data_duplicate" EntityType="ISWModel.tbl_ISW_Data_duplicate" />
     <EntitySet Name="tbl_ISW_Data_History" EntityType="ISWModel.tbl_ISW_Data_History" />
+    <EntitySet Name="MigrationTypes" EntityType="ISWModel.MigrationType" />
   </EntityContainer>
-  <EntityType Name="ProjectVPN">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="projectname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="customername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="projectdetail" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <Property Name="projectowner" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="currentsummary" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <Property Name="nextsteps" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="updatedDate" Type="DateTime" Precision="3" />
-  </EntityType>
-  <EntityType Name="MigrationType">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="Customer">
     <Key>
       <PropertyRef Name="ID" />
@@ -44,9 +22,9 @@
     <Property Name="HVC" Type="Boolean" />
     <Property Name="Exception" Type="Boolean" />
     <Property Name="ExceptionDetail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="state" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="updatedDate" Type="DateTime" Precision="3" />
+    <Property Name="state" Type="Int32" />
   </EntityType>
   <EntityType Name="Customer_History">
     <Key>
@@ -60,10 +38,25 @@
     <Property Name="HVC" Type="Boolean" />
     <Property Name="Exception" Type="Boolean" />
     <Property Name="ExceptionDetail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="state" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="updatedDate" Type="DateTime" Precision="3" />
     <Property Name="ParentId" Type="Int32" />
+    <Property Name="state" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ProjectVPN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="projectname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="customername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="projectdetail" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="projectowner" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="currentsummary" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="nextsteps" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="updatedDate" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="Int32" />
   </EntityType>
   <EntityType Name="ProjectVPN_History">
     <Key>
@@ -76,10 +69,10 @@
     <Property Name="projectowner" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="currentsummary" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
     <Property Name="nextsteps" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="updatedDate" Type="DateTime" Precision="3" />
     <Property Name="ParentId" Type="Int32" />
+    <Property Name="status" Type="Int32" />
   </EntityType>
   <EntityType Name="tbl_ISW_Data">
     <Key>
@@ -96,15 +89,12 @@
     <Property Name="PeerReviewer" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="DMName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="LastKickOffEmailSent" Type="DateTime" Precision="3" />
-    <Property Name="KickOffStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="ScheduleCount" Type="Int32" />
     <Property Name="SuccessCount" Type="Int32" />
     <Property Name="InProgressCount" Type="Int32" />
     <Property Name="FailedCount" Type="Int32" />
     <Property Name="CurrentPowerBICount" Type="Int32" />
     <Property Name="PreviousPowerBICount" Type="Int32" />
-    <Property Name="EventStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="UpdateStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="LastUpdateEmailSent" Type="DateTime" Precision="3" />
     <Property Name="CurrentSummary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="CommentsForDelayKickOff" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -117,6 +107,9 @@
     <Property Name="KBUsed" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Effort" Type="Int32" />
     <Property Name="PowerBIUpdated" Type="Boolean" />
+    <Property Name="EventStatus" Type="Int32" />
+    <Property Name="UpdateStatus" Type="Int32" />
+    <Property Name="KickOffStatus" Type="Int32" />
   </EntityType>
   <EntityType Name="tbl_ISW_Data_duplicate">
     <Key>
@@ -133,15 +126,12 @@
     <Property Name="PeerReviewer" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="DMName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="LastKickOffEmailSent" Type="DateTime" Precision="3" />
-    <Property Name="KickOffStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="ScheduleCount" Type="Int32" />
     <Property Name="SuccessCount" Type="Int32" />
     <Property Name="InProgressCount" Type="Int32" />
     <Property Name="FailedCount" Type="Int32" />
     <Property Name="CurrentPowerBICount" Type="Int32" />
     <Property Name="PreviousPowerBICount" Type="Int32" />
-    <Property Name="EventStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="UpdateStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="LastUpdateEmailSent" Type="DateTime" Precision="3" />
     <Property Name="CurrentSummary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="CommentsForDelayKickOff" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -156,6 +146,9 @@
     <Property Name="Effort" Type="Int32" />
     <Property Name="PowerBIUpdated" Type="Boolean" />
     <Property Name="parent_id" Type="Int32" />
+    <Property Name="KickOffStatus" Type="Int32" />
+    <Property Name="EventStatus" Type="Int32" />
+    <Property Name="UpdateStatus" Type="Int32" />
   </EntityType>
   <EntityType Name="tbl_ISW_Data_History">
     <Key>
@@ -172,15 +165,12 @@
     <Property Name="PeerReviewer" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="DMName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="LastKickOffEmailSent" Type="DateTime" Precision="3" />
-    <Property Name="KickOffStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="ScheduleCount" Type="Int32" />
     <Property Name="SuccessCount" Type="Int32" />
     <Property Name="InProgressCount" Type="Int32" />
     <Property Name="FailedCount" Type="Int32" />
     <Property Name="CurrentPowerBICount" Type="Int32" />
     <Property Name="PreviousPowerBICount" Type="Int32" />
-    <Property Name="EventStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="UpdateStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="LastUpdateEmailSent" Type="DateTime" Precision="3" />
     <Property Name="CurrentSummary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="CommentsForDelayKickOff" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
@@ -194,5 +184,15 @@
     <Property Name="Effort" Type="Int32" />
     <Property Name="PowerBIUpdated" Type="Boolean" />
     <Property Name="ParentId" Type="Int32" />
+    <Property Name="KickOffStatus" Type="Int32" />
+    <Property Name="EventStatus" Type="Int32" />
+    <Property Name="UpdateStatus" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MigrationType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

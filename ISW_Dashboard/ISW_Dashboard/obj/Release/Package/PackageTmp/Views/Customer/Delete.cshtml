@@ -1,0 +1,80 @@
+﻿@model ISW_Dashboard.Models.Customer
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MigrationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MigrationType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnassignedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnassignedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HVC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HVC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exception)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exception)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExceptionDetail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExceptionDetail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.state)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

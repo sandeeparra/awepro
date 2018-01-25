@@ -1,0 +1,110 @@
+﻿@model IEnumerable<ISW_Dashboard.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style type="text/css">
+    table.altrowstable {
+        font-family: verdana,arial,sans-serif;
+        font-size: 11px;
+        color: #333333;
+        border-width: 1px;
+        border-color: #a9c6c9;
+        border-collapse: collapse;
+    }
+
+        table.altrowstable th {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9c6c9;
+        }
+
+        table.altrowstable td {
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #a9c6c9;
+        }
+
+    .oddrowcolor {
+        background-color: #d4e3e5;
+    }
+
+    .evenrowcolor {
+        background-color: #c3dde0;
+    }
+</style>
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="altrowstable">
+    <tr>
+        <th>
+            @Html.DisplayName("Customer Name")
+        </th>
+        <th>
+            @Html.DisplayName("Migration Type")
+        </th>
+        <th>
+            @Html.DisplayName("Assigned Date")
+        </th>
+        <th>
+            @Html.DisplayName("Unassigned Date")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HVC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exception)
+        </th>
+        <th>
+            @Html.DisplayName("Exception Detail")
+        </th>
+        <th>
+            @Html.DisplayName("State")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+        var MigrationType = (Dictionary<int, string>)ViewData["MigrationType"];
+        var flag = (Dictionary<string, string>)ViewData["flag"];
+        var state = (Dictionary<string, string>)ViewData["state"];
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @MigrationType[item.MigrationType.Value])
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnassignedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @flag[(item.HVC.ToString() ?? "").ToString()])
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @flag[(item.Exception.ToString() ?? "").ToString()])
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExceptionDetail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => @state[(item.state == null ? "" : item.state.ToString())])
+           
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+        </td>
+    </tr>
+    }
+
+</table>

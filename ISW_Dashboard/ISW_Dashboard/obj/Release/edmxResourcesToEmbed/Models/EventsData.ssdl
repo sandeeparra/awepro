@@ -12,9 +12,9 @@
     <Property Name="HVC" Type="bit" />
     <Property Name="Exception" Type="bit" />
     <Property Name="ExceptionDetail" Type="nvarchar" MaxLength="100" />
-    <Property Name="state" Type="nvarchar" MaxLength="100" />
     <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
     <Property Name="updatedDate" Type="datetime" />
+    <Property Name="state" Type="int" />
   </EntityType>
   <EntityType Name="Customer_History">
     <Key>
@@ -28,10 +28,10 @@
     <Property Name="HVC" Type="bit" />
     <Property Name="Exception" Type="bit" />
     <Property Name="ExceptionDetail" Type="nvarchar" MaxLength="100" />
-    <Property Name="state" Type="nvarchar" MaxLength="100" />
     <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
     <Property Name="updatedDate" Type="datetime" />
     <Property Name="ParentId" Type="int" />
+    <Property Name="state" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -53,9 +53,9 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="projectowner" Type="nvarchar" MaxLength="100" />
     <Property Name="currentsummary" Type="nvarchar" MaxLength="1000" />
     <Property Name="nextsteps" Type="nvarchar" MaxLength="100" />
-    <Property Name="status" Type="nvarchar" MaxLength="50" />
     <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
     <Property Name="updatedDate" Type="datetime" />
+    <Property Name="status" Type="int" />
   </EntityType>
   <EntityType Name="ProjectVPN_History">
     <Key>
@@ -68,10 +68,10 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="projectowner" Type="nvarchar" MaxLength="100" />
     <Property Name="currentsummary" Type="nvarchar" MaxLength="1000" />
     <Property Name="nextsteps" Type="nvarchar" MaxLength="100" />
-    <Property Name="status" Type="nvarchar" MaxLength="50" />
     <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
     <Property Name="updatedDate" Type="datetime" />
     <Property Name="ParentId" Type="int" />
+    <Property Name="status" Type="int" />
   </EntityType>
   <EntityType Name="tbl_ISW_Data">
     <Key>
@@ -88,15 +88,12 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="PeerReviewer" Type="nvarchar" MaxLength="150" />
     <Property Name="DMName" Type="nvarchar" MaxLength="150" />
     <Property Name="LastKickOffEmailSent" Type="datetime" />
-    <Property Name="KickOffStatus" Type="nvarchar" MaxLength="100" />
     <Property Name="ScheduleCount" Type="int" />
     <Property Name="SuccessCount" Type="int" />
     <Property Name="InProgressCount" Type="int" />
     <Property Name="FailedCount" Type="int" />
     <Property Name="CurrentPowerBICount" Type="int" />
     <Property Name="PreviousPowerBICount" Type="int" />
-    <Property Name="EventStatus" Type="nvarchar" MaxLength="100" />
-    <Property Name="UpdateStatus" Type="nvarchar" MaxLength="100" />
     <Property Name="LastUpdateEmailSent" Type="datetime" />
     <Property Name="CurrentSummary" Type="nvarchar" MaxLength="500" />
     <Property Name="CommentsForDelayKickOff" Type="nvarchar" MaxLength="500" />
@@ -109,6 +106,9 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="KBUsed" Type="nvarchar" MaxLength="100" />
     <Property Name="Effort" Type="int" />
     <Property Name="PowerBIUpdated" Type="bit" />
+    <Property Name="EventStatus" Type="int" />
+    <Property Name="UpdateStatus" Type="int" />
+    <Property Name="KickOffStatus" Type="int" />
   </EntityType>
   <EntityType Name="tbl_ISW_Data_duplicate">
     <Key>
@@ -125,15 +125,12 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="PeerReviewer" Type="nvarchar" MaxLength="150" />
     <Property Name="DMName" Type="nvarchar" MaxLength="150" />
     <Property Name="LastKickOffEmailSent" Type="datetime" />
-    <Property Name="KickOffStatus" Type="nvarchar" MaxLength="100" />
     <Property Name="ScheduleCount" Type="int" />
     <Property Name="SuccessCount" Type="int" />
     <Property Name="InProgressCount" Type="int" />
     <Property Name="FailedCount" Type="int" />
     <Property Name="CurrentPowerBICount" Type="int" />
     <Property Name="PreviousPowerBICount" Type="int" />
-    <Property Name="EventStatus" Type="nvarchar" MaxLength="100" />
-    <Property Name="UpdateStatus" Type="nvarchar" MaxLength="100" />
     <Property Name="LastUpdateEmailSent" Type="datetime" />
     <Property Name="CurrentSummary" Type="nvarchar" MaxLength="500" />
     <Property Name="CommentsForDelayKickOff" Type="nvarchar" MaxLength="500" />
@@ -148,6 +145,9 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="Effort" Type="int" />
     <Property Name="PowerBIUpdated" Type="bit" />
     <Property Name="parent_id" Type="int" />
+    <Property Name="KickOffStatus" Type="int" />
+    <Property Name="EventStatus" Type="int" />
+    <Property Name="UpdateStatus" Type="int" />
   </EntityType>
   <EntityType Name="tbl_ISW_Data_History">
     <Key>
@@ -164,15 +164,12 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="PeerReviewer" Type="nvarchar" MaxLength="150" />
     <Property Name="DMName" Type="nvarchar" MaxLength="150" />
     <Property Name="LastKickOffEmailSent" Type="datetime" />
-    <Property Name="KickOffStatus" Type="nvarchar" MaxLength="100" />
     <Property Name="ScheduleCount" Type="int" />
     <Property Name="SuccessCount" Type="int" />
     <Property Name="InProgressCount" Type="int" />
     <Property Name="FailedCount" Type="int" />
     <Property Name="CurrentPowerBICount" Type="int" />
     <Property Name="PreviousPowerBICount" Type="int" />
-    <Property Name="EventStatus" Type="nvarchar" MaxLength="100" />
-    <Property Name="UpdateStatus" Type="nvarchar" MaxLength="100" />
     <Property Name="LastUpdateEmailSent" Type="datetime" />
     <Property Name="CurrentSummary" Type="nvarchar" MaxLength="500" />
     <Property Name="CommentsForDelayKickOff" Type="nvarchar" MaxLength="500" />
@@ -186,6 +183,9 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="Effort" Type="int" />
     <Property Name="PowerBIUpdated" Type="bit" />
     <Property Name="ParentId" Type="int" />
+    <Property Name="KickOffStatus" Type="int" />
+    <Property Name="EventStatus" Type="int" />
+    <Property Name="UpdateStatus" Type="int" />
   </EntityType>
   <EntityContainer Name="ISWModelStoreContainer">
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
