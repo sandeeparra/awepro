@@ -26,7 +26,7 @@ namespace ISW_Dashboard.Controllers
             status.Add("0", "");
             status.Add("", "");
             ViewData["Status"] = status;
-            IEnumerable<ISW_Dashboard.Models.ProjectVPN> projectVPN = db.ProjectVPNs.Where(v => v.status !="5").ToList();
+            IEnumerable<ISW_Dashboard.Models.ProjectVPN> projectVPN = db.ProjectVPNs.Where(v => v.status !=5).ToList();
             return View(projectVPN.ToList());
         }
 

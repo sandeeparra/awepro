@@ -70,7 +70,7 @@
     </tr>
 
     @foreach (var item in Model) {
-        var MigrationType = (Dictionary<string, string>)ViewData["MigrationType"];
+        var MigrationType = (Dictionary<int, string>)ViewData["MigrationType"];
         var flag = (Dictionary<string, string>)ViewData["flag"];
         var state = (Dictionary<string, string>)ViewData["state"];
     <tr>
@@ -78,7 +78,7 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => @MigrationType[(item.MigrationType.ToString() ?? "").ToString()])
+            @Html.DisplayFor(modelItem => @MigrationType[item.MigrationType.Value])
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.AssignedDate)
@@ -96,7 +96,7 @@
             @Html.DisplayFor(modelItem => item.ExceptionDetail)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => @state[(item.state.ToString() ?? "").ToString()])
+            @Html.DisplayFor(modelItem => @state[(item.state == null ? "" : item.state.ToString())])
            
         </td>
         <td>

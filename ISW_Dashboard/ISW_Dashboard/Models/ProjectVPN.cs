@@ -21,8 +21,8 @@ namespace ISW_Dashboard.Models
         public string projectowner { get; set; }
         public string currentsummary { get; set; }
         public string nextsteps { get; set; }
-        public string status { get; set; }
         public string updatedby { get; set; }
         public Nullable<System.DateTime> updatedDate { get; set; }
+        public Nullable<int> status { get; set; }
     }
 }

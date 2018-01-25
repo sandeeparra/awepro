@@ -205,6 +205,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\EventDataController.cs" />
+    <Compile Include="Controllers\EventDataDuplicatesController.cs" />
     <Compile Include="Controllers\EventDuplicatesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImportDataController.cs" />
@@ -216,6 +218,9 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs">
+      <DependentUpon>EventsData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer_History.cs">
       <DependentUpon>EventsData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EventsData.Context.cs">
@@ -239,6 +244,9 @@
       <DependentUpon>EventsData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProjectVPN.cs">
+      <DependentUpon>EventsData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProjectVPN_History.cs">
       <DependentUpon>EventsData.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tbl_ISW_Data.cs">
@@ -271,6 +279,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -385,6 +394,16 @@
     <Content Include="Views\EventDuplicates\Details.cshtml" />
     <Content Include="Views\EventDuplicates\Edit.cshtml" />
     <Content Include="Views\EventDuplicates\Index.cshtml" />
+    <Content Include="Views\EventData\Create.cshtml" />
+    <Content Include="Views\EventData\Delete.cshtml" />
+    <Content Include="Views\EventData\Details.cshtml" />
+    <Content Include="Views\EventData\Edit.cshtml" />
+    <Content Include="Views\EventData\Index.cshtml" />
+    <Content Include="Views\EventDataDuplicates\Create.cshtml" />
+    <Content Include="Views\EventDataDuplicates\Delete.cshtml" />
+    <Content Include="Views\EventDataDuplicates\Details.cshtml" />
+    <Content Include="Views\EventDataDuplicates\Edit.cshtml" />
+    <Content Include="Views\EventDataDuplicates\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

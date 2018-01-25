@@ -1,53 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ISWModelStoreContainer" CdmEntityContainer="ISWEntities">
-    <EntitySetMapping Name="tbl_ISW_Data">
-      <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data">
-        <MappingFragment StoreEntitySet="tbl_ISW_Data">
-          <ScalarProperty Name="failed" ColumnName="failed" />
-          <ScalarProperty Name="inprogress" ColumnName="inprogress" />
-          <ScalarProperty Name="completed" ColumnName="completed" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-          <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
-          <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
-          <ScalarProperty Name="MigrationWindow" ColumnName="MigrationWindow" />
-          <ScalarProperty Name="MigrationGroup" ColumnName="MigrationGroup" />
-          <ScalarProperty Name="TotalUnits" ColumnName="TotalUnits" />
-          <ScalarProperty Name="MigrationDate" ColumnName="MigrationDate" />
-          <ScalarProperty Name="SubStatus" ColumnName="SubStatus" />
-          <ScalarProperty Name="Review" ColumnName="Review" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tbl_ISW_Data_History">
-      <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data_History">
-        <MappingFragment StoreEntitySet="tbl_ISW_Data_History">
-          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
-          <ScalarProperty Name="failed" ColumnName="failed" />
-          <ScalarProperty Name="inprogress" ColumnName="inprogress" />
-          <ScalarProperty Name="completed" ColumnName="completed" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-          <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
-          <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
-          <ScalarProperty Name="MigrationWindow" ColumnName="MigrationWindow" />
-          <ScalarProperty Name="MigrationGroup" ColumnName="MigrationGroup" />
-          <ScalarProperty Name="TotalUnits" ColumnName="TotalUnits" />
-          <ScalarProperty Name="MigrationDate" ColumnName="MigrationDate" />
-          <ScalarProperty Name="SubStatus" ColumnName="SubStatus" />
-          <ScalarProperty Name="Review" ColumnName="Review" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ProjectVPNs">
       <EntityTypeMapping TypeName="ISWModel.ProjectVPN">
         <MappingFragment StoreEntitySet="ProjectVPN">
@@ -60,31 +13,6 @@
           <ScalarProperty Name="projectdetail" ColumnName="projectdetail" />
           <ScalarProperty Name="customername" ColumnName="customername" />
           <ScalarProperty Name="projectname" ColumnName="projectname" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tbl_ISW_Data_duplicate">
-      <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data_duplicate">
-        <MappingFragment StoreEntitySet="tbl_ISW_Data_duplicate">
-          <ScalarProperty Name="Exception" ColumnName="Exception" />
-          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
-          <ScalarProperty Name="failed" ColumnName="failed" />
-          <ScalarProperty Name="inprogress" ColumnName="inprogress" />
-          <ScalarProperty Name="completed" ColumnName="completed" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="Review" ColumnName="Review" />
-          <ScalarProperty Name="SubStatus" ColumnName="SubStatus" />
-          <ScalarProperty Name="MigrationDate" ColumnName="MigrationDate" />
-          <ScalarProperty Name="TotalUnits" ColumnName="TotalUnits" />
-          <ScalarProperty Name="MigrationGroup" ColumnName="MigrationGroup" />
-          <ScalarProperty Name="MigrationWindow" ColumnName="MigrationWindow" />
-          <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
-          <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
-          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -110,6 +38,158 @@
           <ScalarProperty Name="AssignedDate" ColumnName="AssignedDate" />
           <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_History">
+      <EntityTypeMapping TypeName="ISWModel.Customer_History">
+        <MappingFragment StoreEntitySet="Customer_History">
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+          <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="ExceptionDetail" ColumnName="ExceptionDetail" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="HVC" ColumnName="HVC" />
+          <ScalarProperty Name="UnassignedDate" ColumnName="UnassignedDate" />
+          <ScalarProperty Name="AssignedDate" ColumnName="AssignedDate" />
+          <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectVPN_History">
+      <EntityTypeMapping TypeName="ISWModel.ProjectVPN_History">
+        <MappingFragment StoreEntitySet="ProjectVPN_History">
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+          <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="nextsteps" ColumnName="nextsteps" />
+          <ScalarProperty Name="currentsummary" ColumnName="currentsummary" />
+          <ScalarProperty Name="projectowner" ColumnName="projectowner" />
+          <ScalarProperty Name="projectdetail" ColumnName="projectdetail" />
+          <ScalarProperty Name="customername" ColumnName="customername" />
+          <ScalarProperty Name="projectname" ColumnName="projectname" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ISW_Data">
+      <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data">
+        <MappingFragment StoreEntitySet="tbl_ISW_Data">
+          <ScalarProperty Name="PowerBIUpdated" ColumnName="PowerBIUpdated" />
+          <ScalarProperty Name="Effort" ColumnName="Effort" />
+          <ScalarProperty Name="KBUsed" ColumnName="KBUsed" />
+          <ScalarProperty Name="MigrationApplied" ColumnName="MigrationApplied" />
+          <ScalarProperty Name="updateddate" ColumnName="updateddate" />
+          <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+          <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+          <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
+          <ScalarProperty Name="NextUpdateTime" ColumnName="NextUpdateTime" />
+          <ScalarProperty Name="CommentsForDelayKickOff" ColumnName="CommentsForDelayKickOff" />
+          <ScalarProperty Name="CurrentSummary" ColumnName="CurrentSummary" />
+          <ScalarProperty Name="LastUpdateEmailSent" ColumnName="LastUpdateEmailSent" />
+          <ScalarProperty Name="UpdateStatus" ColumnName="UpdateStatus" />
+          <ScalarProperty Name="EventStatus" ColumnName="EventStatus" />
+          <ScalarProperty Name="PreviousPowerBICount" ColumnName="PreviousPowerBICount" />
+          <ScalarProperty Name="CurrentPowerBICount" ColumnName="CurrentPowerBICount" />
+          <ScalarProperty Name="FailedCount" ColumnName="FailedCount" />
+          <ScalarProperty Name="InProgressCount" ColumnName="InProgressCount" />
+          <ScalarProperty Name="SuccessCount" ColumnName="SuccessCount" />
+          <ScalarProperty Name="ScheduleCount" ColumnName="ScheduleCount" />
+          <ScalarProperty Name="KickOffStatus" ColumnName="KickOffStatus" />
+          <ScalarProperty Name="LastKickOffEmailSent" ColumnName="LastKickOffEmailSent" />
+          <ScalarProperty Name="DMName" ColumnName="DMName" />
+          <ScalarProperty Name="PeerReviewer" ColumnName="PeerReviewer" />
+          <ScalarProperty Name="MigratorName" ColumnName="MigratorName" />
+          <ScalarProperty Name="ExpectedKickOff" ColumnName="ExpectedKickOff" />
+          <ScalarProperty Name="MigrationGroup" ColumnName="MigrationGroup" />
+          <ScalarProperty Name="MigrationWindow" ColumnName="MigrationWindow" />
+          <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ISW_Data_duplicate">
+      <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data_duplicate">
+        <MappingFragment StoreEntitySet="tbl_ISW_Data_duplicate">
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="PowerBIUpdated" ColumnName="PowerBIUpdated" />
+          <ScalarProperty Name="Effort" ColumnName="Effort" />
+          <ScalarProperty Name="KBUsed" ColumnName="KBUsed" />
+          <ScalarProperty Name="MigrationApplied" ColumnName="MigrationApplied" />
+          <ScalarProperty Name="updateddate" ColumnName="updateddate" />
+          <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+          <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+          <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="NextUpdateTime" ColumnName="NextUpdateTime" />
+          <ScalarProperty Name="CommentsForDelayKickOff" ColumnName="CommentsForDelayKickOff" />
+          <ScalarProperty Name="CurrentSummary" ColumnName="CurrentSummary" />
+          <ScalarProperty Name="LastUpdateEmailSent" ColumnName="LastUpdateEmailSent" />
+          <ScalarProperty Name="UpdateStatus" ColumnName="UpdateStatus" />
+          <ScalarProperty Name="EventStatus" ColumnName="EventStatus" />
+          <ScalarProperty Name="PreviousPowerBICount" ColumnName="PreviousPowerBICount" />
+          <ScalarProperty Name="CurrentPowerBICount" ColumnName="CurrentPowerBICount" />
+          <ScalarProperty Name="FailedCount" ColumnName="FailedCount" />
+          <ScalarProperty Name="InProgressCount" ColumnName="InProgressCount" />
+          <ScalarProperty Name="SuccessCount" ColumnName="SuccessCount" />
+          <ScalarProperty Name="ScheduleCount" ColumnName="ScheduleCount" />
+          <ScalarProperty Name="KickOffStatus" ColumnName="KickOffStatus" />
+          <ScalarProperty Name="LastKickOffEmailSent" ColumnName="LastKickOffEmailSent" />
+          <ScalarProperty Name="DMName" ColumnName="DMName" />
+          <ScalarProperty Name="PeerReviewer" ColumnName="PeerReviewer" />
+          <ScalarProperty Name="MigratorName" ColumnName="MigratorName" />
+          <ScalarProperty Name="ExpectedKickOff" ColumnName="ExpectedKickOff" />
+          <ScalarProperty Name="MigrationGroup" ColumnName="MigrationGroup" />
+          <ScalarProperty Name="MigrationWindow" ColumnName="MigrationWindow" />
+          <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ISW_Data_History">
+      <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data_History">
+        <MappingFragment StoreEntitySet="tbl_ISW_Data_History">
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="PowerBIUpdated" ColumnName="PowerBIUpdated" />
+          <ScalarProperty Name="Effort" ColumnName="Effort" />
+          <ScalarProperty Name="KBUsed" ColumnName="KBUsed" />
+          <ScalarProperty Name="MigrationApplied" ColumnName="MigrationApplied" />
+          <ScalarProperty Name="updateddate" ColumnName="updateddate" />
+          <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+          <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+          <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
+          <ScalarProperty Name="NextUpdateTime" ColumnName="NextUpdateTime" />
+          <ScalarProperty Name="CommentsForDelayKickOff" ColumnName="CommentsForDelayKickOff" />
+          <ScalarProperty Name="CurrentSummary" ColumnName="CurrentSummary" />
+          <ScalarProperty Name="LastUpdateEmailSent" ColumnName="LastUpdateEmailSent" />
+          <ScalarProperty Name="UpdateStatus" ColumnName="UpdateStatus" />
+          <ScalarProperty Name="EventStatus" ColumnName="EventStatus" />
+          <ScalarProperty Name="PreviousPowerBICount" ColumnName="PreviousPowerBICount" />
+          <ScalarProperty Name="CurrentPowerBICount" ColumnName="CurrentPowerBICount" />
+          <ScalarProperty Name="FailedCount" ColumnName="FailedCount" />
+          <ScalarProperty Name="InProgressCount" ColumnName="InProgressCount" />
+          <ScalarProperty Name="SuccessCount" ColumnName="SuccessCount" />
+          <ScalarProperty Name="ScheduleCount" ColumnName="ScheduleCount" />
+          <ScalarProperty Name="KickOffStatus" ColumnName="KickOffStatus" />
+          <ScalarProperty Name="LastKickOffEmailSent" ColumnName="LastKickOffEmailSent" />
+          <ScalarProperty Name="DMName" ColumnName="DMName" />
+          <ScalarProperty Name="PeerReviewer" ColumnName="PeerReviewer" />
+          <ScalarProperty Name="MigratorName" ColumnName="MigratorName" />
+          <ScalarProperty Name="ExpectedKickOff" ColumnName="ExpectedKickOff" />
+          <ScalarProperty Name="MigrationGroup" ColumnName="MigrationGroup" />
+          <ScalarProperty Name="MigrationWindow" ColumnName="MigrationWindow" />
+          <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

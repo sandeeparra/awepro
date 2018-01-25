@@ -17,9 +17,26 @@
           <Property Name="HVC" Type="bit" />
           <Property Name="Exception" Type="bit" />
           <Property Name="ExceptionDetail" Type="nvarchar" MaxLength="100" />
-          <Property Name="state" Type="nvarchar" MaxLength="100" />
           <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
           <Property Name="updatedDate" Type="datetime" />
+          <Property Name="state" Type="int" />
+        </EntityType>
+        <EntityType Name="Customer_History">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="MigrationType" Type="int" />
+          <Property Name="AssignedDate" Type="datetime" />
+          <Property Name="UnassignedDate" Type="datetime" />
+          <Property Name="HVC" Type="bit" />
+          <Property Name="Exception" Type="bit" />
+          <Property Name="ExceptionDetail" Type="nvarchar" MaxLength="100" />
+          <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
+          <Property Name="updatedDate" Type="datetime" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="state" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -41,9 +58,25 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
           <Property Name="projectowner" Type="nvarchar" MaxLength="100" />
           <Property Name="currentsummary" Type="nvarchar" MaxLength="1000" />
           <Property Name="nextsteps" Type="nvarchar" MaxLength="100" />
-          <Property Name="status" Type="nvarchar" MaxLength="50" />
           <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
           <Property Name="updatedDate" Type="datetime" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjectVPN_History">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projectname" Type="nvarchar" MaxLength="100" />
+          <Property Name="customername" Type="nvarchar" MaxLength="100" />
+          <Property Name="projectdetail" Type="nvarchar" MaxLength="1000" />
+          <Property Name="projectowner" Type="nvarchar" MaxLength="100" />
+          <Property Name="currentsummary" Type="nvarchar" MaxLength="1000" />
+          <Property Name="nextsteps" Type="nvarchar" MaxLength="100" />
+          <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
+          <Property Name="updatedDate" Type="datetime" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="status" Type="int" />
         </EntityType>
         <EntityType Name="tbl_ISW_Data">
           <Key>
@@ -51,21 +84,36 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CustomerName" Type="nvarchar" MaxLength="500" />
-          <Property Name="CategoryName" Type="nvarchar" MaxLength="150" />
-          <Property Name="ScheduledDate" Type="nvarchar" MaxLength="50" />
-          <Property Name="ActivityName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="500" />
+          <Property Name="MigrationType" Type="nvarchar" MaxLength="500" />
           <Property Name="MigrationWindow" Type="int" />
           <Property Name="MigrationGroup" Type="int" />
-          <Property Name="TotalUnits" Type="int" />
-          <Property Name="MigrationDate" Type="datetime" />
-          <Property Name="SubStatus" Type="nvarchar" MaxLength="50" />
-          <Property Name="Review" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="nvarchar" MaxLength="50" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="UpdatedDate" Type="nvarchar" MaxLength="50" />
-          <Property Name="completed" Type="int" />
-          <Property Name="inprogress" Type="int" />
-          <Property Name="failed" Type="int" />
+          <Property Name="ExpectedKickOff" Type="datetime" />
+          <Property Name="MigratorName" Type="nvarchar" MaxLength="150" />
+          <Property Name="PeerReviewer" Type="nvarchar" MaxLength="150" />
+          <Property Name="DMName" Type="nvarchar" MaxLength="150" />
+          <Property Name="LastKickOffEmailSent" Type="datetime" />
+          <Property Name="ScheduleCount" Type="int" />
+          <Property Name="SuccessCount" Type="int" />
+          <Property Name="InProgressCount" Type="int" />
+          <Property Name="FailedCount" Type="int" />
+          <Property Name="CurrentPowerBICount" Type="int" />
+          <Property Name="PreviousPowerBICount" Type="int" />
+          <Property Name="LastUpdateEmailSent" Type="datetime" />
+          <Property Name="CurrentSummary" Type="nvarchar" MaxLength="500" />
+          <Property Name="CommentsForDelayKickOff" Type="nvarchar" MaxLength="500" />
+          <Property Name="NextUpdateTime" Type="datetime" />
+          <Property Name="ScheduledDate" Type="datetime" />
+          <Property Name="ActivityName" Type="nvarchar" MaxLength="100" />
+          <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
+          <Property Name="updateddate" Type="datetime" />
+          <Property Name="MigrationApplied" Type="bit" />
+          <Property Name="KBUsed" Type="nvarchar" MaxLength="100" />
+          <Property Name="Effort" Type="int" />
+          <Property Name="PowerBIUpdated" Type="bit" />
+          <Property Name="EventStatus" Type="int" />
+          <Property Name="UpdateStatus" Type="int" />
+          <Property Name="KickOffStatus" Type="int" />
         </EntityType>
         <EntityType Name="tbl_ISW_Data_duplicate">
           <Key>
@@ -73,23 +121,38 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CustomerName" Type="nvarchar" MaxLength="500" />
-          <Property Name="CategoryName" Type="nvarchar" MaxLength="150" />
-          <Property Name="ScheduledDate" Type="datetime" />
-          <Property Name="ActivityName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="500" />
+          <Property Name="MigrationType" Type="nvarchar" MaxLength="500" />
           <Property Name="MigrationWindow" Type="int" />
           <Property Name="MigrationGroup" Type="int" />
-          <Property Name="TotalUnits" Type="int" />
-          <Property Name="MigrationDate" Type="datetime" />
-          <Property Name="SubStatus" Type="nvarchar" MaxLength="50" />
-          <Property Name="Review" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="nvarchar" MaxLength="50" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="UpdatedDate" Type="nvarchar" MaxLength="50" />
-          <Property Name="completed" Type="int" />
-          <Property Name="inprogress" Type="int" />
-          <Property Name="failed" Type="int" />
-          <Property Name="parent_id" Type="int" />
+          <Property Name="ExpectedKickOff" Type="datetime" />
+          <Property Name="MigratorName" Type="nvarchar" MaxLength="150" />
+          <Property Name="PeerReviewer" Type="nvarchar" MaxLength="150" />
+          <Property Name="DMName" Type="nvarchar" MaxLength="150" />
+          <Property Name="LastKickOffEmailSent" Type="datetime" />
+          <Property Name="ScheduleCount" Type="int" />
+          <Property Name="SuccessCount" Type="int" />
+          <Property Name="InProgressCount" Type="int" />
+          <Property Name="FailedCount" Type="int" />
+          <Property Name="CurrentPowerBICount" Type="int" />
+          <Property Name="PreviousPowerBICount" Type="int" />
+          <Property Name="LastUpdateEmailSent" Type="datetime" />
+          <Property Name="CurrentSummary" Type="nvarchar" MaxLength="500" />
+          <Property Name="CommentsForDelayKickOff" Type="nvarchar" MaxLength="500" />
+          <Property Name="NextUpdateTime" Type="datetime" />
           <Property Name="Exception" Type="nvarchar" MaxLength="50" />
+          <Property Name="ScheduledDate" Type="datetime" />
+          <Property Name="ActivityName" Type="nvarchar" MaxLength="100" />
+          <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
+          <Property Name="updateddate" Type="datetime" />
+          <Property Name="MigrationApplied" Type="bit" />
+          <Property Name="KBUsed" Type="nvarchar" MaxLength="100" />
+          <Property Name="Effort" Type="int" />
+          <Property Name="PowerBIUpdated" Type="bit" />
+          <Property Name="parent_id" Type="int" />
+          <Property Name="KickOffStatus" Type="int" />
+          <Property Name="EventStatus" Type="int" />
+          <Property Name="UpdateStatus" Type="int" />
         </EntityType>
         <EntityType Name="tbl_ISW_Data_History">
           <Key>
@@ -97,26 +160,43 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CustomerName" Type="nvarchar" MaxLength="500" />
-          <Property Name="CategoryName" Type="nvarchar" MaxLength="150" />
-          <Property Name="ScheduledDate" Type="nvarchar" MaxLength="50" />
-          <Property Name="ActivityName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="500" />
+          <Property Name="MigrationType" Type="nvarchar" MaxLength="500" />
           <Property Name="MigrationWindow" Type="int" />
           <Property Name="MigrationGroup" Type="int" />
-          <Property Name="TotalUnits" Type="int" />
-          <Property Name="MigrationDate" Type="datetime" />
-          <Property Name="SubStatus" Type="nvarchar" MaxLength="50" />
-          <Property Name="Review" Type="nvarchar" MaxLength="50" />
-          <Property Name="Status" Type="nvarchar" MaxLength="50" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="UpdatedDate" Type="nvarchar" MaxLength="50" />
-          <Property Name="completed" Type="int" />
-          <Property Name="inprogress" Type="int" />
-          <Property Name="failed" Type="int" />
-          <Property Name="parent_id" Type="int" />
+          <Property Name="ExpectedKickOff" Type="datetime" />
+          <Property Name="MigratorName" Type="nvarchar" MaxLength="150" />
+          <Property Name="PeerReviewer" Type="nvarchar" MaxLength="150" />
+          <Property Name="DMName" Type="nvarchar" MaxLength="150" />
+          <Property Name="LastKickOffEmailSent" Type="datetime" />
+          <Property Name="ScheduleCount" Type="int" />
+          <Property Name="SuccessCount" Type="int" />
+          <Property Name="InProgressCount" Type="int" />
+          <Property Name="FailedCount" Type="int" />
+          <Property Name="CurrentPowerBICount" Type="int" />
+          <Property Name="PreviousPowerBICount" Type="int" />
+          <Property Name="LastUpdateEmailSent" Type="datetime" />
+          <Property Name="CurrentSummary" Type="nvarchar" MaxLength="500" />
+          <Property Name="CommentsForDelayKickOff" Type="nvarchar" MaxLength="500" />
+          <Property Name="NextUpdateTime" Type="datetime" />
+          <Property Name="ScheduledDate" Type="datetime" />
+          <Property Name="ActivityName" Type="nvarchar" MaxLength="100" />
+          <Property Name="updatedby" Type="nvarchar" MaxLength="100" />
+          <Property Name="updateddate" Type="datetime" />
+          <Property Name="MigrationApplied" Type="bit" />
+          <Property Name="KBUsed" Type="nvarchar" MaxLength="100" />
+          <Property Name="Effort" Type="int" />
+          <Property Name="PowerBIUpdated" Type="bit" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="KickOffStatus" Type="int" />
+          <Property Name="EventStatus" Type="int" />
+          <Property Name="UpdateStatus" Type="int" />
         </EntityType>
         <EntityContainer Name="ISWModelStoreContainer">
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer_History" EntityType="Self.Customer_History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProjectVPN" EntityType="Self.ProjectVPN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectVPN_History" EntityType="Self.ProjectVPN_History" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ISW_Data" EntityType="Self.tbl_ISW_Data" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ISW_Data_duplicate" EntityType="Self.tbl_ISW_Data_duplicate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ISW_Data_History" EntityType="Self.tbl_ISW_Data_History" Schema="dbo" store:Type="Tables" />
@@ -131,105 +211,16 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ISWModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="tbl_ISW_Data">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="CategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ScheduledDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MigrationWindow" Type="Int32" />
-          <Property Name="MigrationGroup" Type="Int32" />
-          <Property Name="TotalUnits" Type="Int32" />
-          <Property Name="MigrationDate" Type="DateTime" Precision="3" />
-          <Property Name="SubStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Review" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="completed" Type="Int32" />
-          <Property Name="inprogress" Type="Int32" />
-          <Property Name="failed" Type="Int32" />
-        </EntityType>
-        <EntityType Name="tbl_ISW_Data_History">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="CategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ScheduledDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MigrationWindow" Type="Int32" />
-          <Property Name="MigrationGroup" Type="Int32" />
-          <Property Name="TotalUnits" Type="Int32" />
-          <Property Name="MigrationDate" Type="DateTime" Precision="3" />
-          <Property Name="SubStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Review" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="completed" Type="Int32" />
-          <Property Name="inprogress" Type="Int32" />
-          <Property Name="failed" Type="Int32" />
-          <Property Name="parent_id" Type="Int32" />
-        </EntityType>
         <EntityContainer Name="ISWEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tbl_ISW_Data" EntityType="Self.tbl_ISW_Data" />
-          <EntitySet Name="tbl_ISW_Data_History" EntityType="Self.tbl_ISW_Data_History" />
-          <EntitySet Name="ProjectVPNs" EntityType="ISWModel.ProjectVPN" />
-          <EntitySet Name="tbl_ISW_Data_duplicate" EntityType="ISWModel.tbl_ISW_Data_duplicate" />
-          <EntitySet Name="MigrationTypes" EntityType="ISWModel.MigrationType" />
           <EntitySet Name="Customers" EntityType="ISWModel.Customer" />
+          <EntitySet Name="Customer_History" EntityType="ISWModel.Customer_History" />
+          <EntitySet Name="ProjectVPNs" EntityType="ISWModel.ProjectVPN" />
+          <EntitySet Name="ProjectVPN_History" EntityType="ISWModel.ProjectVPN_History" />
+          <EntitySet Name="tbl_ISW_Data" EntityType="ISWModel.tbl_ISW_Data" />
+          <EntitySet Name="tbl_ISW_Data_duplicate" EntityType="ISWModel.tbl_ISW_Data_duplicate" />
+          <EntitySet Name="tbl_ISW_Data_History" EntityType="ISWModel.tbl_ISW_Data_History" />
+          <EntitySet Name="MigrationTypes" EntityType="ISWModel.MigrationType" />
         </EntityContainer>
-        <EntityType Name="ProjectVPN">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="projectname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="customername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="projectdetail" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="projectowner" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="currentsummary" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="nextsteps" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="updatedDate" Type="DateTime" Precision="3" />
-        </EntityType>
-        <EntityType Name="tbl_ISW_Data_duplicate">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="CategoryName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ScheduledDate" Type="DateTime" Precision="3" />
-          <Property Name="ActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MigrationWindow" Type="Int32" />
-          <Property Name="MigrationGroup" Type="Int32" />
-          <Property Name="TotalUnits" Type="Int32" />
-          <Property Name="MigrationDate" Type="DateTime" Precision="3" />
-          <Property Name="SubStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Review" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="completed" Type="Int32" />
-          <Property Name="inprogress" Type="Int32" />
-          <Property Name="failed" Type="Int32" />
-          <Property Name="parent_id" Type="Int32" />
-          <Property Name="Exception" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="MigrationType">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="ID" />
@@ -242,69 +233,226 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
           <Property Name="HVC" Type="Boolean" />
           <Property Name="Exception" Type="Boolean" />
           <Property Name="ExceptionDetail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="state" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="updatedDate" Type="DateTime" Precision="3" />
+          <Property Name="state" Type="Int32" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Customer_History">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MigrationType" Type="Int32" />
+          <Property Name="AssignedDate" Type="DateTime" Precision="3" />
+          <Property Name="UnassignedDate" Type="DateTime" Precision="3" />
+          <Property Name="HVC" Type="Boolean" />
+          <Property Name="Exception" Type="Boolean" />
+          <Property Name="ExceptionDetail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="state" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProjectVPN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projectname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="customername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="projectdetail" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="projectowner" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="currentsummary" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="nextsteps" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updatedDate" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProjectVPN_History">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projectname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="customername" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="projectdetail" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="projectowner" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="currentsummary" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="nextsteps" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_ISW_Data">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MigrationType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MigrationWindow" Type="Int32" />
+          <Property Name="MigrationGroup" Type="Int32" />
+          <Property Name="ExpectedKickOff" Type="DateTime" Precision="3" />
+          <Property Name="MigratorName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PeerReviewer" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DMName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastKickOffEmailSent" Type="DateTime" Precision="3" />
+          <Property Name="ScheduleCount" Type="Int32" />
+          <Property Name="SuccessCount" Type="Int32" />
+          <Property Name="InProgressCount" Type="Int32" />
+          <Property Name="FailedCount" Type="Int32" />
+          <Property Name="CurrentPowerBICount" Type="Int32" />
+          <Property Name="PreviousPowerBICount" Type="Int32" />
+          <Property Name="LastUpdateEmailSent" Type="DateTime" Precision="3" />
+          <Property Name="CurrentSummary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CommentsForDelayKickOff" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NextUpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ScheduledDate" Type="DateTime" Precision="3" />
+          <Property Name="ActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updateddate" Type="DateTime" Precision="3" />
+          <Property Name="MigrationApplied" Type="Boolean" />
+          <Property Name="KBUsed" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Effort" Type="Int32" />
+          <Property Name="PowerBIUpdated" Type="Boolean" />
+          <Property Name="EventStatus" Type="Int32" />
+          <Property Name="UpdateStatus" Type="Int32" />
+          <Property Name="KickOffStatus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_ISW_Data_duplicate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MigrationType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MigrationWindow" Type="Int32" />
+          <Property Name="MigrationGroup" Type="Int32" />
+          <Property Name="ExpectedKickOff" Type="DateTime" Precision="3" />
+          <Property Name="MigratorName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PeerReviewer" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DMName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastKickOffEmailSent" Type="DateTime" Precision="3" />
+          <Property Name="ScheduleCount" Type="Int32" />
+          <Property Name="SuccessCount" Type="Int32" />
+          <Property Name="InProgressCount" Type="Int32" />
+          <Property Name="FailedCount" Type="Int32" />
+          <Property Name="CurrentPowerBICount" Type="Int32" />
+          <Property Name="PreviousPowerBICount" Type="Int32" />
+          <Property Name="LastUpdateEmailSent" Type="DateTime" Precision="3" />
+          <Property Name="CurrentSummary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CommentsForDelayKickOff" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NextUpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="Exception" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ScheduledDate" Type="DateTime" Precision="3" />
+          <Property Name="ActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updateddate" Type="DateTime" Precision="3" />
+          <Property Name="MigrationApplied" Type="Boolean" />
+          <Property Name="KBUsed" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Effort" Type="Int32" />
+          <Property Name="PowerBIUpdated" Type="Boolean" />
+          <Property Name="parent_id" Type="Int32" />
+          <Property Name="KickOffStatus" Type="Int32" />
+          <Property Name="EventStatus" Type="Int32" />
+          <Property Name="UpdateStatus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_ISW_Data_History">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MigrationType" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MigrationWindow" Type="Int32" />
+          <Property Name="MigrationGroup" Type="Int32" />
+          <Property Name="ExpectedKickOff" Type="DateTime" Precision="3" />
+          <Property Name="MigratorName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PeerReviewer" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DMName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastKickOffEmailSent" Type="DateTime" Precision="3" />
+          <Property Name="ScheduleCount" Type="Int32" />
+          <Property Name="SuccessCount" Type="Int32" />
+          <Property Name="InProgressCount" Type="Int32" />
+          <Property Name="FailedCount" Type="Int32" />
+          <Property Name="CurrentPowerBICount" Type="Int32" />
+          <Property Name="PreviousPowerBICount" Type="Int32" />
+          <Property Name="LastUpdateEmailSent" Type="DateTime" Precision="3" />
+          <Property Name="CurrentSummary" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CommentsForDelayKickOff" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NextUpdateTime" Type="DateTime" Precision="3" />
+          <Property Name="ScheduledDate" Type="DateTime" Precision="3" />
+          <Property Name="ActivityName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updatedby" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="updateddate" Type="DateTime" Precision="3" />
+          <Property Name="MigrationApplied" Type="Boolean" />
+          <Property Name="KBUsed" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Effort" Type="Int32" />
+          <Property Name="PowerBIUpdated" Type="Boolean" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="KickOffStatus" Type="Int32" />
+          <Property Name="EventStatus" Type="Int32" />
+          <Property Name="UpdateStatus" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MigrationType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ISWModelStoreContainer" CdmEntityContainer="ISWEntities">
-          <EntitySetMapping Name="tbl_ISW_Data">
-            <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data">
-              <MappingFragment StoreEntitySet="tbl_ISW_Data">
-                <ScalarProperty Name="failed" ColumnName="failed" />
-                <ScalarProperty Name="inprogress" ColumnName="inprogress" />
-                <ScalarProperty Name="completed" ColumnName="completed" />
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="ISWModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+                <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+                <ScalarProperty Name="ExceptionDetail" ColumnName="ExceptionDetail" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="HVC" ColumnName="HVC" />
+                <ScalarProperty Name="UnassignedDate" ColumnName="UnassignedDate" />
+                <ScalarProperty Name="AssignedDate" ColumnName="AssignedDate" />
+                <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-                <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
-                <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
-                <ScalarProperty Name="MigrationWindow" ColumnName="MigrationWindow" />
-                <ScalarProperty Name="MigrationGroup" ColumnName="MigrationGroup" />
-                <ScalarProperty Name="TotalUnits" ColumnName="TotalUnits" />
-                <ScalarProperty Name="MigrationDate" ColumnName="MigrationDate" />
-                <ScalarProperty Name="SubStatus" ColumnName="SubStatus" />
-                <ScalarProperty Name="Review" ColumnName="Review" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tbl_ISW_Data_History">
-            <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data_History">
-              <MappingFragment StoreEntitySet="tbl_ISW_Data_History">
-                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
-                <ScalarProperty Name="failed" ColumnName="failed" />
-                <ScalarProperty Name="inprogress" ColumnName="inprogress" />
-                <ScalarProperty Name="completed" ColumnName="completed" />
+          <EntitySetMapping Name="Customer_History">
+            <EntityTypeMapping TypeName="ISWModel.Customer_History">
+              <MappingFragment StoreEntitySet="Customer_History">
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+                <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+                <ScalarProperty Name="ExceptionDetail" ColumnName="ExceptionDetail" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="HVC" ColumnName="HVC" />
+                <ScalarProperty Name="UnassignedDate" ColumnName="UnassignedDate" />
+                <ScalarProperty Name="AssignedDate" ColumnName="AssignedDate" />
+                <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-                <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
-                <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
-                <ScalarProperty Name="MigrationWindow" ColumnName="MigrationWindow" />
-                <ScalarProperty Name="MigrationGroup" ColumnName="MigrationGroup" />
-                <ScalarProperty Name="TotalUnits" ColumnName="TotalUnits" />
-                <ScalarProperty Name="MigrationDate" ColumnName="MigrationDate" />
-                <ScalarProperty Name="SubStatus" ColumnName="SubStatus" />
-                <ScalarProperty Name="Review" ColumnName="Review" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProjectVPNs">
             <EntityTypeMapping TypeName="ISWModel.ProjectVPN">
               <MappingFragment StoreEntitySet="ProjectVPN">
+                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
                 <ScalarProperty Name="updatedby" ColumnName="updatedby" />
-                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="nextsteps" ColumnName="nextsteps" />
                 <ScalarProperty Name="currentsummary" ColumnName="currentsummary" />
                 <ScalarProperty Name="projectowner" ColumnName="projectowner" />
@@ -315,25 +463,134 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ProjectVPN_History">
+            <EntityTypeMapping TypeName="ISWModel.ProjectVPN_History">
+              <MappingFragment StoreEntitySet="ProjectVPN_History">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
+                <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+                <ScalarProperty Name="nextsteps" ColumnName="nextsteps" />
+                <ScalarProperty Name="currentsummary" ColumnName="currentsummary" />
+                <ScalarProperty Name="projectowner" ColumnName="projectowner" />
+                <ScalarProperty Name="projectdetail" ColumnName="projectdetail" />
+                <ScalarProperty Name="customername" ColumnName="customername" />
+                <ScalarProperty Name="projectname" ColumnName="projectname" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_ISW_Data">
+            <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data">
+              <MappingFragment StoreEntitySet="tbl_ISW_Data">
+                <ScalarProperty Name="KickOffStatus" ColumnName="KickOffStatus" />
+                <ScalarProperty Name="UpdateStatus" ColumnName="UpdateStatus" />
+                <ScalarProperty Name="EventStatus" ColumnName="EventStatus" />
+                <ScalarProperty Name="PowerBIUpdated" ColumnName="PowerBIUpdated" />
+                <ScalarProperty Name="Effort" ColumnName="Effort" />
+                <ScalarProperty Name="KBUsed" ColumnName="KBUsed" />
+                <ScalarProperty Name="MigrationApplied" ColumnName="MigrationApplied" />
+                <ScalarProperty Name="updateddate" ColumnName="updateddate" />
+                <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+                <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+                <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
+                <ScalarProperty Name="NextUpdateTime" ColumnName="NextUpdateTime" />
+                <ScalarProperty Name="CommentsForDelayKickOff" ColumnName="CommentsForDelayKickOff" />
+                <ScalarProperty Name="CurrentSummary" ColumnName="CurrentSummary" />
+                <ScalarProperty Name="LastUpdateEmailSent" ColumnName="LastUpdateEmailSent" />
+                <ScalarProperty Name="PreviousPowerBICount" ColumnName="PreviousPowerBICount" />
+                <ScalarProperty Name="CurrentPowerBICount" ColumnName="CurrentPowerBICount" />
+                <ScalarProperty Name="FailedCount" ColumnName="FailedCount" />
+                <ScalarProperty Name="InProgressCount" ColumnName="InProgressCount" />
+                <ScalarProperty Name="SuccessCount" ColumnName="SuccessCount" />
+                <ScalarProperty Name="ScheduleCount" ColumnName="ScheduleCount" />
+                <ScalarProperty Name="LastKickOffEmailSent" ColumnName="LastKickOffEmailSent" />
+                <ScalarProperty Name="DMName" ColumnName="DMName" />
+                <ScalarProperty Name="PeerReviewer" ColumnName="PeerReviewer" />
+                <ScalarProperty Name="MigratorName" ColumnName="MigratorName" />
+                <ScalarProperty Name="ExpectedKickOff" ColumnName="ExpectedKickOff" />
+                <ScalarProperty Name="MigrationGroup" ColumnName="MigrationGroup" />
+                <ScalarProperty Name="MigrationWindow" ColumnName="MigrationWindow" />
+                <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tbl_ISW_Data_duplicate">
             <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data_duplicate">
               <MappingFragment StoreEntitySet="tbl_ISW_Data_duplicate">
-                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="UpdateStatus" ColumnName="UpdateStatus" />
+                <ScalarProperty Name="EventStatus" ColumnName="EventStatus" />
+                <ScalarProperty Name="KickOffStatus" ColumnName="KickOffStatus" />
                 <ScalarProperty Name="parent_id" ColumnName="parent_id" />
-                <ScalarProperty Name="failed" ColumnName="failed" />
-                <ScalarProperty Name="inprogress" ColumnName="inprogress" />
-                <ScalarProperty Name="completed" ColumnName="completed" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Review" ColumnName="Review" />
-                <ScalarProperty Name="SubStatus" ColumnName="SubStatus" />
-                <ScalarProperty Name="MigrationDate" ColumnName="MigrationDate" />
-                <ScalarProperty Name="TotalUnits" ColumnName="TotalUnits" />
-                <ScalarProperty Name="MigrationGroup" ColumnName="MigrationGroup" />
-                <ScalarProperty Name="MigrationWindow" ColumnName="MigrationWindow" />
+                <ScalarProperty Name="PowerBIUpdated" ColumnName="PowerBIUpdated" />
+                <ScalarProperty Name="Effort" ColumnName="Effort" />
+                <ScalarProperty Name="KBUsed" ColumnName="KBUsed" />
+                <ScalarProperty Name="MigrationApplied" ColumnName="MigrationApplied" />
+                <ScalarProperty Name="updateddate" ColumnName="updateddate" />
+                <ScalarProperty Name="updatedby" ColumnName="updatedby" />
                 <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
                 <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+                <ScalarProperty Name="NextUpdateTime" ColumnName="NextUpdateTime" />
+                <ScalarProperty Name="CommentsForDelayKickOff" ColumnName="CommentsForDelayKickOff" />
+                <ScalarProperty Name="CurrentSummary" ColumnName="CurrentSummary" />
+                <ScalarProperty Name="LastUpdateEmailSent" ColumnName="LastUpdateEmailSent" />
+                <ScalarProperty Name="PreviousPowerBICount" ColumnName="PreviousPowerBICount" />
+                <ScalarProperty Name="CurrentPowerBICount" ColumnName="CurrentPowerBICount" />
+                <ScalarProperty Name="FailedCount" ColumnName="FailedCount" />
+                <ScalarProperty Name="InProgressCount" ColumnName="InProgressCount" />
+                <ScalarProperty Name="SuccessCount" ColumnName="SuccessCount" />
+                <ScalarProperty Name="ScheduleCount" ColumnName="ScheduleCount" />
+                <ScalarProperty Name="LastKickOffEmailSent" ColumnName="LastKickOffEmailSent" />
+                <ScalarProperty Name="DMName" ColumnName="DMName" />
+                <ScalarProperty Name="PeerReviewer" ColumnName="PeerReviewer" />
+                <ScalarProperty Name="MigratorName" ColumnName="MigratorName" />
+                <ScalarProperty Name="ExpectedKickOff" ColumnName="ExpectedKickOff" />
+                <ScalarProperty Name="MigrationGroup" ColumnName="MigrationGroup" />
+                <ScalarProperty Name="MigrationWindow" ColumnName="MigrationWindow" />
+                <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_ISW_Data_History">
+            <EntityTypeMapping TypeName="ISWModel.tbl_ISW_Data_History">
+              <MappingFragment StoreEntitySet="tbl_ISW_Data_History">
+                <ScalarProperty Name="UpdateStatus" ColumnName="UpdateStatus" />
+                <ScalarProperty Name="EventStatus" ColumnName="EventStatus" />
+                <ScalarProperty Name="KickOffStatus" ColumnName="KickOffStatus" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="PowerBIUpdated" ColumnName="PowerBIUpdated" />
+                <ScalarProperty Name="Effort" ColumnName="Effort" />
+                <ScalarProperty Name="KBUsed" ColumnName="KBUsed" />
+                <ScalarProperty Name="MigrationApplied" ColumnName="MigrationApplied" />
+                <ScalarProperty Name="updateddate" ColumnName="updateddate" />
+                <ScalarProperty Name="updatedby" ColumnName="updatedby" />
+                <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+                <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
+                <ScalarProperty Name="NextUpdateTime" ColumnName="NextUpdateTime" />
+                <ScalarProperty Name="CommentsForDelayKickOff" ColumnName="CommentsForDelayKickOff" />
+                <ScalarProperty Name="CurrentSummary" ColumnName="CurrentSummary" />
+                <ScalarProperty Name="LastUpdateEmailSent" ColumnName="LastUpdateEmailSent" />
+                <ScalarProperty Name="PreviousPowerBICount" ColumnName="PreviousPowerBICount" />
+                <ScalarProperty Name="CurrentPowerBICount" ColumnName="CurrentPowerBICount" />
+                <ScalarProperty Name="FailedCount" ColumnName="FailedCount" />
+                <ScalarProperty Name="InProgressCount" ColumnName="InProgressCount" />
+                <ScalarProperty Name="SuccessCount" ColumnName="SuccessCount" />
+                <ScalarProperty Name="ScheduleCount" ColumnName="ScheduleCount" />
+                <ScalarProperty Name="LastKickOffEmailSent" ColumnName="LastKickOffEmailSent" />
+                <ScalarProperty Name="DMName" ColumnName="DMName" />
+                <ScalarProperty Name="PeerReviewer" ColumnName="PeerReviewer" />
+                <ScalarProperty Name="MigratorName" ColumnName="MigratorName" />
+                <ScalarProperty Name="ExpectedKickOff" ColumnName="ExpectedKickOff" />
+                <ScalarProperty Name="MigrationGroup" ColumnName="MigrationGroup" />
+                <ScalarProperty Name="MigrationWindow" ColumnName="MigrationWindow" />
+                <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -344,23 +601,6 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
             <EntityTypeMapping TypeName="ISWModel.MigrationType">
               <MappingFragment StoreEntitySet="MigrationType">
                 <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="ISWModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="updatedDate" ColumnName="updatedDate" />
-                <ScalarProperty Name="updatedby" ColumnName="updatedby" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="ExceptionDetail" ColumnName="ExceptionDetail" />
-                <ScalarProperty Name="Exception" ColumnName="Exception" />
-                <ScalarProperty Name="HVC" ColumnName="HVC" />
-                <ScalarProperty Name="UnassignedDate" ColumnName="UnassignedDate" />
-                <ScalarProperty Name="AssignedDate" ColumnName="AssignedDate" />
-                <ScalarProperty Name="MigrationType" ColumnName="MigrationType" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

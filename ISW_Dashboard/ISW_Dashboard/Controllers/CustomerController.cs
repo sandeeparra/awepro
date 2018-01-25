@@ -21,7 +21,7 @@ namespace ISW_Dashboard.Controllers
             //MigrationType.Add("1", "E2E to O365");
             //MigrationType.Add("2", "GDrive to O365");
             //MigrationType.Add("3", "N2E to O365");
-            //MigrationType.Add("4", "OD4B");           
+            //MigrationType.Add("4", "OD4B");
             //MigrationType.Add("5", "GDrive");
             //MigrationType.Add("6", "Box to OD4B");
             //MigrationType.Add("7", "FS to OD4B");
@@ -37,12 +37,13 @@ namespace ISW_Dashboard.Controllers
             //MigrationType.Add("17", "FS to O365");
 
 
-           
+
             // ViewData["MigrationType"] = MigrationType;
-            // Dictionary < int, List<People> myDictionary = items.ToDictionary(p => p.Age, p => People);
-            Dictionary < string, string> MigrationType = db.MigrationTypes.ToDictionary(p => p.ID.ToString(), p => p.name);
-            MigrationType.Add("0", "");
-            MigrationType.Add("", "");
+            //Dictionary < int, List<People> myDictionary = items.ToDictionary(p => p.Age, p => People);
+            Dictionary<int, string> MigrationType = db.MigrationTypes.ToDictionary(p => p.ID, p => p.name);
+
+            MigrationType.Add(0, "");
+            //MigrationType.Add("", "");
             ViewData["MigrationType"] = MigrationType;
            
             var flag = new Dictionary<string, string>();
@@ -140,7 +141,8 @@ namespace ISW_Dashboard.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewData["flag"] = flag;
+            ViewData["state"] = state;
             return View(customer);
         }
 

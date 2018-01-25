@@ -17,21 +17,36 @@ namespace ISW_Dashboard.Models
         public int ID { get; set; }
         public string CustomerName { get; set; }
         public string CategoryName { get; set; }
-        public Nullable<System.DateTime> ScheduledDate { get; set; }
-        public string ActivityName { get; set; }
+        public string MigrationType { get; set; }
         public Nullable<int> MigrationWindow { get; set; }
         public Nullable<int> MigrationGroup { get; set; }
-        public Nullable<int> TotalUnits { get; set; }
-        public Nullable<System.DateTime> MigrationDate { get; set; }
-        public string SubStatus { get; set; }
-        public string Review { get; set; }
-        public string Status { get; set; }
-        public string UserName { get; set; }
-        public string UpdatedDate { get; set; }
-        public Nullable<int> completed { get; set; }
-        public Nullable<int> inprogress { get; set; }
-        public Nullable<int> failed { get; set; }
-        public Nullable<int> parent_id { get; set; }
+        public Nullable<System.DateTime> ExpectedKickOff { get; set; }
+        public string MigratorName { get; set; }
+        public string PeerReviewer { get; set; }
+        public string DMName { get; set; }
+        public Nullable<System.DateTime> LastKickOffEmailSent { get; set; }
+        public Nullable<int> ScheduleCount { get; set; }
+        public Nullable<int> SuccessCount { get; set; }
+        public Nullable<int> InProgressCount { get; set; }
+        public Nullable<int> FailedCount { get; set; }
+        public Nullable<int> CurrentPowerBICount { get; set; }
+        public Nullable<int> PreviousPowerBICount { get; set; }
+        public Nullable<System.DateTime> LastUpdateEmailSent { get; set; }
+        public string CurrentSummary { get; set; }
+        public string CommentsForDelayKickOff { get; set; }
+        public Nullable<System.DateTime> NextUpdateTime { get; set; }
         public string Exception { get; set; }
+        public Nullable<System.DateTime> ScheduledDate { get; set; }
+        public string ActivityName { get; set; }
+        public string updatedby { get; set; }
+        public Nullable<System.DateTime> updateddate { get; set; }
+        public Nullable<bool> MigrationApplied { get; set; }
+        public string KBUsed { get; set; }
+        public Nullable<int> Effort { get; set; }
+        public Nullable<bool> PowerBIUpdated { get; set; }
+        public Nullable<int> parent_id { get; set; }
+        public Nullable<int> KickOffStatus { get; set; }
+        public Nullable<int> EventStatus { get; set; }
+        public Nullable<int> UpdateStatus { get; set; }
     }
 }

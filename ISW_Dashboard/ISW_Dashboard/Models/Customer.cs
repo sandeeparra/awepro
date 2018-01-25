@@ -22,8 +22,8 @@ namespace ISW_Dashboard.Models
         public Nullable<bool> HVC { get; set; }
         public Nullable<bool> Exception { get; set; }
         public string ExceptionDetail { get; set; }
-        public string state { get; set; }
         public string updatedby { get; set; }
         public Nullable<System.DateTime> updatedDate { get; set; }
+        public Nullable<int> state { get; set; }
     }
 }

@@ -88,7 +88,7 @@
             @Html.DisplayFor(modelItem => item.nextsteps)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => @dStatus[(item.status ?? "").ToString()])
+            @Html.DisplayFor(modelItem => @dStatus[(item.status == null ? "" : item.status.ToString())])
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
