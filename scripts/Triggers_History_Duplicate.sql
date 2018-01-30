@@ -40,7 +40,15 @@ insert into dbo.tbl_ISW_Data_History(
 	[MigrationApplied],
 	[KBUsed],
 	[Effort],
-	PowerBIUpdated) select id,[CustomerName],
+	PowerBIUpdated,[AssignBy]
+      ,[AssignDate]
+      ,[transferredDate]
+      ,[migrationCompleted]
+      ,[ResourceName]
+      ,[ResourceDeliveryGroupName]
+      ,[taskId]
+      ,[unitId]
+      ,[processlinename]) select id,[CustomerName],
 	CategoryName,
 	[MigrationType],
 	[MigrationWindow],
@@ -70,7 +78,15 @@ insert into dbo.tbl_ISW_Data_History(
 	[MigrationApplied],
 	[KBUsed],
 	[Effort],
-	PowerBIUpdated from inserted
+	PowerBIUpdated,[AssignBy]
+      ,[AssignDate]
+      ,[transferredDate]
+      ,[migrationCompleted]
+      ,[ResourceName]
+      ,[ResourceDeliveryGroupName]
+      ,[taskId]
+      ,[unitId]
+      ,[processlinename] from inserted
 end
 go
 
@@ -113,7 +129,15 @@ insert into dbo.tbl_ISW_Data_History(ParentId,[CustomerName],
 	[updateddate],[MigrationApplied],
 	[KBUsed],
 	[Effort],
-	PowerBIUpdated) select id,[CustomerName],
+	PowerBIUpdated,[AssignBy]
+      ,[AssignDate]
+      ,[transferredDate]
+      ,[migrationCompleted]
+      ,[ResourceName]
+      ,[ResourceDeliveryGroupName]
+      ,[taskId]
+      ,[unitId]
+      ,[processlinename]) select id,[CustomerName],
 	CategoryName,
 	[MigrationType],
 	[MigrationWindow],
@@ -143,7 +167,15 @@ insert into dbo.tbl_ISW_Data_History(ParentId,[CustomerName],
 	[MigrationApplied],
 	[KBUsed],
 	[Effort],
-	PowerBIUpdated from inserted
+	PowerBIUpdated,[AssignBy]
+      ,[AssignDate]
+      ,[transferredDate]
+      ,[migrationCompleted]
+      ,[ResourceName]
+      ,[ResourceDeliveryGroupName]
+      ,[taskId]
+      ,[unitId]
+      ,[processlinename] from inserted
 end
 go
 
@@ -188,7 +220,15 @@ insert into dbo.tbl_ISW_Data_History(ParentId,[CustomerName],
 	[MigrationApplied],
 	[KBUsed],
 	[Effort],
-	PowerBIUpdated) select id,[CustomerName],
+	PowerBIUpdated,[AssignBy]
+      ,[AssignDate]
+      ,[transferredDate]
+      ,[migrationCompleted]
+      ,[ResourceName]
+      ,[ResourceDeliveryGroupName]
+      ,[taskId]
+      ,[unitId]
+      ,[processlinename]) select id,[CustomerName],
 	CategoryName,
 	[MigrationType],
 	[MigrationWindow],
@@ -218,7 +258,15 @@ insert into dbo.tbl_ISW_Data_History(ParentId,[CustomerName],
 	[MigrationApplied],
 	[KBUsed],
 	[Effort],
-	PowerBIUpdated from deleted
+	PowerBIUpdated,[AssignBy]
+      ,[AssignDate]
+      ,[transferredDate]
+      ,[migrationCompleted]
+      ,[ResourceName]
+      ,[ResourceDeliveryGroupName]
+      ,[taskId]
+      ,[unitId]
+      ,[processlinename] from deleted
 end
 go
 

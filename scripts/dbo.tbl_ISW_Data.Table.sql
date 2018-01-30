@@ -46,7 +46,16 @@ CREATE TABLE [dbo].[tbl_ISW_Data](
 	[MigrationApplied] bit null,
 	[KBUsed] nvarchar(100) null,
 	[Effort] int null,
-	PowerBIUpdated bit null
+	PowerBIUpdated bit null,
+	AssignBy nvarchar(100) null,
+	AssignDate datetime null,
+	transferredDate date null,
+	migrationCompleted nvarchar(50) null,
+	ResourceName nvarchar(100) null,
+	ResourceDeliveryGroupName nvarchar(100) null,
+	taskId int null,
+	unitId nvarchar(100) null,
+	processlinename nvarchar(100) null
  CONSTRAINT [PK_tbl_ISW_Data] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
