@@ -24,7 +24,7 @@ CREATE TABLE [dbo].Customer_History(
 	[HVC] [bit] NULL,
 	[Exception] [bit] NULL,
 	[ExceptionDetail] [nvarchar](100) NULL,
-	[state] [nvarchar](100) NULL,
+	[state] int NULL,
 	[updatedby] nvarchar(100) null,
 	[updatedDate] datetime null,
 	ParentId int null

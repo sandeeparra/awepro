@@ -19,7 +19,7 @@ CREATE TABLE [dbo].ProjectVPN_History(
 	[projectowner] [nvarchar](100) NULL,
 	[currentsummary] [nvarchar](1000) NULL,
 	[nextsteps] [nvarchar](100) NULL,
-	[status] [nvarchar](50) NULL,
+	[status] int NULL,
 	[updatedby] nvarchar(100) null,
 	[updatedDate] datetime null,
 	ParentId int null
