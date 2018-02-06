@@ -1,0 +1,8 @@
+c:\users\v-gynamp\documents\visual studio 2015\Projects\importData\importData\bin\Debug\importData.exe.config
+c:\users\v-gynamp\documents\visual studio 2015\Projects\importData\importData\obj\Debug\importData.csprojResolveAssemblyReference.cache
+c:\users\v-gynamp\documents\visual studio 2015\Projects\importData\importData\bin\Debug\importData.exe
+c:\users\v-gynamp\documents\visual studio 2015\Projects\importData\importData\bin\Debug\importData.pdb
+c:\users\v-gynamp\documents\visual studio 2015\Projects\importData\importData\bin\Debug\DocumentFormat.OpenXml.dll
+c:\users\v-gynamp\documents\visual studio 2015\Projects\importData\importData\bin\Debug\DocumentFormat.OpenXml.xml
+c:\users\v-gynamp\documents\visual studio 2015\Projects\importData\importData\obj\Debug\importData.exe
+c:\users\v-gynamp\documents\visual studio 2015\Projects\importData\importData\obj\Debug\importData.pdb
