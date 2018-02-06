@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ISW_Dashboard.Models;
+using PagedList;
 
 namespace ISW_Dashboard.Controllers
 {
@@ -27,15 +28,21 @@ namespace ISW_Dashboard.Controllers
             ViewData["KStatus"] = kstatus;
 
             var estatus = new Dictionary<string, string>();
-            estatus.Add("1", "Not Started");
-            estatus.Add("2", "In Progress");
-            estatus.Add("3", "Completed");
-            estatus.Add("4", "Canceled");
+            estatus.Add("1", "Assigned");
+            estatus.Add("2", "Completed");
+            estatus.Add("3", "Customer Cancelled");
+            estatus.Add("4", "Outflow");
+            estatus.Add("5", "Started");
+            estatus.Add("6", "Task Cancelled");
+            estatus.Add("7", "Transferred");
+            estatus.Add("8", "Unassigned ");
             estatus.Add("", "");
             estatus.Add("0", "");
             ViewData["EStatus"] = estatus;
-            IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data> eventData = db.tbl_ISW_Data.Where(v => v.EventStatus != 3 && v.EventStatus != 4).ToList();
-            return View(eventData);
+            IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data> eventData = db.tbl_ISW_Data.Where(v => v.EventStatus != 2 && v.EventStatus != 6).ToList();
+            int pageSize = 100;
+            int pageIndex = 1;
+            return View(eventData.ToPagedList(pageIndex, pageSize));
         }
 
         // GET: EventData/Details/5
@@ -91,11 +98,15 @@ namespace ISW_Dashboard.Controllers
 
             var estatus = new Dictionary<string, string>();
             estatus.Add("0", "Please select");
-            estatus.Add("1", "Not Started");
-            estatus.Add("2", "In Progress");
-            estatus.Add("3", "Completed");
-            estatus.Add("4", "Canceled");
-           
+            estatus.Add("1", "Assigned");
+            estatus.Add("2", "Completed");
+            estatus.Add("3", "Customer Cancelled");
+            estatus.Add("4", "Outflow");
+            estatus.Add("5", "Started");
+            estatus.Add("6", "Task Cancelled");
+            estatus.Add("7", "Transferred");
+            estatus.Add("8", "Unassigned ");
+            
             ViewData["EStatus"] = estatus;
 
             if (id == null)

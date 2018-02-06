@@ -61,12 +61,13 @@ namespace importData
                             foreach (Cell cell in row.Descendants<Cell>())
                             {
                                 String col = GetValue(doc, cell);
-                                if (i == 0 || i == 23 || i == 24 || i == 26)
+                                if (i == 0 || i == 24 || i == 25 || i == 26)
                                 {
                                     if (String.IsNullOrWhiteSpace(col))
                                         dt.Rows[dt.Rows.Count - 1][i] = DBNull.Value;
                                     else
-                                        dt.Rows[dt.Rows.Count - 1][i] = DateTime.FromOADate(double.Parse(col)).ToString("MM/dd/yyyy HH:mm:ss", yyyymmddFormat); 
+                                        //dt.Rows[dt.Rows.Count - 1][i] = DateTime.FromOADate(double.Parse(col)).ToString("MM/dd/yyyy HH:mm:ss", yyyymmddFormat); 
+                                        dt.Rows[dt.Rows.Count - 1][i] = Convert.ToDateTime(DateTime.FromOADate(double.Parse(col)).ToString("MM/dd/yyyy HH:mm:ss", yyyymmddFormat));
                                 }
                                 else
                                     dt.Rows[dt.Rows.Count - 1][i] = col;
@@ -94,8 +95,10 @@ namespace importData
                         cmd.Parameters.Add(parameter);
                         Console.WriteLine(con.ConnectionTimeout);
                         con.Open();
+                        Console.WriteLine("Connection opened");
                         cmd.ExecuteNonQuery();
                         con.Close();
+                        Console.WriteLine("Import completed");
                     }
                     catch (Exception ex)
                     {
@@ -108,7 +111,7 @@ namespace importData
                 Console.WriteLine(ex.Message);
             }
             finally
-            {
+            {   
                 Console.ReadKey();
             }
         }

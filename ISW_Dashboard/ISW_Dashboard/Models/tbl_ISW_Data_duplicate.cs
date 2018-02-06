@@ -25,12 +25,15 @@ namespace ISW_Dashboard.Models
         public string PeerReviewer { get; set; }
         public string DMName { get; set; }
         public Nullable<System.DateTime> LastKickOffEmailSent { get; set; }
+        public Nullable<int> KickOffStatus { get; set; }
         public Nullable<int> ScheduleCount { get; set; }
         public Nullable<int> SuccessCount { get; set; }
         public Nullable<int> InProgressCount { get; set; }
         public Nullable<int> FailedCount { get; set; }
         public Nullable<int> CurrentPowerBICount { get; set; }
         public Nullable<int> PreviousPowerBICount { get; set; }
+        public Nullable<int> EventStatus { get; set; }
+        public Nullable<int> UpdateStatus { get; set; }
         public Nullable<System.DateTime> LastUpdateEmailSent { get; set; }
         public string CurrentSummary { get; set; }
         public string CommentsForDelayKickOff { get; set; }
@@ -45,8 +48,14 @@ namespace ISW_Dashboard.Models
         public Nullable<int> Effort { get; set; }
         public Nullable<bool> PowerBIUpdated { get; set; }
         public Nullable<int> parent_id { get; set; }
-        public Nullable<int> KickOffStatus { get; set; }
-        public Nullable<int> EventStatus { get; set; }
-        public Nullable<int> UpdateStatus { get; set; }
+        public string AssignBy { get; set; }
+        public Nullable<System.DateTime> AssignDate { get; set; }
+        public Nullable<System.DateTime> transferredDate { get; set; }
+        public Nullable<System.DateTime> migrationCompleted { get; set; }
+        public string ResourceDeliveryGroupName { get; set; }
+        public Nullable<int> taskId { get; set; }
+        public string unitId { get; set; }
+        public string processlinename { get; set; }
+        public string statusChar { get; set; }
     }
 }

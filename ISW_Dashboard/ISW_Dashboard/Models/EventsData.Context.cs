@@ -29,9 +29,9 @@ namespace ISW_Dashboard.Models
         public virtual DbSet<Customer_History> Customer_History { get; set; }
         public virtual DbSet<ProjectVPN> ProjectVPNs { get; set; }
         public virtual DbSet<ProjectVPN_History> ProjectVPN_History { get; set; }
+        public virtual DbSet<MigrationType> MigrationTypes { get; set; }
         public virtual DbSet<tbl_ISW_Data> tbl_ISW_Data { get; set; }
         public virtual DbSet<tbl_ISW_Data_duplicate> tbl_ISW_Data_duplicate { get; set; }
         public virtual DbSet<tbl_ISW_Data_History> tbl_ISW_Data_History { get; set; }
-        public virtual DbSet<MigrationType> MigrationTypes { get; set; }
     }
 }

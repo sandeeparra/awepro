@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ISW_Dashboard.Models;
-
+using PagedList;
 namespace ISW_Dashboard.Controllers
 {
     public class CustomerController : Controller
@@ -60,7 +60,10 @@ namespace ISW_Dashboard.Controllers
             state.Add("", "");
             
             ViewData["state"] = state;
-            return View(db.Customers.ToList());
+            int pageSize = 100;
+            int page = 1;
+            //int pageNumber = (page ?? 1);
+            return View(db.Customers.ToPagedList(page, pageSize));
            
         }
 

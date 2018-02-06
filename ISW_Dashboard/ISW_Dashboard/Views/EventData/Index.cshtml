@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data>
+﻿
+@model IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data>
 
 @{
     ViewBag.Title = "Index";
@@ -8,6 +9,10 @@
 @Styles.Render("~/Content/Styles.css")
 <h2>Index</h2>
 
+
+
+
+            
 
 <table class="altrowstable">
     <tr>
@@ -105,6 +110,31 @@
         <th>
             @Html.DisplayNameFor(model => model.PowerBIUpdated)
         </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.AssignBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssignDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.transferredDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.migrationCompleted)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.ResourceDeliveryGroupName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.taskId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unitId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.processlinename)
+        </th>*@
         
     </tr>
 
@@ -206,7 +236,31 @@
         <td>
             @Html.DisplayFor(modelItem => item.PowerBIUpdated)
         </td>
-        
+
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssignDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.transferredDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.migrationCompleted)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.ResourceDeliveryGroupName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.taskId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.unitId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.processlinename)
+        </td>*@
     </tr>
 }
 

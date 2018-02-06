@@ -6,3 +6,11 @@ c:\users\v-gynamp\documents\visual studio 2015\Projects\importData\importData\bi
 c:\users\v-gynamp\documents\visual studio 2015\Projects\importData\importData\bin\Debug\DocumentFormat.OpenXml.xml
 c:\users\v-gynamp\documents\visual studio 2015\Projects\importData\importData\obj\Debug\importData.exe
 c:\users\v-gynamp\documents\visual studio 2015\Projects\importData\importData\obj\Debug\importData.pdb
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\bin\Debug\importData.exe.config
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\obj\Debug\importData.exe
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\obj\Debug\importData.pdb
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\bin\Debug\importData.exe
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\bin\Debug\importData.pdb
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\obj\Debug\importData.csprojResolveAssemblyReference.cache
