@@ -330,3 +330,4 @@ C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedLi
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.Mvc.dll
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.xml
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.Mvc.xml
+C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.csprojResolveAssemblyReference.cache

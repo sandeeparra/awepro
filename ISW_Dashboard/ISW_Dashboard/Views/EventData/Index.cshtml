@@ -1,5 +1,6 @@
-﻿
-@model IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data>
+﻿@model PagedList.IPagedList<ISW_Dashboard.Models.tbl_ISW_Data>
+@using PagedList.Mvc;
+@*@model IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data>*@
 
 @{
     ViewBag.Title = "Index";
@@ -10,7 +11,7 @@
 <h2>Index</h2>
 
 
-
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
             
 
