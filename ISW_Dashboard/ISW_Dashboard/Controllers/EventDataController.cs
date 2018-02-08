@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using ISW_Dashboard.Models;
 using PagedList;
 
+
 namespace ISW_Dashboard.Controllers
 {
     public class EventDataController : Controller
@@ -16,7 +17,7 @@ namespace ISW_Dashboard.Controllers
         private ISWEntities db = new ISWEntities();
 
         // GET: EventData
-        public ActionResult Index()
+        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             var kstatus = new Dictionary<string, string>();
             kstatus.Add("1", "Sent");
@@ -31,18 +32,55 @@ namespace ISW_Dashboard.Controllers
             estatus.Add("1", "Assigned");
             estatus.Add("2", "Completed");
             estatus.Add("3", "Customer Cancelled");
-            estatus.Add("4", "Outflow");
-            estatus.Add("5", "Started");
-            estatus.Add("6", "Task Cancelled");
-            estatus.Add("7", "Transferred");
-            estatus.Add("8", "Unassigned ");
+           // estatus.Add("4", "Outflow");
+            estatus.Add("4", "Started");
+           // estatus.Add("6", "Task Cancelled");
+         //   estatus.Add("7", "Transferred");
+            estatus.Add("5", "Unassigned ");
             estatus.Add("", "");
             estatus.Add("0", "");
             ViewData["EStatus"] = estatus;
-            IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data> eventData = db.tbl_ISW_Data.Where(v => v.EventStatus != 2 && v.EventStatus != 6).ToList();
-            int pageSize = 100;
-            int pageIndex = 1;
-            return View(eventData.ToPagedList(pageIndex, pageSize));
+            IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data> eventData = db.tbl_ISW_Data.Where(v => v.EventStatus != 2 && v.EventStatus != 3).ToList();
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                //eventData = eventData.Where(s => s.CustomerName.ToUpper().Contains(searchString.ToUpper().Trim()));
+                //eventData = eventData.Where(s => s.CustomerName.ToUpper().Contains(searchString.ToUpper().Trim()) ||
+                //                            s.AssignBy.Replace("(","").Replace(")","").Contains(searchString.ToUpper().Trim())
+                //                                );
+                //eventData = eventData.Where(s => s.CustomerName.ToUpper().Contains(searchString.ToUpper().Trim()) ||
+                //                           s.AssignBy.Replace("(", "").Replace(")", "").Contains(searchString.ToUpper().Trim())
+                //                               );
+                eventData = eventData.Where(s => (!string.IsNullOrEmpty(s.CustomerName) && s.CustomerName.ToUpper().Contains(searchString.ToUpper().Trim()) )||
+                                          (!string.IsNullOrEmpty(s.AssignBy) && s.AssignBy.ToUpper().Contains(searchString.ToUpper().Trim())) ||
+                                           (!string.IsNullOrEmpty(s.MigratorName) && s.MigratorName.ToUpper().Contains(searchString.ToUpper().Trim())) ||
+                                           (!string.IsNullOrEmpty(s.CategoryName) && s.CategoryName.ToUpper().Contains(searchString.ToUpper().Trim()))
+
+                                               );
+
+                //     eventData =
+                //from events in eventData
+                //where SqlMethods.Like(events.AssignBy, "%John%")
+                //select events;
+            }
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+
+            ViewData["eventCount"] = eventData.Count();
+
+            ViewBag.CurrentFilter = searchString;
+
+            int pageSize = 50;
+            int pageNumber = (page ?? 1);
+            return View(eventData.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: EventData/Details/5
@@ -92,21 +130,23 @@ namespace ISW_Dashboard.Controllers
             kstatus.Add("2", "Delayed");
             kstatus.Add("3", "Canceled");
             kstatus.Add("4", "Rescheduled");
-           
-           
+
+
             ViewData["KStatus"] = kstatus;
 
             var estatus = new Dictionary<string, string>();
-            estatus.Add("0", "Please select");
+            
             estatus.Add("1", "Assigned");
             estatus.Add("2", "Completed");
             estatus.Add("3", "Customer Cancelled");
-            estatus.Add("4", "Outflow");
-            estatus.Add("5", "Started");
-            estatus.Add("6", "Task Cancelled");
-            estatus.Add("7", "Transferred");
-            estatus.Add("8", "Unassigned ");
+            // estatus.Add("4", "Outflow");
+            estatus.Add("4", "Started");
+            // estatus.Add("6", "Task Cancelled");
+            //   estatus.Add("7", "Transferred");
+            estatus.Add("5", "Unassigned ");
             
+            
+
             ViewData["EStatus"] = estatus;
 
             if (id == null)
@@ -126,7 +166,7 @@ namespace ISW_Dashboard.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,CustomerName,CategoryName,MigrationType,MigrationWindow,MigrationGroup,ExpectedKickOff,MigratorName,PeerReviewer,DMName,LastKickOffEmailSent,KickOffStatus,ScheduleCount,SuccessCount,InProgressCount,FailedCount,CurrentPowerBICount,PreviousPowerBICount,EventStatus,UpdateStatus,LastUpdateEmailSent,CurrentSummary,CommentsForDelayKickOff,NextUpdateTime,ScheduledDate,ActivityName,updatedby,updateddate,MigrationApplied,KBUsed,Effort,PowerBIUpdated")] tbl_ISW_Data tbl_ISW_Data)
+        public ActionResult Edit([Bind(Include = "ID,CustomerName,CategoryName,MigrationType,MigrationWindow,MigrationGroup,ExpectedKickOff,MigratorName,PeerReviewer,DMName,LastKickOffEmailSent,KickOffStatus,ScheduleCount,SuccessCount,InProgressCount,FailedCount,CurrentPowerBICount,PreviousPowerBICount,EventStatus,UpdateStatus,LastUpdateEmailSent,CurrentSummary,CommentsForDelayKickOff,NextUpdateTime,ScheduledDate,ActivityName,updatedby,updateddate,MigrationApplied,KBUsed,Effort,PowerBIUpdated,AssignBy,AssignDate,transferredDate,migrationCompleted,unitId")] tbl_ISW_Data tbl_ISW_Data)
         {
             var kstatus = new Dictionary<string, string>();
             kstatus.Add("0", "Please select");
@@ -139,14 +179,19 @@ namespace ISW_Dashboard.Controllers
             ViewData["KStatus"] = kstatus;
 
             var estatus = new Dictionary<string, string>();
-            estatus.Add("0", "Please select");
-            estatus.Add("1", "Not Started");
-            estatus.Add("2", "In Progress");
-            estatus.Add("3", "Completed");
-            estatus.Add("4", "Canceled");
+            estatus.Add("1", "Assigned");
+            estatus.Add("2", "Completed");
+            estatus.Add("3", "Customer Cancelled");
+            // estatus.Add("4", "Outflow");
+            estatus.Add("4", "Started");
+            // estatus.Add("6", "Task Cancelled");
+            //   estatus.Add("7", "Transferred");
+            estatus.Add("5", "Unassigned ");
+            estatus.Add("", "");
+            estatus.Add("0", "");
 
             ViewData["EStatus"] = estatus;
-            if (tbl_ISW_Data.PowerBIUpdated ==true && tbl_ISW_Data.InProgressCount ==0)
+            if (tbl_ISW_Data.PowerBIUpdated == true && tbl_ISW_Data.InProgressCount == 0)
             {
                 ModelState.AddModelError("powerBIerror", "Inprogress count should be zero");
 
@@ -156,7 +201,7 @@ namespace ISW_Dashboard.Controllers
                 ModelState.AddModelError("ScheduleCountError", "Schedule Count should be equals to sum of SuccessCount,FailedCount,InProgressCount");
 
             }
-            
+
             if (ModelState.IsValid)
             {
                 tbl_ISW_Data.updateddate = DateTime.Now;
@@ -165,7 +210,7 @@ namespace ISW_Dashboard.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
+
             return View(tbl_ISW_Data);
         }
 

@@ -28,7 +28,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2018 14:50:46</publishTime>
     </File>
     <File Include="bin/ISW_Dashboard.dll">
-      <publishTime>01/25/2018 18:10:25</publishTime>
+      <publishTime>02/07/2018 19:18:28</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>01/09/2018 14:50:46</publishTime>
@@ -99,6 +99,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Owin.dll">
       <publishTime>01/09/2018 14:50:49</publishTime>
     </File>
+    <File Include="bin/PagedList.dll">
+      <publishTime>09/30/2013 17:36:38</publishTime>
+    </File>
+    <File Include="bin/PagedList.Mvc.dll">
+      <publishTime>09/30/2013 18:15:20</publishTime>
+    </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>01/09/2018 14:50:49</publishTime>
     </File>
@@ -165,6 +171,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/bootstrap.min.css">
       <publishTime>01/09/2018 14:50:44</publishTime>
     </File>
+    <File Include="Content/PagedList.css">
+      <publishTime>02/06/2018 20:22:14</publishTime>
+    </File>
     <File Include="Content/Site.css">
       <publishTime>01/09/2018 14:50:44</publishTime>
     </File>
@@ -190,13 +199,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2018 14:50:44</publishTime>
     </File>
     <File Include="Models/EventsData.edmx.diagram">
-      <publishTime>01/17/2018 20:11:39</publishTime>
+      <publishTime>02/06/2018 19:41:26</publishTime>
     </File>
     <File Include="Models/VPNtracker.edmx.diagram">
       <publishTime>01/09/2018 14:50:44</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>01/09/2018 14:50:46</publishTime>
+      <publishTime>02/06/2018 20:22:14</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>01/09/2018 14:50:44</publishTime>
@@ -313,10 +322,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2018 15:17:24</publishTime>
     </File>
     <File Include="Views/EventData/Edit.cshtml">
-      <publishTime>01/18/2018 13:01:09</publishTime>
+      <publishTime>02/07/2018 19:15:02</publishTime>
     </File>
     <File Include="Views/EventData/Index.cshtml">
-      <publishTime>01/10/2018 17:01:31</publishTime>
+      <publishTime>02/07/2018 19:10:36</publishTime>
     </File>
     <File Include="Views/EventDataDuplicates/Create.cshtml">
       <publishTime>01/18/2018 12:46:32</publishTime>
@@ -421,7 +430,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/18/2018 13:25:14</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/25/2018 18:10:28</publishTime>
+      <publishTime>02/07/2018 15:44:32</publishTime>
     </File>
   </ItemGroup>
 </Project>

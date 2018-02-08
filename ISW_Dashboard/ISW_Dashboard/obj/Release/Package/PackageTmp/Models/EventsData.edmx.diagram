@@ -9,10 +9,10 @@
         <EntityTypeShape EntityType="ISWModel.Customer_History" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="ISWModel.ProjectVPN" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="ISWModel.ProjectVPN_History" Width="1.5" PointX="4.75" PointY="4.75" />
-        <EntityTypeShape EntityType="ISWModel.tbl_ISW_Data" Width="1.5" PointX="0.75" PointY="5.75" />
-        <EntityTypeShape EntityType="ISWModel.tbl_ISW_Data_duplicate" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="ISWModel.tbl_ISW_Data_History" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="ISWModel.MigrationType" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ISWModel.tbl_ISW_Data" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ISWModel.tbl_ISW_Data_duplicate" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ISWModel.tbl_ISW_Data_History" Width="1.5" PointX="0.5" PointY="4.625" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

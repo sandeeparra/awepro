@@ -1,22 +1,159 @@
 ﻿@model PagedList.IPagedList<ISW_Dashboard.Models.tbl_ISW_Data>
 @using PagedList.Mvc;
 @*@model IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data>*@
-
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Index";
     var kStatus = (Dictionary<string, string>)ViewData["KStatus"];
     var eStatus = (Dictionary<string, string>)ViewData["EStatus"];
+    int count = Convert.ToInt32(ViewData["eventCount"]);
 }
 @Styles.Render("~/Content/Styles.css")
 <h2>Index</h2>
 
+@using (Html.BeginForm())
+{
+    <p>
+        Search : @Html.TextBox("SearchString",ViewBag.CurrentFilter as string)
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        <input type="submit" value="Search" />
+    </p>
+}
 
-            
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount ; Events count : @count 
+
+       
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))     
 
 <table class="altrowstable">
     <tr>
+        <th></th>
+        <th>
+            @Html.DisplayName("CustomerName")
+        </th>
+        <th>
+            @Html.DisplayName("CategoryName")
+        </th>
+        <th>
+            @Html.DisplayName("EventType")
+        </th>
+        <th>
+            @Html.DisplayName("MigrationWindow")
+        </th>
+        <th>
+            @Html.DisplayName("MigrationGroup")
+        </th>
+        <th>
+            @Html.DisplayName("ExpectedKickOff")
+        </th>
+        <th>
+            @Html.DisplayName("MigratorName")
+        </th>
+        <th>
+            @Html.DisplayName("PeerReviewer")
+        </th>
+        <th>
+            @Html.DisplayName("DMName")
+        </th>
+        <th>
+            @Html.DisplayName("LastKickOffEmailSent")
+        </th>
+        <th>
+            @Html.DisplayName("KickOffStatus")
+        </th>
+        <th>
+            @Html.DisplayName("ScheduleCount")
+        </th>
+        <th>
+            @Html.DisplayName("SuccessCount")
+        </th>
+        <th>
+            @Html.DisplayName("InProgressCount")
+        </th>
+        <th>
+            @Html.DisplayName("FailedCount")
+        </th>
+        <th>
+            @Html.DisplayName("CurrentPowerBICount")
+        </th>
+        <th>
+            @Html.DisplayName("PreviousPowerBICount")
+        </th>
+        <th>
+            @Html.DisplayName("EventStatus")
+        </th>
+        <th>
+            @Html.DisplayName("UpdateStatus")
+        </th>
+        <th>
+            @Html.DisplayName("LastUpdateEmailSent")
+        </th>
+        <th>
+            @Html.DisplayName("CurrentSummary")
+        </th>
+        <th>
+            @Html.DisplayName("CommentsForDelayKickOff")
+        </th>
+        <th>
+            @Html.DisplayName("NextUpdateTime")
+        </th>
+        <th>
+            @Html.DisplayName("ScheduledDate")
+        </th>
+        <th>
+            @Html.DisplayName("ActivityName")
+        </th>
+        <th>
+            @Html.DisplayName("updatedby")
+        </th>
+        <th>
+            @Html.DisplayName("updateddate")
+        </th>
+        <th>
+            @Html.DisplayName("MigrationApplied")
+        </th>
+        <th>
+            @Html.DisplayName("KBUsed")
+        </th>
+        <th>
+            @Html.DisplayName("Effort")
+        </th>
+        <th>
+            @Html.DisplayName("PowerBIUpdated")
+        </th>
+
+        <th>
+            @Html.DisplayName("AssignBy")
+        </th>
+        <th>
+            @Html.DisplayName("AssignDate")
+        </th>
+        <th>
+            @Html.DisplayName("transferredDate")
+        </th>
+        <th>
+            @Html.DisplayName("migrationCompleted")
+        </th>
+        <th>
+            @Html.DisplayName("unitId")
+        </th>
+        @*<th>
+                @Html.DisplayName("ResourceDeliveryGroupName")
+            </th>
+            <th>
+                @Html.DisplayName("taskId")
+            </th>
+            <th>
+                @Html.DisplayName("unitId")
+            </th>
+            <th>
+                @Html.DisplayName("processlinename")
+            </th>*@
+
+    </tr>
+
+    @*<tr>
         <th></th>
         <th>
             @Html.DisplayNameFor(model => model.CustomerName)
@@ -135,9 +272,9 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
         </th>
         <th>
             @Html.DisplayNameFor(model => model.processlinename)
-        </th>*@
+        </th>
         
-    </tr>
+    </tr>*@
 
 @foreach (var item in Model) {
     <tr>
@@ -249,6 +386,9 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.migrationCompleted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.unitId)
         </td>
         @*<td>
             @Html.DisplayFor(modelItem => item.ResourceDeliveryGroupName)

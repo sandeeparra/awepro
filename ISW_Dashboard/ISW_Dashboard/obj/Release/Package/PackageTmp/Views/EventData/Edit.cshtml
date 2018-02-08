@@ -4,6 +4,15 @@
     ViewBag.Title = "Edit";
     var kStatus = (Dictionary<string, string>)ViewData["KStatus"];
     var eStatus = (Dictionary<string, string>)ViewData["EStatus"];
+    Dictionary<string, string>
+                          migrationType = new Dictionary<string, string>();
+    migrationType.Add("",  "Please select");
+    migrationType.Add("KickOffEvent", "KickOffEvent");
+    migrationType.Add("UpdateEvent", "UpdateEvent");
+    @*{
+    new  SelectListItem{ Key="", Value = "Please select" },
+                    new SelectListItem{ Key="KickOffEvent", Value = "KickOff" },
+                    new SelectListItem{ Key="UpdateEvent", Value = "UpdateEvent" }};*@
 }
 
 <h2>Edit</h2>
@@ -38,11 +47,13 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MigrationType, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Event Type", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.MigrationType, new { htmlAttributes = new { @class = "form-control", @style = "width:280px", @disabled = "disabled" } })
-                @Html.HiddenFor(model => model.MigrationType)
-                @Html.ValidationMessageFor(model => model.MigrationType, "", new { @class = "text-danger" })
+               
+
+                        @Html.DropDownListFor(model => model.MigrationType, new SelectList(migrationType, "Key", "Value"))
+                        
+                        @Html.ValidationMessageFor(model => model.MigrationType, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -278,7 +289,35 @@
                 </div>
             </div>
         </div>
-
+        <div class="form-group">
+            @Html.LabelFor(model => model.AssignBy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AssignBy, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AssignBy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.AssignDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AssignDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AssignDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.transferredDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.transferredDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.transferredDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.migrationCompleted, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.migrationCompleted, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.migrationCompleted, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.HiddenFor(model => model.unitId)
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />

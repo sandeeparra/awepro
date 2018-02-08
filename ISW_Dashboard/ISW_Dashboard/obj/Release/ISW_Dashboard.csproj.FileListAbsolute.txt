@@ -166,3 +166,7 @@ C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Microso
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\obj\Release\ISW_Dashboard.csprojResolveAssemblyReference.cache
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\obj\Release\ISW_Dashboard.dll
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\obj\Release\ISW_Dashboard.pdb
+C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.dll
+C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.Mvc.dll
+C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.xml
+C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.Mvc.xml

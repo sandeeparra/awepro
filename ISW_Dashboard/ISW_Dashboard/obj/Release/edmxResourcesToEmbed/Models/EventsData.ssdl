@@ -84,16 +84,19 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="MigrationWindow" Type="int" />
     <Property Name="MigrationGroup" Type="int" />
     <Property Name="ExpectedKickOff" Type="datetime" />
-    <Property Name="MigratorName" Type="nvarchar" MaxLength="150" />
+    <Property Name="MigratorName" Type="nvarchar" MaxLength="500" />
     <Property Name="PeerReviewer" Type="nvarchar" MaxLength="150" />
     <Property Name="DMName" Type="nvarchar" MaxLength="150" />
     <Property Name="LastKickOffEmailSent" Type="datetime" />
+    <Property Name="KickOffStatus" Type="int" />
     <Property Name="ScheduleCount" Type="int" />
     <Property Name="SuccessCount" Type="int" />
     <Property Name="InProgressCount" Type="int" />
     <Property Name="FailedCount" Type="int" />
     <Property Name="CurrentPowerBICount" Type="int" />
     <Property Name="PreviousPowerBICount" Type="int" />
+    <Property Name="EventStatus" Type="int" />
+    <Property Name="UpdateStatus" Type="int" />
     <Property Name="LastUpdateEmailSent" Type="datetime" />
     <Property Name="CurrentSummary" Type="nvarchar" MaxLength="500" />
     <Property Name="CommentsForDelayKickOff" Type="nvarchar" MaxLength="500" />
@@ -106,9 +109,15 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="KBUsed" Type="nvarchar" MaxLength="100" />
     <Property Name="Effort" Type="int" />
     <Property Name="PowerBIUpdated" Type="bit" />
-    <Property Name="EventStatus" Type="int" />
-    <Property Name="UpdateStatus" Type="int" />
-    <Property Name="KickOffStatus" Type="int" />
+    <Property Name="AssignBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="AssignDate" Type="datetime" />
+    <Property Name="transferredDate" Type="datetime" />
+    <Property Name="migrationCompleted" Type="datetime" />
+    <Property Name="ResourceDeliveryGroupName" Type="nvarchar" MaxLength="100" />
+    <Property Name="taskId" Type="int" />
+    <Property Name="unitId" Type="nvarchar" MaxLength="100" />
+    <Property Name="processlinename" Type="nvarchar" MaxLength="100" />
+    <Property Name="statusChar" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="tbl_ISW_Data_duplicate">
     <Key>
@@ -121,16 +130,19 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="MigrationWindow" Type="int" />
     <Property Name="MigrationGroup" Type="int" />
     <Property Name="ExpectedKickOff" Type="datetime" />
-    <Property Name="MigratorName" Type="nvarchar" MaxLength="150" />
+    <Property Name="MigratorName" Type="nvarchar" MaxLength="500" />
     <Property Name="PeerReviewer" Type="nvarchar" MaxLength="150" />
     <Property Name="DMName" Type="nvarchar" MaxLength="150" />
     <Property Name="LastKickOffEmailSent" Type="datetime" />
+    <Property Name="KickOffStatus" Type="int" />
     <Property Name="ScheduleCount" Type="int" />
     <Property Name="SuccessCount" Type="int" />
     <Property Name="InProgressCount" Type="int" />
     <Property Name="FailedCount" Type="int" />
     <Property Name="CurrentPowerBICount" Type="int" />
     <Property Name="PreviousPowerBICount" Type="int" />
+    <Property Name="EventStatus" Type="int" />
+    <Property Name="UpdateStatus" Type="int" />
     <Property Name="LastUpdateEmailSent" Type="datetime" />
     <Property Name="CurrentSummary" Type="nvarchar" MaxLength="500" />
     <Property Name="CommentsForDelayKickOff" Type="nvarchar" MaxLength="500" />
@@ -145,9 +157,15 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="Effort" Type="int" />
     <Property Name="PowerBIUpdated" Type="bit" />
     <Property Name="parent_id" Type="int" />
-    <Property Name="KickOffStatus" Type="int" />
-    <Property Name="EventStatus" Type="int" />
-    <Property Name="UpdateStatus" Type="int" />
+    <Property Name="AssignBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="AssignDate" Type="datetime" />
+    <Property Name="transferredDate" Type="datetime" />
+    <Property Name="migrationCompleted" Type="datetime" />
+    <Property Name="ResourceDeliveryGroupName" Type="nvarchar" MaxLength="100" />
+    <Property Name="taskId" Type="int" />
+    <Property Name="unitId" Type="nvarchar" MaxLength="100" />
+    <Property Name="processlinename" Type="nvarchar" MaxLength="100" />
+    <Property Name="statusChar" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="tbl_ISW_Data_History">
     <Key>
@@ -160,16 +178,19 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="MigrationWindow" Type="int" />
     <Property Name="MigrationGroup" Type="int" />
     <Property Name="ExpectedKickOff" Type="datetime" />
-    <Property Name="MigratorName" Type="nvarchar" MaxLength="150" />
+    <Property Name="MigratorName" Type="nvarchar" MaxLength="500" />
     <Property Name="PeerReviewer" Type="nvarchar" MaxLength="150" />
     <Property Name="DMName" Type="nvarchar" MaxLength="150" />
     <Property Name="LastKickOffEmailSent" Type="datetime" />
+    <Property Name="KickOffStatus" Type="int" />
     <Property Name="ScheduleCount" Type="int" />
     <Property Name="SuccessCount" Type="int" />
     <Property Name="InProgressCount" Type="int" />
     <Property Name="FailedCount" Type="int" />
     <Property Name="CurrentPowerBICount" Type="int" />
     <Property Name="PreviousPowerBICount" Type="int" />
+    <Property Name="EventStatus" Type="int" />
+    <Property Name="UpdateStatus" Type="int" />
     <Property Name="LastUpdateEmailSent" Type="datetime" />
     <Property Name="CurrentSummary" Type="nvarchar" MaxLength="500" />
     <Property Name="CommentsForDelayKickOff" Type="nvarchar" MaxLength="500" />
@@ -183,9 +204,14 @@ warning 6002: The table/view 'ISW.dbo.MigrationType' does not have a primary key
     <Property Name="Effort" Type="int" />
     <Property Name="PowerBIUpdated" Type="bit" />
     <Property Name="ParentId" Type="int" />
-    <Property Name="KickOffStatus" Type="int" />
-    <Property Name="EventStatus" Type="int" />
-    <Property Name="UpdateStatus" Type="int" />
+    <Property Name="AssignBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="AssignDate" Type="datetime" />
+    <Property Name="transferredDate" Type="datetime" />
+    <Property Name="migrationCompleted" Type="datetime" />
+    <Property Name="ResourceDeliveryGroupName" Type="nvarchar" MaxLength="100" />
+    <Property Name="taskId" Type="int" />
+    <Property Name="unitId" Type="nvarchar" MaxLength="100" />
+    <Property Name="processlinename" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityContainer Name="ISWModelStoreContainer">
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />

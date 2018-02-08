@@ -286,6 +286,8 @@ C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Microso
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Newtonsoft.Json.dll
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Owin.dll
+C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.dll
+C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.Mvc.dll
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Helpers.dll
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Mvc.dll
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Optimization.dll
@@ -301,6 +303,8 @@ C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Microso
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.ApplicationInsights.xml
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.xml
+C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.Mvc.xml
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Helpers.xml
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Mvc.xml
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\System.Web.Optimization.xml
@@ -326,8 +330,4 @@ C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Microso
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.dll
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.pdb
-C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.dll
-C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.Mvc.dll
-C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.xml
-C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\PagedList.Mvc.xml
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.csprojResolveAssemblyReference.cache

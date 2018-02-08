@@ -1,0 +1,7 @@
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\bin\Release\importData.exe.config
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\bin\Release\importData.exe
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\bin\Release\importData.pdb
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\bin\Release\DocumentFormat.OpenXml.dll
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\bin\Release\DocumentFormat.OpenXml.xml
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\obj\Release\importData.exe
+C:\Users\v-saarr\Documents\GitHub\awepro\importData\importData\obj\Release\importData.pdb
