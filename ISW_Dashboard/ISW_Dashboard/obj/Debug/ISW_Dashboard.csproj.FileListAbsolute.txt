@@ -330,4 +330,3 @@ C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Microso
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.dll
 C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.pdb
-C:\Users\v-saarr\Documents\GitHub\awepro\ISW_Dashboard\ISW_Dashboard\obj\Debug\ISW_Dashboard.csprojResolveAssemblyReference.cache

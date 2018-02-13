@@ -1,0 +1,338 @@
+﻿@model ISW_Dashboard.Models.tbl_ISW_Data
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_ISW_Data</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MigrationType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MigrationType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MigrationWindow)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MigrationWindow)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MigrationGroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MigrationGroup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpectedKickOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpectedKickOff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MigratorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MigratorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PeerReviewer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PeerReviewer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DMName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DMName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastKickOffEmailSent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastKickOffEmailSent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KickOffStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KickOffStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuccessCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuccessCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InProgressCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InProgressCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FailedCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FailedCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentPowerBICount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentPowerBICount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PreviousPowerBICount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PreviousPowerBICount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EventStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EventStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdateStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdateStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdateEmailSent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdateEmailSent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentSummary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentSummary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentsForDelayKickOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommentsForDelayKickOff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NextUpdateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NextUpdateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduledDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduledDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActivityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updatedby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updatedby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.updateddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.updateddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MigrationApplied)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MigrationApplied)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KBUsed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KBUsed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Effort)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Effort)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PowerBIUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PowerBIUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.transferredDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.transferredDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.migrationCompleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.migrationCompleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResourceDeliveryGroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResourceDeliveryGroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.taskId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.taskId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unitId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unitId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.processlinename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.processlinename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.statusChar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.statusChar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

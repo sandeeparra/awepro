@@ -6,6 +6,7 @@
     ViewBag.Title = "Index";
     var kStatus = (Dictionary<string, string>)ViewData["KStatus"];
     var eStatus = (Dictionary<string, string>)ViewData["EStatus"];
+    int count = Convert.ToInt32(ViewData["eventCount"]);
 }
 @Styles.Render("~/Content/Styles.css")
 <h2>Index</h2>
@@ -19,7 +20,7 @@
     </p>
 }
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount ; Events count : @count 
 
        
 @Html.PagedListPager(Model, page => Url.Action("Index",

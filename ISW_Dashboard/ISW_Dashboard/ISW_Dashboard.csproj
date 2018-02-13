@@ -211,6 +211,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Completed_EventDataController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\EventDataController.cs" />
@@ -220,6 +221,7 @@
     <Compile Include="Controllers\ImportDataController.cs" />
     <Compile Include="Controllers\ImportExcelController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TActivitiesEventDataController.cs" />
     <Compile Include="Controllers\VPNTrackerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -413,6 +415,16 @@
     <Content Include="Views\EventDataDuplicates\Details.cshtml" />
     <Content Include="Views\EventDataDuplicates\Edit.cshtml" />
     <Content Include="Views\EventDataDuplicates\Index.cshtml" />
+    <Content Include="Views\Completed_EventData\Create.cshtml" />
+    <Content Include="Views\Completed_EventData\Delete.cshtml" />
+    <Content Include="Views\Completed_EventData\Details.cshtml" />
+    <Content Include="Views\Completed_EventData\Edit.cshtml" />
+    <Content Include="Views\Completed_EventData\Index.cshtml" />
+    <Content Include="Views\TActivitiesEventData\Create.cshtml" />
+    <Content Include="Views\TActivitiesEventData\Delete.cshtml" />
+    <Content Include="Views\TActivitiesEventData\Details.cshtml" />
+    <Content Include="Views\TActivitiesEventData\Edit.cshtml" />
+    <Content Include="Views\TActivitiesEventData\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
