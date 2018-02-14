@@ -3,7 +3,7 @@
 @*@model IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data>*@
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "Activity Events Data";
+    ViewBag.Title = "Competed/Canceled Events Data";
     var kStatus = (Dictionary<string, string>)ViewData["KStatus"];
     var eStatus = (Dictionary<string, string>)ViewData["EStatus"];
     int count = Convert.ToInt32(ViewData["eventCount"]);
@@ -17,12 +17,6 @@
         Search : @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
 
         <input type="submit" value="Search" />
-
-        <br />
-        <br />
-        @Html.DropDownList("SerchbyCategoryNames", new SelectList(ViewBag.CategoryNames, "Text", "Value", ViewBag.SelectedCategoryNames))
-
-        <input type="submit" value="Search by CategoryName" />
     </p>
 }
 
@@ -117,7 +111,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             @Html.DisplayName("updateddate")
         </th>
         <th>
-            @Html.DisplayName("MitigationApplied")
+            @Html.DisplayName("MigrationApplied")
         </th>
         <th>
             @Html.DisplayName("KBUsed")
@@ -129,7 +123,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             @Html.DisplayName("PowerBIUpdated")
         </th>
 
-        @*<th>
+        <th>
             @Html.DisplayName("AssignBy")
         </th>
         <th>
@@ -140,7 +134,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
         </th>
         <th>
             @Html.DisplayName("migrationCompleted")
-        </th>*@
+        </th>
         <th>
             @Html.DisplayName("unitId")
         </th>
@@ -382,7 +376,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
                 @Html.DisplayFor(modelItem => item.PowerBIUpdated)
             </td>
 
-            @*<td>
+            <td>
                 @Html.DisplayFor(modelItem => item.AssignBy)
             </td>
             <td>
@@ -393,7 +387,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.migrationCompleted)
-            </td>*@
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.unitId)
             </td>

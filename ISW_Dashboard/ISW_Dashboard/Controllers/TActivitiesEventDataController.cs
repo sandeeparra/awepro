@@ -70,6 +70,25 @@ namespace ISW_Dashboard.Controllers
                 //where SqlMethods.Like(events.AssignBy, "%John%")
                 //select events;
             }
+            var CategoryNamesList = eventData.Select(p => p.CategoryName)
+                   .Distinct().ToList();
+
+            var CategoryNames = CategoryNamesList.Select(x => new SelectListItem { Text = x, Value = x })
+                  .Distinct().ToList();
+            if (Request["SerchbyCategoryNames"] == null)
+            {
+                ViewData["SelectedCategoryNames"] = "ALL";
+            }
+            else
+            {
+                ViewData["SelectedCategoryNames"] = Request["SerchbyCategoryNames"];
+                if (ViewData["SelectedCategoryNames"].ToString().ToUpper().Trim() != "ALL")
+                    eventData = eventData.Where(s => (!string.IsNullOrEmpty(s.CategoryName) && s.CategoryName.ToUpper().Contains(ViewData["SelectedCategoryNames"].ToString().ToUpper().Trim())));
+            }
+            CategoryNames.Insert(0, new SelectListItem { Text = "ALL", Value = "ALL" });
+
+            //List<SelectListItem> items = new List<SelectListItem>();
+            ViewData["CategoryNames"] = CategoryNames.ToList();
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";

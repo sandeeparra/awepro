@@ -17,6 +17,12 @@
         Search : @Html.TextBox("SearchString",ViewBag.CurrentFilter as string)
 
         <input type="submit" value="Search" />
+
+        <br />
+        <br />
+        @Html.DropDownList("SerchbyCategoryNames", new SelectList(ViewBag.CategoryNames, "Text", "Value", ViewBag.SelectedCategoryNames))
+
+        <input type="submit" value="Search by CategoryName" />
     </p>
 }
 
@@ -111,7 +117,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             @Html.DisplayName("updateddate")
         </th>
         <th>
-            @Html.DisplayName("MigrationApplied")
+            @Html.DisplayName("MitigationApplied")
         </th>
         <th>
             @Html.DisplayName("KBUsed")
@@ -123,7 +129,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             @Html.DisplayName("PowerBIUpdated")
         </th>
 
-        <th>
+        @*<th>
             @Html.DisplayName("AssignBy")
         </th>
         <th>
@@ -134,7 +140,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
         </th>
         <th>
             @Html.DisplayName("migrationCompleted")
-        </th>
+        </th>*@
         <th>
             @Html.DisplayName("unitId")
         </th>
@@ -375,7 +381,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             @Html.DisplayFor(modelItem => item.PowerBIUpdated)
         </td>
 
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.AssignBy)
         </td>
         <td>
@@ -386,7 +392,7 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.migrationCompleted)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.unitId)
         </td>
