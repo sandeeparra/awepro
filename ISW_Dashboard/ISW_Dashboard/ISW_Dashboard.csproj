@@ -222,6 +222,7 @@
     <Compile Include="Controllers\ImportExcelController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TActivitiesEventDataController.cs" />
+    <Compile Include="Controllers\UnassignedEventsDataController.cs" />
     <Compile Include="Controllers\VPNTrackerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -425,6 +426,11 @@
     <Content Include="Views\TActivitiesEventData\Details.cshtml" />
     <Content Include="Views\TActivitiesEventData\Edit.cshtml" />
     <Content Include="Views\TActivitiesEventData\Index.cshtml" />
+    <Content Include="Views\UnassignedEventsData\Create.cshtml" />
+    <Content Include="Views\UnassignedEventsData\Delete.cshtml" />
+    <Content Include="Views\UnassignedEventsData\Details.cshtml" />
+    <Content Include="Views\UnassignedEventsData\Edit.cshtml" />
+    <Content Include="Views\UnassignedEventsData\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,7 +12,7 @@ using PagedList;
 
 namespace ISW_Dashboard.Controllers
 {
-    public class EventDataController : Controller
+    public class UnassignedEventsDataController : Controller
     {
         private ISWEntities db = new ISWEntities();
 
@@ -32,15 +32,15 @@ namespace ISW_Dashboard.Controllers
             estatus.Add("1", "Assigned");
             estatus.Add("2", "Completed");
             estatus.Add("3", "Customer Cancelled");
-           // estatus.Add("4", "Outflow");
+            // estatus.Add("4", "Outflow");
             estatus.Add("4", "Started");
-           // estatus.Add("6", "Task Cancelled");
-         //   estatus.Add("7", "Transferred");
+            // estatus.Add("6", "Task Cancelled");
+            //   estatus.Add("7", "Transferred");
             estatus.Add("5", "Unassigned");
             estatus.Add("", "");
             estatus.Add("0", "");
             ViewData["EStatus"] = estatus;
-            IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data> eventData = db.tbl_ISW_Data.Where(v => (v.CategoryName != "T- Activities" && v.CategoryName != "Pre and Post Activities") && ( v.EventStatus != 2 && v.EventStatus != 3 && v.EventStatus != 5)).ToList();
+            IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data> eventData = db.tbl_ISW_Data.Where(v => (v.EventStatus ==5)).ToList();
             if (searchString != null)
             {
                 page = 1;
@@ -58,7 +58,7 @@ namespace ISW_Dashboard.Controllers
                 //eventData = eventData.Where(s => s.CustomerName.ToUpper().Contains(searchString.ToUpper().Trim()) ||
                 //                           s.AssignBy.Replace("(", "").Replace(")", "").Contains(searchString.ToUpper().Trim())
                 //                               );
-                eventData = eventData.Where(s => (!string.IsNullOrEmpty(s.CustomerName) && s.CustomerName.ToUpper().Contains(searchString.ToUpper().Trim()) )||
+                eventData = eventData.Where(s => (!string.IsNullOrEmpty(s.CustomerName) && s.CustomerName.ToUpper().Contains(searchString.ToUpper().Trim())) ||
                                           (!string.IsNullOrEmpty(s.AssignBy) && s.AssignBy.ToUpper().Contains(searchString.ToUpper().Trim())) ||
                                            (!string.IsNullOrEmpty(s.MigratorName) && s.MigratorName.ToUpper().Contains(searchString.ToUpper().Trim())) ||
                                            (!string.IsNullOrEmpty(s.CategoryName) && s.CategoryName.ToUpper().Contains(searchString.ToUpper().Trim()))
@@ -73,19 +73,19 @@ namespace ISW_Dashboard.Controllers
             var CategoryNamesList = eventData.Select(p => p.CategoryName)
                     .Distinct().ToList();
 
-            var CategoryNames = CategoryNamesList.Select(x => new SelectListItem { Text = x, Value = x})
+            var CategoryNames = CategoryNamesList.Select(x => new SelectListItem { Text = x, Value = x })
                   .Distinct().ToList();
-            if(Request["SerchbyCategoryNames"] == null)
+            if (Request["SerchbyCategoryNames"] == null)
             {
                 ViewData["SelectedCategoryNames"] = "ALL";
             }
             else
             {
                 ViewData["SelectedCategoryNames"] = Request["SerchbyCategoryNames"];
-                if(ViewData["SelectedCategoryNames"].ToString().ToUpper().Trim() != "ALL")
-                eventData = eventData.Where(s => (!string.IsNullOrEmpty(s.CategoryName) && s.CategoryName.ToUpper().Contains(ViewData["SelectedCategoryNames"].ToString().ToUpper().Trim())));
+                if (ViewData["SelectedCategoryNames"].ToString().ToUpper().Trim() != "ALL")
+                    eventData = eventData.Where(s => (!string.IsNullOrEmpty(s.CategoryName) && s.CategoryName.ToUpper().Contains(ViewData["SelectedCategoryNames"].ToString().ToUpper().Trim())));
             }
-            CategoryNames.Insert(0,new SelectListItem { Text = "ALL", Value = "ALL"});
+            CategoryNames.Insert(0, new SelectListItem { Text = "ALL", Value = "ALL" });
 
             //List<SelectListItem> items = new List<SelectListItem>();
             ViewData["CategoryNames"] = CategoryNames.ToList();
@@ -154,7 +154,7 @@ namespace ISW_Dashboard.Controllers
             ViewData["KStatus"] = kstatus;
 
             var estatus = new Dictionary<string, string>();
-            
+
             estatus.Add("1", "Assigned");
             estatus.Add("2", "Completed");
             estatus.Add("3", "Customer Cancelled");
@@ -163,8 +163,8 @@ namespace ISW_Dashboard.Controllers
             // estatus.Add("6", "Task Cancelled");
             //   estatus.Add("7", "Transferred");
             estatus.Add("5", "Unassigned ");
-            
-            
+
+
 
             ViewData["EStatus"] = estatus;
 

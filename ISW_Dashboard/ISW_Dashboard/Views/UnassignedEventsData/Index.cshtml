@@ -3,7 +3,7 @@
 @*@model IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data>*@
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "Activity Events Data";
+    ViewBag.Title = "Unassigned Events Data";
     var kStatus = (Dictionary<string, string>)ViewData["KStatus"];
     var eStatus = (Dictionary<string, string>)ViewData["EStatus"];
     int count = Convert.ToInt32(ViewData["eventCount"]);
@@ -130,17 +130,17 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
         </th>
 
         @*<th>
-            @Html.DisplayName("AssignBy")
-        </th>
-        <th>
-            @Html.DisplayName("AssignDate")
-        </th>
-        <th>
-            @Html.DisplayName("transferredDate")
-        </th>
-        <th>
-            @Html.DisplayName("migrationCompleted")
-        </th>*@
+                @Html.DisplayName("AssignBy")
+            </th>
+            <th>
+                @Html.DisplayName("AssignDate")
+            </th>
+            <th>
+                @Html.DisplayName("transferredDate")
+            </th>
+            <th>
+                @Html.DisplayName("migrationCompleted")
+            </th>*@
         <th>
             @Html.DisplayName("unitId")
         </th>
@@ -383,17 +383,17 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             </td>
 
             @*<td>
-                @Html.DisplayFor(modelItem => item.AssignBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AssignDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.transferredDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.migrationCompleted)
-            </td>*@
+                    @Html.DisplayFor(modelItem => item.AssignBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.transferredDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.migrationCompleted)
+                </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.unitId)
             </td>

@@ -1,19 +1,24 @@
 ﻿@model ISW_Dashboard.Models.tbl_ISW_Data
+@Scripts.Render("~/bundles/jquery")
 
-@{
-    ViewBag.Title = "Edit";
-    var kStatus = (Dictionary<string, string>)ViewData["KStatus"];
-    var eStatus = (Dictionary<string, string>)ViewData["EStatus"];
-    Dictionary<string, string>
-                          migrationType = new Dictionary<string, string>();
-    migrationType.Add("", "Please select");
-    migrationType.Add("KickOffEvent", "KickOffEvent");
-    migrationType.Add("UpdateEvent", "UpdateEvent");
-    @*{
+@*<script type="text/javascript">
+
+        $("#LastUpdateEmailSent").change(function () {
+            alert("hi");
+            $("#NextUpdateTime").val($("#LastUpdateEmailSent").val());
+
+            $('#LastUpdateEmailSent').blur(function () {
+                alert("focusin");
+            });
+        });
+
+
+    </script>*@
+
+<scr @{ ViewBag.Title = "Edit"; var kStatus = (Dictionary<string, string>)ViewData["KStatus"]; var eStatus = (Dictionary<string, string>)ViewData["EStatus"]; Dictionary<string, string> migrationType = new Dictionary<string, string>(); migrationType.Add("", "Please select"); migrationType.Add("KickOffEvent", "KickOffEvent"); migrationType.Add("UpdateEvent", "UpdateEvent"); @*{
         new  SelectListItem{ Key="", Value = "Please select" },
                         new SelectListItem{ Key="KickOffEvent", Value = "KickOff" },
-                        new SelectListItem{ Key="UpdateEvent", Value = "UpdateEvent" }};*@
-}
+                        new SelectListItem{ Key="UpdateEvent", Value = "UpdateEvent" }};*@      }
 
 <h2>Edit</h2>
 
@@ -23,273 +28,278 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>tbl_ISW_Data</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
+    <h4>tbl_ISW_Data</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="form-group">
+    @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control", @style = "width:280px", @disabled = "disabled" } })
+    @Html.HiddenFor(model => model.CustomerName)
+    @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.CategoryName, new { id = "CategoryName", htmlAttributes = new { @class = "form-control", @style = "width:280px", @disabled = "disabled", @id = "CategoryName" } })
+    @Html.HiddenFor(model => model.CategoryName)
+    @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.Label("Event Type", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+
+
+    @Html.DropDownListFor(model => model.MigrationType, new SelectList(migrationType, "Key", "Value"))
+
+    @Html.ValidationMessageFor(model => model.MigrationType, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.MigrationWindow, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.MigrationWindow, new { htmlAttributes = new { @class = "form-control", @style = "width:280px", @disabled = "disabled" } })
+    @Html.HiddenFor(model => model.MigrationWindow)
+    @Html.ValidationMessageFor(model => model.MigrationWindow, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.MigrationGroup, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.MigrationGroup, new { htmlAttributes = new { @class = "form-control", @style = "width:280px", @disabled = "disabled" } })
+    @Html.HiddenFor(model => model.MigrationGroup)
+    @Html.ValidationMessageFor(model => model.MigrationGroup, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.ExpectedKickOff, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.ExpectedKickOff, new { htmlAttributes = new { @class = "form-control", @style = "width:280px", @disabled = "disabled" } })
+    @Html.HiddenFor(model => model.ExpectedKickOff)
+    @Html.ValidationMessageFor(model => model.ExpectedKickOff, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.MigratorName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.MigratorName, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.MigratorName, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.PeerReviewer, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.PeerReviewer, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.PeerReviewer, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.DMName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.DMName, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.DMName, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.LastKickOffEmailSent, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.LastKickOffEmailSent, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.Label("(MM/DD/YYYY hh:mm:ss AM)")
+    @Html.ValidationMessageFor(model => model.LastKickOffEmailSent, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.KickOffStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.DropDownListFor(model => model.KickOffStatus, new SelectList(kStatus, "Key", "Value"))
+    @Html.ValidationMessageFor(model => model.KickOffStatus, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.ScheduleCount, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.ScheduleCount, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessage("ScheduleCountError")
+    @Html.ValidationMessageFor(model => model.ScheduleCount, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.SuccessCount, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.SuccessCount, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.SuccessCount, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.InProgressCount, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.InProgressCount, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.InProgressCount, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.FailedCount, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.FailedCount, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.FailedCount, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.CurrentPowerBICount, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.CurrentPowerBICount, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.CurrentPowerBICount, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.PreviousPowerBICount, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.PreviousPowerBICount, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.PreviousPowerBICount, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.EventStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.DropDownListFor(model => model.EventStatus, new SelectList(eStatus, "Key", "Value"))
+    @Html.ValidationMessageFor(model => model.EventStatus, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.UpdateStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.DropDownListFor(model => model.UpdateStatus, new SelectList(kStatus, "Key", "Value"))
+    @Html.ValidationMessageFor(model => model.UpdateStatus, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.LastUpdateEmailSent, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.LastUpdateEmailSent, new { htmlAttributes = new { @class = "LastUpdateEmailSent", id = "LastUpdateEmailSent" } })
+    @Html.Label("(MM/DD/YYYY hh:mm:ss AM)")
+    @Html.Label("Incorrect date format", new { id = "LastUpdateEmailSentMsg", @class = "text-danger", style = "display: none;" })
+    @Html.ValidationMessageFor(model => model.LastUpdateEmailSent, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.CurrentSummary, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.TextAreaFor(model => model.CurrentSummary, new { htmlAttributes = new { @class = "form-control" }, @style = "width: 300px; height:100px;" })
+    @Html.ValidationMessageFor(model => model.CurrentSummary, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.CommentsForDelayKickOff, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.TextAreaFor(model => model.CommentsForDelayKickOff, new { htmlAttributes = new { @class = "form-control" }, @style = "width: 300px; height:100px;" })
+    @Html.ValidationMessageFor(model => model.CommentsForDelayKickOff, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.NextUpdateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.NextUpdateTime, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.Label("(MM/DD/YYYY hh:mm:ss AM)")
+    @Html.ValidationMessageFor(model => model.NextUpdateTime, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.ScheduledDate, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.ScheduledDate, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.Label("(MM/DD/YYYY hh:mm:ss AM)")
+    @Html.ValidationMessageFor(model => model.ScheduledDate, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    <div class="form-group">
+    @Html.LabelFor(model => model.ActivityName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.ActivityName, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.ActivityName, "", new { @class = "text-danger" })
+    </div>
+    </div>
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.updatedby, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control", @style = "width:280px", @disabled = "disabled" } })
-                @Html.HiddenFor(model => model.CustomerName)
-                @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.updatedby, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.updatedby, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.updateddate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control", @style = "width:280px", @disabled = "disabled" } })
-                @Html.HiddenFor(model => model.CategoryName)
-                @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.updateddate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.updateddate, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
-        <div class="form-group">
-            @Html.Label("Event Type", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+    <div class="form-group">
+    @Html.Label("MitigationApplied", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    <div class="checkbox">
+    @Html.EditorFor(model => model.MigrationApplied)
+    @Html.ValidationMessageFor(model => model.MigrationApplied, "", new { @class = "text-danger" })
+    </div>
+    </div>
+    </div>
 
+    <div class="form-group">
+    @Html.LabelFor(model => model.KBUsed, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.KBUsed, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.KBUsed, "", new { @class = "text-danger" })
+    </div>
+    </div>
 
-                @Html.DropDownListFor(model => model.MigrationType, new SelectList(migrationType, "Key", "Value"))
+    <div class="form-group">
+    @Html.LabelFor(model => model.Effort, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.EditorFor(model => model.Effort, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Effort, "", new { @class = "text-danger" })
+    </div>
+    </div>
 
-                @Html.ValidationMessageFor(model => model.MigrationType, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MigrationWindow, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MigrationWindow, new { htmlAttributes = new { @class = "form-control", @style = "width:280px", @disabled = "disabled" } })
-                @Html.HiddenFor(model => model.MigrationWindow)
-                @Html.ValidationMessageFor(model => model.MigrationWindow, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MigrationGroup, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MigrationGroup, new { htmlAttributes = new { @class = "form-control", @style = "width:280px", @disabled = "disabled" } })
-                @Html.HiddenFor(model => model.MigrationGroup)
-                @Html.ValidationMessageFor(model => model.MigrationGroup, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ExpectedKickOff, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ExpectedKickOff, new { htmlAttributes = new { @class = "form-control", @style = "width:280px", @disabled = "disabled" } })
-                @Html.HiddenFor(model => model.ExpectedKickOff)
-                @Html.ValidationMessageFor(model => model.ExpectedKickOff, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MigratorName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MigratorName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MigratorName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PeerReviewer, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PeerReviewer, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PeerReviewer, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.DMName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DMName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DMName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastKickOffEmailSent, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastKickOffEmailSent, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LastKickOffEmailSent, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.KickOffStatus, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.KickOffStatus, new SelectList(kStatus, "Key", "Value"))
-                @Html.ValidationMessageFor(model => model.KickOffStatus, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ScheduleCount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ScheduleCount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessage("ScheduleCountError")
-                @Html.ValidationMessageFor(model => model.ScheduleCount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SuccessCount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.SuccessCount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.SuccessCount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.InProgressCount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.InProgressCount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.InProgressCount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FailedCount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FailedCount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FailedCount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CurrentPowerBICount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CurrentPowerBICount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CurrentPowerBICount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PreviousPowerBICount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PreviousPowerBICount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PreviousPowerBICount, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EventStatus, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.EventStatus, new SelectList(eStatus, "Key", "Value"))
-                @Html.ValidationMessageFor(model => model.EventStatus, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UpdateStatus, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.UpdateStatus, new SelectList(kStatus, "Key", "Value"))
-                @Html.ValidationMessageFor(model => model.UpdateStatus, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastUpdateEmailSent, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastUpdateEmailSent, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LastUpdateEmailSent, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CurrentSummary, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.CurrentSummary, new { htmlAttributes = new { @class = "form-control" }, @style = "width: 300px; height:100px;" })
-                @Html.ValidationMessageFor(model => model.CurrentSummary, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CommentsForDelayKickOff, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.CommentsForDelayKickOff, new { htmlAttributes = new { @class = "form-control" }, @style = "width: 300px; height:100px;" })
-                @Html.ValidationMessageFor(model => model.CommentsForDelayKickOff, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.NextUpdateTime, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NextUpdateTime, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NextUpdateTime, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ScheduledDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ScheduledDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ScheduledDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ActivityName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ActivityName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ActivityName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        @*<div class="form-group">
-                @Html.LabelFor(model => model.updatedby, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.updatedby, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.updatedby, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.updateddate, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.updateddate, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.updateddate, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.MigrationApplied, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.MigrationApplied)
-                    @Html.ValidationMessageFor(model => model.MigrationApplied, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.KBUsed, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.KBUsed, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.KBUsed, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Effort, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Effort, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Effort, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PowerBIUpdated, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.PowerBIUpdated)
-                    @Html.ValidationMessage("powerBIerror")
-                    @Html.ValidationMessageFor(model => model.PowerBIUpdated, "", new { @class = "text-danger" })
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
+    <div class="form-group">
+    @Html.LabelFor(model => model.PowerBIUpdated, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    <div class="checkbox">
+    @Html.EditorFor(model => model.PowerBIUpdated)
+    @Html.ValidationMessage("powerBIerror")
+    @Html.ValidationMessageFor(model => model.PowerBIUpdated, "", new { @class = "text-danger" })
+    </div>
+    </div>
+    </div>
+    @*<div class="form-group">
             @Html.LabelFor(model => model.AssignBy, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.AssignBy, new { htmlAttributes = new { @class = "form-control" } })
@@ -316,16 +326,169 @@
                 @Html.EditorFor(model => model.migrationCompleted, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.migrationCompleted, "", new { @class = "text-danger" })
             </div>
-        </div>
-        @Html.HiddenFor(model => model.unitId)
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
+        </div>*@
+    @Html.HiddenFor(model => model.AssignBy)
+    @Html.HiddenFor(model => model.AssignDate)
+    @Html.HiddenFor(model => model.transferredDate)
+    @Html.HiddenFor(model => model.migrationCompleted)
+
+    @Html.HiddenFor(model => model.unitId)
+    <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+    <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+    </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+@Html.ActionLink("Back to List", "Index")
 </div>
+
+    <script>
+ //$(document).ready(alert("jquery is working"));
+   // $(document).ready(alert($('.LastUpdateEmailSent').val()));
+    $(document).ready(
+        $("#LastUpdateEmailSent").focusout(function () {
+            //alert("hi");
+            if (Date.parse($("#LastUpdateEmailSent").val()))
+            {
+                $("#LastUpdateEmailSentMsg").hide();
+ //alert("hi2");
+var stt = new Date($("#LastUpdateEmailSent").val());
+stt1 = stt.getTime();
+//alert(stt1);
+@*var mytime = moment(stt);
+    alert(mytime);*@
+                datetext = stt.toTimeString().split(' ')[0];
+
+//alert(datetext);
+//datetext2 = $("#LastUpdateEmailSent").val().toTimeString().split(' ')[0];
+//alert(datetext2);
+
+@*var time1 = moment('08:00 am', "HH:mm a");
+                    alert(time1);
+    var time2 = moment('05:00 pm', "HH:mm a");
+                    var time3 = moment('03:30 am', "HH:mm a");
+*@
+
+var timer1=   new Date(toValidDate('20 Aug 2000 06:00:00 am'));
+ //alert(timer1);
+ var timer2 = new Date(toValidDate('20 Aug 2000 ' + '02:00:00 pm'));
+ //alert(timer2);
+ var timer3 = new Date(toValidDate('20 Aug 2000 ' + '10:00:00 pm'));
+ var timer4 = new Date(toValidDate('20 Aug 2000 ' + '11:59:59 pm'));
+//alert(timer3);
+//alert(timer1 + " " + timer2 + "" + timer3 );
+var actual = new Date(toValidDate('20 Aug 2000 ' + stt.toTimeString().split(' ')[0]));
+//alert(actual);
+
+datetextdata = $('.LastUpdateEmailSent').val().split(' ')[0];
+
+//alert(datetextdata);
+
+if (actual >= timer1 && actual < timer2) {
+    //  alert('05:30 pm');
+    $("#NextUpdateTime").val(datetextdata+' ' +'05:30:00 PM' );
+
+}
+else {
+
+if (actual >= timer2 && actual < timer3) {
+   //  alert('03:30 am');
+    var date2 = new Date(datetextdata);
+    //alert(date2);
+    date2.setDate(date2.getDate() + 1);
+    $("#NextUpdateTime").val((date2.getMonth() + 1) + '/' + date2.getDate() + '/' + date2.getFullYear() + ' ' + '03:30:00 AM');
+}
+else{
+if (actual >= timer3 && actual <= timer4) {
+    //  alert('08:30 am');
+    var date2 = new Date(datetextdata);
+    //alert(date2);
+    date2.setDate(date2.getDate() + 1);
+    $("#NextUpdateTime").val((date2.getMonth() + 1) + '/' + date2.getDate() + '/' + date2.getFullYear() + ' ' + '08:30:00 AM');
+  //  $("#NextUpdateTime").val(datetextdata + ' ' + '08:30:00 AM');
+}
+else
+    {
+
+   // alert('last 08:30 am');
+var date2 = new Date(datetextdata);
+//alert(date2);
+date2.setDate(date2.getDate()+1);
+    //alert(date2);
+//if (actual <= timer4)
+$("#NextUpdateTime").val(datetextdata + ' ' + '08:30:00 AM');
+   // $("#NextUpdateTime").val((date2.getMonth() + 1) + '/' + date2.getDate() + '/' + date2.getFullYear() + ' ' + '08:30:00 AM');
+@*else
+    $("#NextUpdateTime").val(datetextdata+' ' +'03:30:00 AM' );*@
+
+}}
+}
+@*if(stt.isBetween(startTime , endTime))
+    {
+    alert("yes");
+
+    }
+    else{
+    alert("no");
+    }*@
+            }
+            else{
+if($("#LastUpdateEmailSent").val().trim() != "")
+$("#LastUpdateEmailSentMsg").show();
+else
+$("#LastUpdateEmailSentMsg").hide();
+            }
+            //$("#NextUpdateTime").val($("#LastUpdateEmailSent").val());
+        }));
+
+function toValidDate(datestring){
+    return datestring.replace(/(\d{2})(\/)(\d{2})/, "$3$2$1");
+}
+$("#MigrationType").change(function() {
+        //alert( $('option:selected', this).text() );
+    if ($('option:selected', this).text() == 'KickOffEvent')
+        {
+$("#UpdateStatus").attr("disabled", "disabled");
+$("#LastUpdateEmailSent").attr("disabled", "disabled");
+
+$("#LastKickOffEmailSent").removeAttr("disabled");
+$("#KickOffStatus").removeAttr("disabled");
+var optionExists = ($('#UpdateStatus option[value=3]').length > 0);
+if(!optionExists)
+{
+   // alert('data');
+$("#UpdateStatus").append('<option value=3>Canceled</option>')
+$("#UpdateStatus").append('<option value=4>Rescheduled</option>')
+}
+//$("#textbox1").removeAttr("disabled");
+    }
+    else{
+    if ($('option:selected', this).text() == 'UpdateEvent') {
+        $("#LastKickOffEmailSent").attr("disabled", "disabled");
+        $("#KickOffStatus").attr("disabled", "disabled");
+
+        $("#UpdateStatus").removeAttr("disabled");
+        $("#LastUpdateEmailSent").removeAttr("disabled");
+        //$("#textbox1").removeAttr("disabled");
+$("#UpdateStatus option[value='3']").remove();
+$("#UpdateStatus option[value='4']").remove();
+    }
+else{
+$("#UpdateStatus").removeAttr("disabled");
+        $("#LastUpdateEmailSent").removeAttr("disabled");
+$("#LastKickOffEmailSent").removeAttr("disabled");
+$("#LastKickOffEmailSent").removeAttr("disabled");
+        var optionExists = ($('#UpdateStatus option[value=3]').length > 0);
+if(!optionExists)
+{
+   // alert('data');
+$("#UpdateStatus").append('<option value=3>Canceled</option>')
+$("#UpdateStatus").append('<option value=4>Rescheduled</option>')
+}
+}
+}
+    });
+    </script>

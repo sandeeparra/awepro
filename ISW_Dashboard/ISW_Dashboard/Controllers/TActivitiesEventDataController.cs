@@ -40,7 +40,7 @@ namespace ISW_Dashboard.Controllers
             estatus.Add("", "");
             estatus.Add("0", "");
             ViewData["EStatus"] = estatus;
-            IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data> eventData = db.tbl_ISW_Data.Where((v => (v.CategoryName == "T- Activities" || v.CategoryName == "Pre and Post Activities") && (v.EventStatus != 2 && v.EventStatus != 3))).ToList();
+            IEnumerable<ISW_Dashboard.Models.tbl_ISW_Data> eventData = db.tbl_ISW_Data.Where((v => (v.CategoryName == "T- Activities" || v.CategoryName == "Pre and Post Activities") && (v.EventStatus != 2 && v.EventStatus != 3 && v.EventStatus != 5))).ToList();
             if (searchString != null)
             {
                 page = 1;

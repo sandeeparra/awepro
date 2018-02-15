@@ -1,19 +1,19 @@
 ﻿@model ISW_Dashboard.Models.tbl_ISW_Data
 @Scripts.Render("~/bundles/jquery")
 
-<script type="text/javascript">
+@*<script type="text/javascript">
 
-    $("#LastUpdateEmailSent").change(function () {
-        alert("hi");
-        $("#NextUpdateTime").val($("#LastUpdateEmailSent").val());
+        $("#LastUpdateEmailSent").change(function () {
+            alert("hi");
+            $("#NextUpdateTime").val($("#LastUpdateEmailSent").val());
 
-        $('#LastUpdateEmailSent').blur(function () {
-            alert("focusin");
+            $('#LastUpdateEmailSent').blur(function () {
+                alert("focusin");
+            });
         });
-    });
 
 
-</script>
+    </script>*@
 
 <scr @{ ViewBag.Title = "Edit"; var kStatus = (Dictionary<string, string>)ViewData["KStatus"]; var eStatus = (Dictionary<string, string>)ViewData["EStatus"]; Dictionary<string, string> migrationType = new Dictionary<string, string>(); migrationType.Add("", "Please select"); migrationType.Add("KickOffEvent", "KickOffEvent"); migrationType.Add("UpdateEvent", "UpdateEvent"); @*{
         new  SelectListItem{ Key="", Value = "Please select" },
@@ -372,12 +372,12 @@ stt1 = stt.getTime();
                     var time3 = moment('03:30 am', "HH:mm a");
 *@
 
-var timer1=   new Date(toValidDate('20 Aug 2000 08:00:00 am'));
+var timer1=   new Date(toValidDate('20 Aug 2000 06:00:00 am'));
  //alert(timer1);
- var timer2 = new Date(toValidDate('20 Aug 2000 ' + '05:00:00 pm'));
+ var timer2 = new Date(toValidDate('20 Aug 2000 ' + '02:00:00 pm'));
  //alert(timer2);
- var timer3 = new Date(toValidDate('20 Aug 2000 ' + '03:00:00 am'));
- var timer4 = new Date(toValidDate('20 Aug 2000 ' + '12:00:00 am'));
+ var timer3 = new Date(toValidDate('20 Aug 2000 ' + '10:00:00 pm'));
+ var timer4 = new Date(toValidDate('20 Aug 2000 ' + '11:59:59 pm'));
 //alert(timer3);
 //alert(timer1 + " " + timer2 + "" + timer3 );
 var actual = new Date(toValidDate('20 Aug 2000 ' + stt.toTimeString().split(' ')[0]));
@@ -394,29 +394,37 @@ if (actual >= timer1 && actual < timer2) {
 }
 else {
 
-if (actual >= timer3 && actual < timer1) {
-    //  alert('08:30 am');
-    $("#NextUpdateTime").val(datetextdata+' ' +'08:30:00 AM' );
+if (actual >= timer2 && actual < timer3) {
+   //  alert('03:30 am');
+    var date2 = new Date(datetextdata);
+    //alert(date2);
+    date2.setDate(date2.getDate() + 1);
+    $("#NextUpdateTime").val((date2.getMonth() + 1) + '/' + date2.getDate() + '/' + date2.getFullYear() + ' ' + '03:30:00 AM');
 }
-if (actual >= timer4 && actual < timer3) {
-    //  alert('03:30 am');
-    $("#NextUpdateTime").val(datetextdata + ' ' + '03:30:00 AM');
+else{
+if (actual >= timer3 && actual <= timer4) {
+    //  alert('08:30 am');
+    var date2 = new Date(datetextdata);
+    //alert(date2);
+    date2.setDate(date2.getDate() + 1);
+    $("#NextUpdateTime").val((date2.getMonth() + 1) + '/' + date2.getDate() + '/' + date2.getFullYear() + ' ' + '08:30:00 AM');
+  //  $("#NextUpdateTime").val(datetextdata + ' ' + '08:30:00 AM');
 }
 else
     {
 
-    //alert('03:30 am');
+   // alert('last 08:30 am');
 var date2 = new Date(datetextdata);
 //alert(date2);
 date2.setDate(date2.getDate()+1);
     //alert(date2);
 //if (actual <= timer4)
-
-    $("#NextUpdateTime").val((date2.getMonth() + 1) + '/' + date2.getDate() + '/' + date2.getFullYear() + ' ' + '03:30:00 AM');
+$("#NextUpdateTime").val(datetextdata + ' ' + '08:30:00 AM');
+   // $("#NextUpdateTime").val((date2.getMonth() + 1) + '/' + date2.getDate() + '/' + date2.getFullYear() + ' ' + '08:30:00 AM');
 @*else
     $("#NextUpdateTime").val(datetextdata+' ' +'03:30:00 AM' );*@
 
-}
+}}
 }
 @*if(stt.isBetween(startTime , endTime))
     {
