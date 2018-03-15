@@ -18,9 +18,9 @@
 <scr @{ ViewBag.Title = "Edit"; var kStatus = (Dictionary<string, string>)ViewData["KStatus"]; var eStatus = (Dictionary<string, string>)ViewData["EStatus"]; Dictionary<string, string> migrationType = new Dictionary<string, string>(); migrationType.Add("", "Please select"); migrationType.Add("KickOffEvent", "KickOffEvent"); migrationType.Add("UpdateEvent", "UpdateEvent"); @*{
         new  SelectListItem{ Key="", Value = "Please select" },
                         new SelectListItem{ Key="KickOffEvent", Value = "KickOff" },
-                        new SelectListItem{ Key="UpdateEvent", Value = "UpdateEvent" }};*@                    }
+                        new SelectListItem{ Key="UpdateEvent", Value = "UpdateEvent" }};*@        }
 
-
+<h2>Edit</h2>
 
 @using (Html.BeginForm())
 {
@@ -90,10 +90,10 @@
     </div>
 
     <div class="form-group">
-    @Html.Label("Planned KickOff/Update Communication Time", htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.Label("Planned KickOff/Update Communication Time", htmlAttributes: new { @class = "control -label col-md-2" })
     <div class="col-md-10">
     @Html.EditorFor(model => model.ExpectedKickOff, new { htmlAttributes = new { @class = "form-control", @style = "width:280px" } })
-    @*@Html.HiddenFor(model => model.ExpectedKickOff)*@
+   @* @Html.HiddenFor(model => model.ExpectedKickOff)*@
     @Html.ValidationMessageFor(model => model.ExpectedKickOff, "", new { @class = "text-danger" })
     </div>
     </div>
@@ -123,14 +123,13 @@
     </div>
 
     <div class="form-group">
-    @Html.Label("KickoffEmailSent", htmlAttributes: new { @class = "control-label col-md-2" })
+    @Html.Label("KickOffEmailSent", htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
     @Html.EditorFor(model => model.LastKickOffEmailSent, new { htmlAttributes = new { @class = "form-control" } })
     @Html.Label("(MM/DD/YYYY hh:mm:ss AM)")
     @Html.ValidationMessageFor(model => model.LastKickOffEmailSent, "", new { @class = "text-danger" })
     </div>
     </div>
-
 
     <div class="form-group">
     @Html.LabelFor(model => model.LastUpdateEmailSent, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -150,6 +149,7 @@
     @Html.ValidationMessageFor(model => model.NextUpdateTime, "", new { @class = "text-danger" })
     </div>
     </div>
+
     <div class="form-group">
     @Html.LabelFor(model => model.KickOffStatus, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
@@ -157,14 +157,13 @@
     @Html.ValidationMessageFor(model => model.KickOffStatus, "", new { @class = "text-danger" })
     </div>
     </div>
-
-    <div class="form-group">
-    @Html.LabelFor(model => model.UpdateStatus, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-    @Html.DropDownListFor(model => model.UpdateStatus, new SelectList(kStatus, "Key", "Value"))
-    @Html.ValidationMessageFor(model => model.UpdateStatus, "", new { @class = "text-danger" })
-    </div>
-    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.UpdateStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.UpdateStatus, new SelectList(kStatus, "Key", "Value"))
+                @Html.ValidationMessageFor(model => model.UpdateStatus, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
     <div class="form-group">
     @Html.LabelFor(model => model.ScheduleCount, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -226,6 +225,7 @@
 
 
 
+
     <div class="form-group">
     @Html.LabelFor(model => model.CurrentSummary, htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
@@ -241,7 +241,6 @@
     @Html.ValidationMessageFor(model => model.CommentsForDelayKickOff, "", new { @class = "text-danger" })
     </div>
     </div>
-
 
 
 
@@ -453,9 +452,7 @@ else
 $("#LastUpdateEmailSentMsg").hide();
             }
             //$("#NextUpdateTime").val($("#LastUpdateEmailSent").val());
-        })
-
-);
+        }));
 
 function toValidDate(datestring){
     return datestring.replace(/(\d{2})(\/)(\d{2})/, "$3$2$1");
@@ -509,6 +506,6 @@ $("#UpdateStatus").append('<option value=4>Rescheduled</option>')
 }
 }
 }
-return;
+//return;
 }
     </script>
