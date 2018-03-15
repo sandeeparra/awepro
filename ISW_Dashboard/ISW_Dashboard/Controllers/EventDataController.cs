@@ -24,6 +24,7 @@ namespace ISW_Dashboard.Controllers
             kstatus.Add("2", "Delayed");
             kstatus.Add("3", "Canceled");
             kstatus.Add("4", "Rescheduled");
+            kstatus.Add("5", "Final Sent");
             kstatus.Add("", "");
             kstatus.Add("0", "");
             ViewData["KStatus"] = kstatus;
@@ -61,7 +62,8 @@ namespace ISW_Dashboard.Controllers
                 eventData = eventData.Where(s => (!string.IsNullOrEmpty(s.CustomerName) && s.CustomerName.ToUpper().Contains(searchString.ToUpper().Trim()) )||
                                           (!string.IsNullOrEmpty(s.AssignBy) && s.AssignBy.ToUpper().Contains(searchString.ToUpper().Trim())) ||
                                            (!string.IsNullOrEmpty(s.MigratorName) && s.MigratorName.ToUpper().Contains(searchString.ToUpper().Trim())) ||
-                                           (!string.IsNullOrEmpty(s.CategoryName) && s.CategoryName.ToUpper().Contains(searchString.ToUpper().Trim()))
+                                           (!string.IsNullOrEmpty(s.CategoryName) && s.CategoryName.ToUpper().Contains(searchString.ToUpper().Trim())) ||
+                                           (!string.IsNullOrEmpty(s.MigrationType) && s.MigrationType.ToUpper().Contains(searchString.ToUpper().Trim()))
 
                                                );
 
@@ -149,7 +151,7 @@ namespace ISW_Dashboard.Controllers
             kstatus.Add("2", "Delayed");
             kstatus.Add("3", "Canceled");
             kstatus.Add("4", "Rescheduled");
-
+            kstatus.Add("5", "Final Sent");
 
             ViewData["KStatus"] = kstatus;
 
@@ -193,7 +195,7 @@ namespace ISW_Dashboard.Controllers
             kstatus.Add("2", "Delayed");
             kstatus.Add("3", "Canceled");
             kstatus.Add("4", "Rescheduled");
-
+            kstatus.Add("5", "Final Sent");
 
             ViewData["KStatus"] = kstatus;
 
@@ -210,7 +212,7 @@ namespace ISW_Dashboard.Controllers
             estatus.Add("0", "");
 
             ViewData["EStatus"] = estatus;
-            if (tbl_ISW_Data.PowerBIUpdated == true && tbl_ISW_Data.InProgressCount == 0)
+            if (tbl_ISW_Data.PowerBIUpdated == true && tbl_ISW_Data.InProgressCount != 0)
             {
                 ModelState.AddModelError("powerBIerror", "Inprogress count should be zero");
 

@@ -210,7 +210,7 @@ namespace ISW_Dashboard.Controllers
             estatus.Add("0", "");
 
             ViewData["EStatus"] = estatus;
-            if (tbl_ISW_Data.PowerBIUpdated == true && tbl_ISW_Data.InProgressCount == 0)
+            if (tbl_ISW_Data.PowerBIUpdated == true && tbl_ISW_Data.InProgressCount != 0)
             {
                 ModelState.AddModelError("powerBIerror", "Inprogress count should be zero");
 
