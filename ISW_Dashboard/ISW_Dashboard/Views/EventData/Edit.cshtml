@@ -18,7 +18,7 @@
 <scr @{ ViewBag.Title = "Edit"; var kStatus = (Dictionary<string, string>)ViewData["KStatus"]; var eStatus = (Dictionary<string, string>)ViewData["EStatus"]; Dictionary<string, string> migrationType = new Dictionary<string, string>(); migrationType.Add("", "Please select"); migrationType.Add("KickOffEvent", "KickOffEvent"); migrationType.Add("UpdateEvent", "UpdateEvent"); @*{
         new  SelectListItem{ Key="", Value = "Please select" },
                         new SelectListItem{ Key="KickOffEvent", Value = "KickOff" },
-                        new SelectListItem{ Key="UpdateEvent", Value = "UpdateEvent" }};*@        }
+                        new SelectListItem{ Key="UpdateEvent", Value = "UpdateEvent" }};*@         }
 
 <h2>Edit</h2>
 
@@ -93,7 +93,7 @@
     @Html.Label("Planned KickOff/Update Communication Time", htmlAttributes: new { @class = "control -label col-md-2" })
     <div class="col-md-10">
     @Html.EditorFor(model => model.ExpectedKickOff, new { htmlAttributes = new { @class = "form-control", @style = "width:280px" } })
-   @* @Html.HiddenFor(model => model.ExpectedKickOff)*@
+    @* @Html.HiddenFor(model => model.ExpectedKickOff)*@
     @Html.ValidationMessageFor(model => model.ExpectedKickOff, "", new { @class = "text-danger" })
     </div>
     </div>
@@ -125,8 +125,9 @@
     <div class="form-group">
     @Html.Label("KickOffEmailSent", htmlAttributes: new { @class = "control-label col-md-2" })
     <div class="col-md-10">
-    @Html.EditorFor(model => model.LastKickOffEmailSent, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.EditorFor(model => model.LastKickOffEmailSent, new { htmlAttributes = new { @class = "LastKickOffEmailSent", id = "LastKickOffEmailSent" }  })
     @Html.Label("(MM/DD/YYYY hh:mm:ss AM)")
+    @Html.Label("Incorrect date format", new { id = "KickOffEmailSentMsg", @class = "text-danger", style = "display: none;" })
     @Html.ValidationMessageFor(model => model.LastKickOffEmailSent, "", new { @class = "text-danger" })
     </div>
     </div>
@@ -157,13 +158,13 @@
     @Html.ValidationMessageFor(model => model.KickOffStatus, "", new { @class = "text-danger" })
     </div>
     </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.UpdateStatus, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(model => model.UpdateStatus, new SelectList(kStatus, "Key", "Value"))
-                @Html.ValidationMessageFor(model => model.UpdateStatus, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div class="form-group">
+    @Html.LabelFor(model => model.UpdateStatus, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+    @Html.DropDownListFor(model => model.UpdateStatus, new SelectList(kStatus, "Key", "Value"))
+    @Html.ValidationMessageFor(model => model.UpdateStatus, "", new { @class = "text-danger" })
+    </div>
+    </div>
 
     <div class="form-group">
     @Html.LabelFor(model => model.ScheduleCount, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -508,4 +509,105 @@ $("#UpdateStatus").append('<option value=4>Rescheduled</option>')
 }
 //return;
 }
+
+
+
+$(document).ready(
+//$('#MigrationType').change();
+
+$("#LastKickOffEmailSent").focusout(function () {
+    //alert("hi");
+    if (Date.parse($("#LastKickOffEmailSent").val()))
+    {
+        $("#KickOffEmailSentMsg").hide();
+        //alert("hi2");
+        var stt = new Date($("#LastKickOffEmailSent").val());
+        stt1 = stt.getTime();
+        //alert(stt1);
+@*var mytime = moment(stt);
+    alert(mytime);*@
+                    datetext = stt.toTimeString().split(' ')[0];
+
+        //alert(datetext);
+        //datetext2 = $("#LastKickOffEmailSent").val().toTimeString().split(' ')[0];
+        //alert(datetext2);
+
+@*var time1 = moment('08:00 am', "HH:mm a");
+    alert(time1);
+    var time2 = moment('05:00 pm', "HH:mm a");
+    var time3 = moment('03:30 am', "HH:mm a");
+*@
+
+        var timer1=   new Date(toValidDate('20 Aug 2000 06:00:00 am'));
+        //alert(timer1);
+        var timer2 = new Date(toValidDate('20 Aug 2000 ' + '02:00:00 pm'));
+        //alert(timer2);
+        var timer3 = new Date(toValidDate('20 Aug 2000 ' + '10:00:00 pm'));
+        var timer4 = new Date(toValidDate('20 Aug 2000 ' + '11:59:59 pm'));
+        //alert(timer3);
+        //alert(timer1 + " " + timer2 + "" + timer3 );
+        var actual = new Date(toValidDate('20 Aug 2000 ' + stt.toTimeString().split(' ')[0]));
+        //alert(actual);
+
+        datetextdata = $('.LastKickOffEmailSent').val().split(' ')[0];
+
+        //alert(datetextdata);
+
+        if (actual >= timer1 && actual < timer2) {
+            //  alert('05:30 pm');
+            $("#NextUpdateTime").val(datetextdata+' ' +'05:30:00 PM' );
+
+        }
+        else {
+
+            if (actual >= timer2 && actual < timer3) {
+                //  alert('03:30 am');
+                var date2 = new Date(datetextdata);
+                //alert(date2);
+                date2.setDate(date2.getDate() + 1);
+                $("#NextUpdateTime").val((date2.getMonth() + 1) + '/' + date2.getDate() + '/' + date2.getFullYear() + ' ' + '03:30:00 AM');
+            }
+            else{
+                if (actual >= timer3 && actual <= timer4) {
+                    //  alert('08:30 am');
+                    var date2 = new Date(datetextdata);
+                    //alert(date2);
+                    date2.setDate(date2.getDate() + 1);
+                    $("#NextUpdateTime").val((date2.getMonth() + 1) + '/' + date2.getDate() + '/' + date2.getFullYear() + ' ' + '08:30:00 AM');
+                    //  $("#NextUpdateTime").val(datetextdata + ' ' + '08:30:00 AM');
+                }
+                else
+                {
+
+                    // alert('last 08:30 am');
+                    var date2 = new Date(datetextdata);
+                    //alert(date2);
+                    date2.setDate(date2.getDate()+1);
+                    //alert(date2);
+                    //if (actual <= timer4)
+
+                    $("#NextUpdateTime").val(datetextdata + ' ' + '08:30:00 AM');
+                    // $("#NextUpdateTime").val((date2.getMonth() + 1) + '/' + date2.getDate() + '/' + date2.getFullYear() + ' ' + '08:30:00 AM');
+@*else
+    $("#NextUpdateTime").val(datetextdata+' ' +'03:30:00 AM' );*@
+
+                    }}
+        }
+@*if(stt.isBetween(startTime , endTime))
+            {
+                alert("yes");
+
+            }
+        else{
+    alert("no");
+        }*@
+    }
+else{
+if($("#LastKickOffEmailSent").val().trim() != "")
+$("#KickOffEmailSentMsg").show();
+else
+$("#KickOffEmailSentMsg").hide();
+}
+//$("#NextUpdateTime").val($("#LastKickOffEmailSent").val());
+}));
     </script>
