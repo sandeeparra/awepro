@@ -51,7 +51,10 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             @Html.DisplayName("MigrationGroup")
         </th>
         <th>
-            @Html.DisplayName("ExpectedKickOff")
+            @Html.DisplayName("ScheduledDate")
+        </th>
+        <th>
+            @Html.DisplayName("Planned KickOff/Update Communication Time")
         </th>
         <th>
             @Html.DisplayName("MigratorName")
@@ -63,10 +66,19 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             @Html.DisplayName("DMName")
         </th>
         <th>
-            @Html.DisplayName("LastKickOffEmailSent")
+            @Html.DisplayName("KickOffEmailSent")
+        </th>
+        <th>
+            @Html.DisplayName("LastUpdateEmailSent")
+        </th>
+        <th>
+            @Html.DisplayName("NextUpdateTime")
         </th>
         <th>
             @Html.DisplayName("KickOffStatus")
+        </th>
+        <th>
+            @Html.DisplayName("UpdateStatus")
         </th>
         <th>
             @Html.DisplayName("ScheduleCount")
@@ -90,22 +102,10 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             @Html.DisplayName("EventStatus")
         </th>
         <th>
-            @Html.DisplayName("UpdateStatus")
-        </th>
-        <th>
-            @Html.DisplayName("LastUpdateEmailSent")
-        </th>
-        <th>
             @Html.DisplayName("CurrentSummary")
         </th>
         <th>
             @Html.DisplayName("CommentsForDelayKickOff")
-        </th>
-        <th>
-            @Html.DisplayName("NextUpdateTime")
-        </th>
-        <th>
-            @Html.DisplayName("ScheduledDate")
         </th>
         <th>
             @Html.DisplayName("ActivityName")
@@ -130,17 +130,17 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
         </th>
 
         @*<th>
-            @Html.DisplayName("AssignBy")
-        </th>
-        <th>
-            @Html.DisplayName("AssignDate")
-        </th>
-        <th>
-            @Html.DisplayName("transferredDate")
-        </th>
-        <th>
-            @Html.DisplayName("migrationCompleted")
-        </th>*@
+                @Html.DisplayName("AssignBy")
+            </th>
+            <th>
+                @Html.DisplayName("AssignDate")
+            </th>
+            <th>
+                @Html.DisplayName("transferredDate")
+            </th>
+            <th>
+                @Html.DisplayName("migrationCompleted")
+            </th>*@
         <th>
             @Html.DisplayName("unitId")
         </th>
@@ -304,6 +304,9 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
                 @Html.DisplayFor(modelItem => item.MigrationGroup)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.ScheduledDate)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.ExpectedKickOff)
             </td>
             <td>
@@ -319,7 +322,16 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
                 @Html.DisplayFor(modelItem => item.LastKickOffEmailSent)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.LastUpdateEmailSent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextUpdateTime)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => kStatus[(item.KickOffStatus == null ? "" : item.KickOffStatus.ToString())])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => kStatus[(item.UpdateStatus == null ? "" : item.UpdateStatus.ToString())])
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ScheduleCount)
@@ -342,23 +354,13 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             <td>
                 @Html.DisplayFor(modelItem => eStatus[(item.EventStatus == null ? "" : item.EventStatus.ToString())])
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => kStatus[(item.UpdateStatus == null ? "" : item.UpdateStatus.ToString())])
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdateEmailSent)
-            </td>
+
+
             <td>
                 @Html.DisplayFor(modelItem => item.CurrentSummary)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CommentsForDelayKickOff)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NextUpdateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ScheduledDate)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ActivityName)
@@ -383,17 +385,17 @@ Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.Page
             </td>
 
             @*<td>
-                @Html.DisplayFor(modelItem => item.AssignBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AssignDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.transferredDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.migrationCompleted)
-            </td>*@
+                    @Html.DisplayFor(modelItem => item.AssignBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.transferredDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.migrationCompleted)
+                </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.unitId)
             </td>

@@ -212,11 +212,11 @@ namespace ISW_Dashboard.Controllers
             estatus.Add("0", "");
 
             ViewData["EStatus"] = estatus;
-            if (tbl_ISW_Data.PowerBIUpdated == true && tbl_ISW_Data.InProgressCount != 0)
-            {
-                ModelState.AddModelError("powerBIerror", "Inprogress count should be zero");
+            //if (tbl_ISW_Data.PowerBIUpdated == true && tbl_ISW_Data.InProgressCount != 0)
+            //{
+            //    ModelState.AddModelError("powerBIerror", "Inprogress count should be zero");
 
-            }
+            //}
             if (tbl_ISW_Data.ScheduleCount != tbl_ISW_Data.FailedCount + tbl_ISW_Data.SuccessCount + tbl_ISW_Data.InProgressCount)
             {
                 ModelState.AddModelError("ScheduleCountError", "Schedule Count should be equals to sum of SuccessCount,FailedCount,InProgressCount");
