@@ -9,409 +9,429 @@
     int count = Convert.ToInt32(ViewData["eventCount"]);
 }
 @Styles.Render("~/Content/Styles.css")
-<h2>Events Data</h2>
+<p class="text-center">
+    <h2>Events Data</h2>
+</p>
+
 
 @using (Html.BeginForm())
 {
     <p>
-        Search : @Html.TextBox("SearchString",ViewBag.CurrentFilter as string)
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Search:</span>
+            </div>
+            @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class="form-control" })
+            <div class="input-group-append">
 
-        <input type="submit" value="Search" />
+                <input type="submit" value="Search" class="btn btn-outline-primary" />
+            </div>
+        </div>
 
-        <br />
-        <br />
-        @Html.DropDownList("SerchbyCategoryNames", new SelectList(ViewBag.CategoryNames, "Text", "Value", ViewBag.SelectedCategoryNames))
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Search by Category Name:</span>
+            </div>
+            @Html.DropDownList("SerchbyCategoryNames", new SelectList(ViewBag.CategoryNames, "Text", "Value", ViewBag.SelectedCategoryNames),new { @class="form-control"})
+            <div class="input-group-append">
+                <input type="submit" value="Search" class="btn btn-outline-dark" />
+            </div>
+        </div>
 
-        <input type="submit" value="Search by CategoryName" />
+        
+
+        
     </p>
 }
 
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount ; Events count : @count 
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount ; Events count : @count
 
-       
+
 @Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))     
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+<div class="table-responsive-lg">
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">
+                    @Html.DisplayName("CustomerName")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("CategoryName")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("EventType")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("MigrationWindow")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("MigrationGroup")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("ScheduledDate")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("Planned KickOff")<!--/Update Communication Time-->
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("MigratorName")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("PeerReviewer")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("DMName")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("KickOffEmailSent")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("LastUpdateEmailSent")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("NextUpdateTime")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("KickOffStatus")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("UpdateStatus")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("ScheduleCount")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("SuccessCount")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("InProgressCount")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("FailedCount")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("CurrentPowerBICount")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("PreviousPowerBICount")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("EventStatus")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("CurrentSummary")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("CommentsForDelayKickOff")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("ActivityName")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("updatedby")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("updateddate")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("MitigationApplied")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("KBUsed")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("Effort")
+                </th>
+                <th scope="col">
+                    @Html.DisplayName("PowerBIUpdated")
+                </th>
 
-<table class="altrowstable">
-    <tr>
-        <th></th>
-        <th>
-            @Html.DisplayName("CustomerName")
-        </th>
-        <th>
-            @Html.DisplayName("CategoryName")
-        </th>
-        <th>
-            @Html.DisplayName("EventType")
-        </th>
-        <th>
-            @Html.DisplayName("MigrationWindow")
-        </th>
-        <th>
-            @Html.DisplayName("MigrationGroup")
-        </th>
-        <th>
-            @Html.DisplayName("ScheduledDate")
-        </th>
-        <th>
-            @Html.DisplayName("Planned KickOff/Update Communication Time")
-        </th>
-        <th>
-            @Html.DisplayName("MigratorName")
-        </th>
-        <th>
-            @Html.DisplayName("PeerReviewer")
-        </th>
-        <th>
-            @Html.DisplayName("DMName")
-        </th>
-        <th>
-            @Html.DisplayName("KickOffEmailSent")
-        </th>
-        <th>
-            @Html.DisplayName("LastUpdateEmailSent")
-        </th>
-        <th>
-            @Html.DisplayName("NextUpdateTime")
-        </th>
-        <th>
-            @Html.DisplayName("KickOffStatus")
-        </th>
-        <th>
-            @Html.DisplayName("UpdateStatus")
-        </th>
-        <th>
-            @Html.DisplayName("ScheduleCount")
-        </th>
-        <th>
-            @Html.DisplayName("SuccessCount")
-        </th>
-        <th>
-            @Html.DisplayName("InProgressCount")
-        </th>
-        <th>
-            @Html.DisplayName("FailedCount")
-        </th>
-        <th>
-            @Html.DisplayName("CurrentPowerBICount")
-        </th>
-        <th>
-            @Html.DisplayName("PreviousPowerBICount")
-        </th>
-        <th>
-            @Html.DisplayName("EventStatus")
-        </th>
-        <th>
-            @Html.DisplayName("CurrentSummary")
-        </th>
-        <th>
-            @Html.DisplayName("CommentsForDelayKickOff")
-        </th>
-        <th>
-            @Html.DisplayName("ActivityName")
-        </th>
-        <th>
-            @Html.DisplayName("updatedby")
-        </th>
-        <th>
-            @Html.DisplayName("updateddate")
-        </th>
-        <th>
-            @Html.DisplayName("MitigationApplied")
-        </th>
-        <th>
-            @Html.DisplayName("KBUsed")
-        </th>
-        <th>
-            @Html.DisplayName("Effort")
-        </th>
-        <th>
-            @Html.DisplayName("PowerBIUpdated")
-        </th>
+                @*<th scope="col">
+                        @Html.DisplayName("AssignBy")
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayName("AssignDate")
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayName("transferredDate")
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayName("migrationCompleted")
+                    </th>*@
+                <th scope="col">
+                    @Html.DisplayName("unitId")
+                </th>
+                @*<th scope="col">
+                        @Html.DisplayName("ResourceDeliveryGroupName")
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayName("taskId")
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayName("unitId")
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayName("processlinename")
+                    </th>*@
 
-        @*<th>
-                @Html.DisplayName("AssignBy")
-            </th>
-            <th>
-                @Html.DisplayName("AssignDate")
-            </th>
-            <th>
-                @Html.DisplayName("transferredDate")
-            </th>
-            <th>
-                @Html.DisplayName("migrationCompleted")
-            </th>*@
-        <th>
-            @Html.DisplayName("unitId")
-        </th>
-        @*<th>
-                @Html.DisplayName("ResourceDeliveryGroupName")
-            </th>
-            <th>
-                @Html.DisplayName("taskId")
-            </th>
-            <th>
-                @Html.DisplayName("unitId")
-            </th>
-            <th>
-                @Html.DisplayName("processlinename")
-            </th>*@
+            </tr>
+        </thead>
+        @*<tr>
+                <th scope="col"></th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.CustomerName)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.CategoryName)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.MigrationType)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.MigrationWindow)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.MigrationGroup)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.ExpectedKickOff)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.MigratorName)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.PeerReviewer)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.DMName)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.LastKickOffEmailSent)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.KickOffStatus)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.ScheduleCount)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.SuccessCount)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.InProgressCount)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.FailedCount)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.CurrentPowerBICount)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.PreviousPowerBICount)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.EventStatus)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.UpdateStatus)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.LastUpdateEmailSent)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.CurrentSummary)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.CommentsForDelayKickOff)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.NextUpdateTime)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.ScheduledDate)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.ActivityName)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.updatedby)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.updateddate)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.MigrationApplied)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.KBUsed)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Effort)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.PowerBIUpdated)
+                </th>
 
-    </tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.AssignBy)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.AssignDate)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.transferredDate)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.migrationCompleted)
+                </th>
+                @*<th scope="col">
+                    @Html.DisplayNameFor(model => model.ResourceDeliveryGroupName)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.taskId)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.unitId)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.processlinename)
+                </th>
 
-    @*<tr>
-            <th></th>
-            <th>
-                @Html.DisplayNameFor(model => model.CustomerName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MigrationType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MigrationWindow)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MigrationGroup)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ExpectedKickOff)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MigratorName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PeerReviewer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DMName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastKickOffEmailSent)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KickOffStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ScheduleCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SuccessCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.InProgressCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FailedCount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CurrentPowerBICount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PreviousPowerBICount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EventStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdateStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastUpdateEmailSent)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CurrentSummary)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CommentsForDelayKickOff)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NextUpdateTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ScheduledDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ActivityName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.updatedby)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.updateddate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MigrationApplied)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.KBUsed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Effort)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PowerBIUpdated)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.AssignBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AssignDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.transferredDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.migrationCompleted)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.ResourceDeliveryGroupName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.taskId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.unitId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.processlinename)
-            </th>
-
-        </tr>*@
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MigrationType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MigrationWindow)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MigrationGroup)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ScheduledDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExpectedKickOff)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MigratorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PeerReviewer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DMName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastKickOffEmailSent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastUpdateEmailSent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NextUpdateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => kStatus[(item.KickOffStatus == null ? "" : item.KickOffStatus.ToString())])
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => kStatus[(item.UpdateStatus == null ? "" : item.UpdateStatus.ToString())])
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ScheduleCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuccessCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InProgressCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FailedCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentPowerBICount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreviousPowerBICount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => eStatus[(item.EventStatus == null ? "" : item.EventStatus.ToString())])
-            </td>
+            </tr>*@
+        <tbody>
+            @foreach (var item in Model)
+        {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MigrationType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MigrationWindow)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MigrationGroup)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ScheduledDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ExpectedKickOff)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MigratorName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PeerReviewer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DMName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastKickOffEmailSent)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastUpdateEmailSent)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NextUpdateTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => kStatus[(item.KickOffStatus == null ? "" : item.KickOffStatus.ToString())])
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => kStatus[(item.UpdateStatus == null ? "" : item.UpdateStatus.ToString())])
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ScheduleCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SuccessCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InProgressCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FailedCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CurrentPowerBICount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PreviousPowerBICount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => eStatus[(item.EventStatus == null ? "" : item.EventStatus.ToString())])
+                    </td>
 
 
-            <td>
-                @Html.DisplayFor(modelItem => item.CurrentSummary)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommentsForDelayKickOff)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ActivityName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.updatedby)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.updateddate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MigrationApplied)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KBUsed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Effort)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PowerBIUpdated)
-            </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CurrentSummary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CommentsForDelayKickOff)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ActivityName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.updatedby)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.updateddate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MigrationApplied)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KBUsed)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Effort)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PowerBIUpdated)
+                    </td>
 
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.AssignBy)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AssignDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.transferredDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.migrationCompleted)
-                </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.unitId)
-            </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.ResourceDeliveryGroupName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.taskId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.unitId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.processlinename)
-                </td>*@
-        </tr>
-    }
-
-</table>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.AssignBy)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AssignDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.transferredDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.migrationCompleted)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.unitId)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.ResourceDeliveryGroupName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.taskId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.unitId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.processlinename)
+                        </td>*@
+                </tr>
+        }
+        </tbody>
+    </table>
+</div>

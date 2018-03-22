@@ -20,13 +20,14 @@ namespace ISW_Dashboard
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                 "~/Scripts/popper.min.js",
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      "~/Scripts/respond.js"
+                     ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css",
-                      "~/Content/Styles.css"));
+                      "~/Content/bootstrap.min.css"
+                      ));
         }
     }
 }
